@@ -1,10 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Menu } from "antd";
 
-const ITEMS = ["找寵物", "找收容所", "會員專區", "登入"];
+const ITEMS = ["找寵物", "我的收藏", "登入"];
+const LINKS = ["search", "member", "login"];
 
 const menuItems = ITEMS.map(function (item, i) {
-  return <Menu.Item key={i}>{item}</Menu.Item>;
+  return (
+    <Menu.Item key={i}>
+      <Link to={`/${LINKS[i]}`}>{item}</Link>
+    </Menu.Item>
+  );
 });
 
 const Navbar = () => (

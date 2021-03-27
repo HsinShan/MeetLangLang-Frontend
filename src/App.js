@@ -6,11 +6,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Switch>
-        {routes.map(({ path, component, ...routes }) => (
-          <Route key={path} path={path} component={component} {...routes} />
-        ))}
-      </Switch>
+      <div className="content">
+        <Switch>
+          {routes.map(({ path, component, ...routes }) => (
+            <Route key={path} path={path} component={component} {...routes} />
+          ))}
+        </Switch>
+      </div>
     </div>
   );
 }
