@@ -1,5 +1,11 @@
+import Header from "./components/header";
+
 function App() {
-  return <div>Meet Lang Lang</div>;
+  return (
+    <div className="App">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
