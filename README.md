@@ -43,13 +43,14 @@ $ docker-compose up -d
 $ docker-compose logs -f mll-frontend
 ```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-Runs the app in the development mode.\
+It will take a long time in first launch. \
+You can browse after seeing `You can now view mll-frontend in the browser.` on the console. \
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+Note. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Install NPM libraries
 
