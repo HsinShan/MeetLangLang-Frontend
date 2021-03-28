@@ -1,0 +1,16 @@
+stages:
+  - standard-test
+
+dev-commit-test:
+  stage: standard-test
+  image: sdm2021group3-ci:1.0
+  tags:
+    - sdm2021group3-docker
+  only:
+    - /^feature\/.*$/
+    - /^bugfix\/.*$/
+    - /^test\/.*$/
+    - merge_requests
+  script:
+    - git fetch origin master
+    - commitlint --color --verbose --from=$(git rev-parse remotes/origin/master)
