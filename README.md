@@ -1,3 +1,5 @@
+# Frontend services of project MeetLangLang
+
 ## Members
 
 ### `Group3` of course "Software Development Methods, Spring 2021"
@@ -9,31 +11,66 @@
 - R09922168@ntu.edu.tw 何泰良
 - D09725002@ntu.edu.tw 林耕葆
 
-# Getting Started with Create React App
+# :zap: Setup
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## System requirements
 
-## Available Scripts
+- Docker
+- Docker-Compose
 
-In the project directory, you can run:
+### Installation of Docker & Docker-Compose
 
-### `npm start`
+- [Windows 10](https://docs.microsoft.com/zh-tw/windows/wsl/tutorials/wsl-containers)
+- [Mac](https://docs.docker.com/docker-for-mac/install/)
+- Linux (Recommanded):
+```
+安裝docker
+$ curl -fsSL https://get.docker.com -o get-docker.sh
+$ sudo sh get-docker.sh
+$ sudo usermod -aG docker $USER
+$ sudo reboot
 
-Runs the app in the development mode.\
+安裝docker-compose
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+
+## Start services
+
+```
+$ docker-compose up -d
+$ docker-compose logs -f mll-frontend
+```
+
+It will take a long time in first launch. \
+You can browse after seeing `You can now view mll-frontend in the browser.` on the console. \
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm run build`
+Note. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Install NPM libraries
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You may need to install 3rd libraries when the function developing.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+$ docker-compose exec mll-frontend npm install --save <Lib>
+```
+
+Example:
+
+$ docker-compose exec mll-frontend npm install --save axios
+
+## Stop services
+
+```
+$ docker-compose down -v
+```
+
+# :zap: Contribution
 
 ## Commit messages
 
