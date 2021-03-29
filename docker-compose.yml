@@ -12,7 +12,9 @@ services:
         volumes:
             - /etc/timezone:/etc/timezone:ro
             - /etc/localtime:/etc/localtime:ro
-            - ./app:/app
+            - ./app:/app:delegated
+        environment:
+            - CHOKIDAR_USEPOLLING=true
         ports:
             - "3000:3000"
         networks:
