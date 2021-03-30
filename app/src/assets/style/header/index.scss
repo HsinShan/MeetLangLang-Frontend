@@ -7,4 +7,18 @@
   .logo {
     font-size: 20px;
   }
+
+  @include mobile {
+    display: block;
+
+    .ant-menu-horizontal {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .logo {
+      text-align: center;
+      width: 100%;
+    }
+  }
 }
