@@ -15,10 +15,12 @@ dev-standtest-preparation:
   cache:
     key: "fe-$CI_COMMIT_REF_SLUG"
     paths:
+      - app/node_modules/
       - node_modules/
     policy: pull-push
   script:
     - cd ./ && npm install --save-dev commitlint @commitlint/config-conventional
+    - cd ./app && npm install
 
 dev-commit-test:
   stage: standard-test
@@ -38,3 +40,22 @@ dev-commit-test:
   script:
     - git fetch origin master
     - ./node_modules/.bin/commitlint --color --verbose --from=$(git rev-parse remotes/origin/master)
+
+dev-style-test:
+  stage: standard-test
+  image: node:10.17.0
+  tags:
+    - sdm2021group3-docker
+  only:
+    - /^feature\/.*$/
+    - /^bugfix\/.*$/
+    - /^test\/.*$/
+    - merge_requests
+  cache:
+    key: "fe-$CI_COMMIT_REF_SLUG"
+    paths:
+      - app/node_modules/
+    policy: pull
+  script:
+    - cd ./app
+    - npm run styletest
