@@ -1,9 +1,10 @@
 stages:
+  - preparation
   - standard-test
 
-dev-commit-test:
-  stage: standard-test
-  image: sdm2021group3-ci:1.0
+dev-standtest-preparation:
+  stage: preparation
+  image: node:10.17.0
   tags:
     - sdm2021group3-docker
   only:
@@ -11,6 +12,29 @@ dev-commit-test:
     - /^bugfix\/.*$/
     - /^test\/.*$/
     - merge_requests
+  cache:
+    key: "fe-$CI_COMMIT_REF_SLUG"
+    paths:
+      - node_modules/
+    policy: pull-push
+  script:
+    - cd ./ && npm install --save-dev commitlint @commitlint/config-conventional
+
+dev-commit-test:
+  stage: standard-test
+  image: node:10.17.0
+  tags:
+    - sdm2021group3-docker
+  only:
+    - /^feature\/.*$/
+    - /^bugfix\/.*$/
+    - /^test\/.*$/
+    - merge_requests
+  cache:
+    key: "fe-$CI_COMMIT_REF_SLUG"
+    paths:
+      - node_modules/
+    policy: pull
   script:
     - git fetch origin master
-    - commitlint --color --verbose --from=$(git rev-parse remotes/origin/master)
+    - ./node_modules/.bin/commitlint --color --verbose --from=$(git rev-parse remotes/origin/master)
