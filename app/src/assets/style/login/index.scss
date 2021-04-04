@@ -1,0 +1,111 @@
+.login_page{
+    display: flex;
+    background: #F5F2EB;
+    color: #131834;
+    align-content: center;
+    height: 700px;
+}
+
+.left_container{
+    flex: 1;
+}
+
+.right_container{
+    flex: 1;
+}
+
+@include pad{
+    .login_page{
+        display: block;
+    }
+}
+
+.login_form{
+    margin:30px auto;
+	width: 400px;
+    height: 300px;
+	padding: 20px;
+    background: white;
+    border-radius: 20%;
+}
+
+.register_form{
+    margin:30px auto;
+	width: 400px;
+    height: 300px;
+	padding: 20px;
+    background: white;
+    border-radius: 20%;
+}
+
+.login_form_title{
+    font-size: 30px;
+    text-align: center;
+}
+
+.account{
+    margin-top: 10px;
+}
+
+.account_label{
+    margin-left: 40px;
+    font-size: 20px;
+}
+
+.accout_text{
+    margin-left: 30px;
+    border:3px; 
+    border-bottom-style: solid;
+    border-top-style: none;
+    border-left-style:none;
+    border-right-style:none;
+    font-size: 20px;
+    width: 200px;
+}
+
+.password_label{
+    margin-left: 40px;
+    font-size: 20px;
+}
+
+.password_text{
+    margin-left: 30px;
+    border:3px; 
+    border-bottom-style: solid;
+    border-top-style: none;
+    border-left-style:none;
+    border-right-style:none;
+    font-size: 20px;
+    width: 200px;
+}
+
+.register_form_title{
+    font-size: 30px;
+    text-align: center;
+}
+
+.login_button{
+    margin-top: 20px;
+    margin-left: 20%;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    background: #A37E39;
+    position: relative;
+    align-self: center;
+}
+
+.register_button{
+    margin-top: 20px;
+    margin-left: 20%;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    background: #131834;
+}
