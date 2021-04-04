@@ -16,8 +16,7 @@ module.exports = {
         'linebreak-style': 0,
         'prefer-template': 0,
         'arrow-parens': ['error', 'always'],
-        indent: [2, 4],
-        indent:["off",2],
+        indent: ['off', 2],
         'newline-per-chained-call': 0,
         'operator-linebreak': ['error', 'after'],
         'no-use-before-define': [
