@@ -101,3 +101,49 @@ app: (related to app)
 env: (this commit is crossed multiple scopes)
 ```
 
+## Development Guide
+### :star2: About this project
+- JS framework: **React** (Reference: [React 官方文件](https://zh-hant.reactjs.org/docs/getting-started.html))
+- UI framwork: **Ant Design** (Reference: [Ant Design 官方文件](https://ant.design/))
+- Stylesheet language: **Sass** (Reference: [Sass 官方文件](https://sass-lang.com/documentation))
+- other JS libraries:
+    - **Lodash**:  Provides useful utility functions for common programming tasks. (Reference: [Lodash 官方文件](https://lodash.com/)
+      
+
+### :star2: RWD settings
+- style:　`src/assets/style/_base.scss`
+- js: `src/hooks/useDeviceDetect.js`
+- breakpoint setting:
+    - `<= 640 px`: mobile
+    - `641 ~ 920 px`: labtop
+    - `> 920 px`: desktop
+
+
+### :star2: Folder structure
+For example
+```
+app 
+└─── src
+│   └───assets
+|   |   └─── style (there is one folder for one page)
+|   |   |     └───login
+|   |   |     |     | index.scss
+|   |   |     └───search
+|   |   |     |     | index.scss
+|   |   |     | ...
+|   |   └─── images(if need to put any images)    
+│   └───components(put components of each page)
+|   |      └───shared (put components that will be used in mutiple pages)
+|   |      |     | ...
+|   |      └───search
+|   |      |     | card.js(just for example)
+|   |      └───login
+│   |      │   ...
+│   └───hooks(put useful functions)
+│   |      │   ...
+│   └───pages(only for page components)
+│   |      │   ...
+│   └───routes(for route settings)
+│   |      │   ...
+```
+:point_right: **Other Reference**: [React hooks](https://zh-hant.reactjs.org/docs/hooks-intro.html)
