@@ -1,39 +1,41 @@
+import { Button, Input } from 'antd';
+
 const Login = () => (
-    <div className="login_page">
-        <div className="left_container">
-            <div className="login_form">
-                <header className="login_form_title">會員登入</header>
+    <div className="login-page">
+        <div className="left-container">
+            <div className="login-form">
+                <header className="login-form-title">會員登入</header>
                 <div className="account">
                     <p>
-                        <label className="account_label">帳號</label>
-                        <input type="text" className="accout_text" id="accout_text" placeholder="Username" />
+                        <label className="account-label">帳號</label>
+                        <Input type="text" className="accout-text" id="accout-text" placeholder="Username" />
                     </p>
                 </div>
                 <div className="password">
                     <p>
-                        <label className="password_label">密碼</label>
-                        <input type="text" className="password_text" id="password_text" placeholder="Password" />
+                        <label className="password-label">密碼</label>
+                        <Input type="password" className="password-text" id="password-text" placeholder="Password" />
                     </p>
                 </div>
-                <button className="login_button">登入</button>
+                <Button className="login-button">登入</Button>
             </div>
         </div>
-        <div className="right_container">
-            <div className="register_form">
-                <header className="register_form_title">會員註冊</header>
+        <div className="right-container">
+            <div className="register-form">
+                <header className="register-form-title">會員註冊</header>
                 <div className="account">
                     <p>
-                        <label className="account_label">帳號</label>
-                        <input type="text" className="accout_text" id="accout_text" placeholder="Username" />
+                        <label className="account-label">帳號</label>
+                        <Input type="text" className="accout-text" id="accout-text" placeholder="Username" />
                     </p>
                 </div>
                 <div className="password">
                     <p>
-                        <label className="password_label">密碼</label>
-                        <input type="text" className="password_text" id="password_text" placeholder="Password" />
+                        <label className="password-label">密碼</label>
+                        <Input type="password" className="password-text" id="password-text" placeholder="Password" />
                     </p>
                 </div>
-                <button className="register_button">註冊</button>
+                <Button className="register-button">註冊</Button>
             </div>
         </div>
     </div>
