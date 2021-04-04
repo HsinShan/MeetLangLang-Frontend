@@ -1,18 +1,43 @@
 import React from 'react';
-// import {useTable} from 'react-table';
+import '../../assets/style/search/index.scss';
 
-const Table = () => {
-    return(
-        <tbody>
-            <tr>
-                <h5>This is row1</h5>
-            </tr>
-            <tr>
-                <h5>This is row2</h5>
-            </tr>
-        </tbody>
-    )
-
-};
-
-export default Table;
+const informationcard = () => (
+  <div className="informationcard">
+    <div className="infor">
+      <p className="pic"></p>
+      <p className="title">性別</p>
+      <p className="title">年齡</p>
+      <p className="title">品種</p>
+      <p className="title">所在地</p>
+    </div>
+    <div className="infor">
+      <p className="pic"></p>
+      <p className="title">性別</p>
+      <p className="title">年齡</p>
+      <p className="title">品種</p>
+      <p className="title">所在地</p>
+    </div>
+    <div className="infor">
+      <p className="pic"></p>
+      <p className="title">性別</p>
+      <p className="title">年齡</p>
+      <p className="title">品種</p>
+      <p className="title">所在地</p>
+    </div>
+    <div className="infor">
+      <p className="pic"></p>
+      <p className="title">性別</p>
+      <p className="title">年齡</p>
+      <p className="title">品種</p>
+      <p className="title">所在地</p>
+    </div>
+    <div className="infor">
+      <p className="pic"></p>
+      <p className="title">性別</p>
+      <p className="title">年齡</p>
+      <p className="title">品種</p>
+      <p className="title">所在地</p>
+    </div>
+  </div>
+);
+export default informationcard;
