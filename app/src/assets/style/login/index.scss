@@ -1,26 +1,32 @@
-.login_page{
+.login-page{
     display: flex;
     background: #F5F2EB;
     color: #131834;
     align-content: center;
-    height: 700px;
-}
-
-.left_container{
-    flex: 1;
-}
-
-.right_container{
-    flex: 1;
-}
-
-@include pad{
-    .login_page{
+    
+    @include pad{
         display: block;
     }
 }
 
-.login_form{
+.left-container{
+    flex: 1;
+}
+
+.right-container{
+    flex: 1;
+}
+
+.login-form{
+    margin:30px auto;
+    width: 400px;
+    height: 300px;
+	padding: 20px;
+    background: white;
+    border-radius: 20%;
+}
+
+.register-form{
     margin:30px auto;
 	width: 400px;
     height: 300px;
@@ -29,16 +35,7 @@
     border-radius: 20%;
 }
 
-.register_form{
-    margin:30px auto;
-	width: 400px;
-    height: 300px;
-	padding: 20px;
-    background: white;
-    border-radius: 20%;
-}
-
-.login_form_title{
+.login-form-title{
     font-size: 30px;
     text-align: center;
 }
@@ -47,44 +44,38 @@
     margin-top: 10px;
 }
 
-.account_label{
+.account-label{
     margin-left: 40px;
     font-size: 20px;
 }
 
-.accout_text{
+.ant-input.accout-text{
     margin-left: 30px;
     border:3px; 
-    border-bottom-style: solid;
-    border-top-style: none;
-    border-left-style:none;
-    border-right-style:none;
+    border-bottom:3px solid;
     font-size: 20px;
     width: 200px;
 }
 
-.password_label{
+.password-label{
     margin-left: 40px;
     font-size: 20px;
 }
 
-.password_text{
+.ant-input.password-text{
     margin-left: 30px;
-    border:3px; 
-    border-bottom-style: solid;
-    border-top-style: none;
-    border-left-style:none;
-    border-right-style:none;
+    border:3px;
+    border-bottom:3px solid;
     font-size: 20px;
     width: 200px;
 }
 
-.register_form_title{
+.register-form-title{
     font-size: 30px;
     text-align: center;
 }
 
-.login_button{
+.ant-btn.login-button{
     margin-top: 20px;
     margin-left: 20%;
     border: none;
@@ -98,7 +89,7 @@
     align-self: center;
 }
 
-.register_button{
+.ant-btn.register-button{
     margin-top: 20px;
     margin-left: 20%;
     border: none;
