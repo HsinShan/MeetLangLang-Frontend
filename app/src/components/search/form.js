@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../assets/style/search/form.scss';
 import 'antd/dist/antd.css';
-import { Select, Button } from 'antd';
+import { Select, Button, Input } from 'antd';
 
 const { Option } = Select;
 
@@ -55,6 +55,7 @@ function searchForm() {
                     <Option value="Famele">Famele</Option>
                 </Select>
                     年齡為
+                <Input placeholder="age" style={{ marginLeft: 10, width: 200 }}/>
                 <p></p>
             品種為
                 <Select
