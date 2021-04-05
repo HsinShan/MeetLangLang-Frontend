@@ -1,7 +1,7 @@
 import React from 'react';
 import Informationcard from '../../components/search/index';
 import Searchform from '../../components/search/form';
-import '../../assets/style/page/search/index.scss';
+import '../../assets/style/search/index.scss';
 
 function createelements() {
     const elements = [];

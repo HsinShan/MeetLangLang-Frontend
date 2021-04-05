@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/style/search/index.scss';
+import '../../assets/style/search/information-card.scss';
 
 const InformationCard = () => (
     <div className="informationcard">
