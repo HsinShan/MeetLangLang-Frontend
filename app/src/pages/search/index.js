@@ -15,7 +15,8 @@ function createElements() {
 function output() {
     return (
         <div>
-            <Searchform />
+                <Searchform />
+            <br></br>
             <div className="row">{createElements()}</div>
             <div className="row">{createElements()}</div>
             <div className="row">{createElements()}</div>
