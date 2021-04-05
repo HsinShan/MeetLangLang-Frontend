@@ -9,6 +9,10 @@ function App() {
         localStorage.removeItem('token');
         setIsLogin(false);
     };
+    const loggedin = (token) => {
+        localStorage.setItem('token', token);
+        setIsLogin(true);
+    };
     return (
         <div className="App">
             <Header
@@ -18,7 +22,12 @@ function App() {
             <div className="content">
                 <Switch>
                     {route.map(({ path, component, ...routes }) => (
-                        <Route key={path} path={path} component={component} {...routes} />
+                        <Route
+                            key={path}
+                            path={path}
+                            component={() => component({ isLogin, loggedin })}
+                            {...routes}
+                        />
                     ))}
                 </Switch>
             </div>
