@@ -3,7 +3,7 @@ import Informationcard from '../../components/search/InformationCard';
 import Searchform from '../../components/search/form';
 import '../../assets/style/search/index.scss';
 
-function createElements() {
+function elements() {
     const elements = [];
     let i = 0;
     for (i = 0; i < 5; i += 1) {
@@ -12,15 +12,15 @@ function createElements() {
     return elements;
 }
 
-function output() {
+function search() {
     return (
         <div>
-                <Searchform />
+            <Searchform />
             <br></br>
-            <div className="row">{createElements()}</div>
-            <div className="row">{createElements()}</div>
-            <div className="row">{createElements()}</div>
+            <div className="row">{elements()}</div>
+            <div className="row">{elements()}</div>
+            <div className="row">{elements()}</div>
         </div>
     );
 }
-export default output;
+export default search;
