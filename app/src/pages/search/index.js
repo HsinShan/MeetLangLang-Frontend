@@ -1,17 +1,13 @@
 import React from 'react';
-import Informationcard from '../../components/search/index';
+import Informationcard from '../../components/search/InformationCard';
 import Searchform from '../../components/search/form';
 import '../../assets/style/search/index.scss';
 
-function createelements() {
+function createElements() {
     const elements = [];
     let i = 0;
-    let j = 0;
-    for (i = 0; i < 3; i += 1) {
-        elements.push([]);
-        for (j = 0; j < 5; j += 1) {
-            elements[i].push(<Informationcard />);
-        }
+    for (i = 0; i < 5; i += 1) {
+        elements.push(< Informationcard />);
     }
     return elements;
 }
@@ -20,9 +16,9 @@ function output() {
     return (
         <div>
             <Searchform />
-            <div className="row">{createelements()}</div>
-            <div className="row">{createelements()}</div>
-            <div className="row">{createelements()}</div>
+            <div className="row">{createElements()}</div>
+            <div className="row">{createElements()}</div>
+            <div className="row">{createElements()}</div>
         </div>
     );
 }
