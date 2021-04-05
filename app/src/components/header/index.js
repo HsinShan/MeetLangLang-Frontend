@@ -1,8 +1,15 @@
 import Navbar from './navbar';
+import UserHeader from './userHeader';
 
-const Header = () => (
+const Header = ({ isLogin, logout }) => (
     <div className="header">
-        <div className="logo">Meet Lang Lang</div>
+        <div>
+            <div className="logo">Meet Lang Lang</div>
+            <UserHeader
+                isLogin={isLogin}
+                logout={logout}
+            />
+        </div>
         <Navbar />
     </div>
 );
