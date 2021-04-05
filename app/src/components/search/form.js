@@ -1,8 +1,8 @@
 import React from 'react';
 import '../../assets/style/search/form.scss';
 
-const searchform = () => (
-    <div className="searchform">
+const SearchForm = () => (
+    <div className="search-form">
         <label>我想找的毛小孩為：</label>
         <select id="dropdown_category">
             <option value="ok"> </option>
@@ -34,4 +34,4 @@ const searchform = () => (
         <button>依條件搜尋</button>
     </div>
 );
-export default searchform;
+export default SearchForm;
