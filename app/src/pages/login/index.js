@@ -5,9 +5,9 @@ import LoginForm from '../../components/login/LoginForm';
 const Login = ({ isLogin, loggedin }) => {
     const loginLogic = async (account) => {
         try {
-            const { host } = window.Location;
+            const { hostname } = window.location;
             const { data } = await axios({
-                url: `http://${host}:8181/user/login`,
+                url: `http://${hostname}:8181/user/login`,
                 method: 'post',
                 data: {
                     email: account,
@@ -27,10 +27,10 @@ const Login = ({ isLogin, loggedin }) => {
             {!isLogin &&
                 <div className="login-page">
                     <div className="left-container">
-                        <LoginForm type='登入' loginLogic={() => loginLogic()} />
+                        <LoginForm type='登入' loginLogic={(account) => loginLogic(account)} />
                     </div>
                     <div className="right-container">
-                        <LoginForm type='註冊' loginLogic={() => loginLogic()} />
+                        <LoginForm type='註冊' loginLogic={(account) => loginLogic(account)} />
                     </div>
                 </div>
             }
