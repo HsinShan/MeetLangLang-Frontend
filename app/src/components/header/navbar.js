@@ -4,8 +4,8 @@ import { Menu } from 'antd';
 import _ from 'lodash';
 import usePathname from '../../hooks/usePathname';
 
-const ITEMS = ['找寵物', '我的收藏', '登入'];
-const LINKS = ['/search', '/member', '/login'];
+const ITEMS = ['找寵物', '我的收藏'];
+const LINKS = ['/search', '/member'];
 
 const menuItems = ITEMS.map((item, i) => (
     <Menu.Item key={i}>
