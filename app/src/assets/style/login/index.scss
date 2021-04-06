@@ -1,0 +1,20 @@
+@import '../_base.scss';
+
+.login-page{
+    display: flex;
+    background: #F5F2EB;
+    color: #131834;
+    align-content: center;
+    
+    @include pad{
+        display: block;
+    }
+}
+
+.left-container{
+    flex: 1;
+}
+
+.right-container{
+    flex: 1;
+}
