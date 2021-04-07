@@ -1,5 +1,6 @@
 import '../../assets/style/login/index.scss';
 import axios from 'axios';
+import { message } from 'antd';
 import LoginForm from '../../components/login/LoginForm';
 
 const Login = ({ isLogin, loggedin }) => {
@@ -16,7 +17,7 @@ const Login = ({ isLogin, loggedin }) => {
             const { token } = data;
             loggedin(token);
         } catch (err) {
-            alert('登入失敗');
+            message.error('登入失敗');
         }
     };
     return (
