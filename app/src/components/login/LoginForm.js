@@ -31,7 +31,6 @@ class LoginForm extends Component {
                         <Input
                             type="text"
                             className="accout-text"
-                            id="accout-text"
                             placeholder="Username"
                             value={this.state.account}
                             onChange={(e) => this.GetAccountValue(e)} />
@@ -43,7 +42,6 @@ class LoginForm extends Component {
                         <Input
                             type="password"
                             className="password-text"
-                            id="password-text"
                             placeholder="Password"
                             onChange={(e) => this.GetPasswordValue(e)} />
                     </p>
