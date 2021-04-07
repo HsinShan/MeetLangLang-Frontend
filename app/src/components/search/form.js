@@ -1,24 +1,10 @@
 import React from 'react';
-import '../../assets/style/search/form.scss';
-import 'antd/dist/antd.css';
 import { Select, Button, Input } from 'antd';
 
 const { Option } = Select;
 
 function onChange(value) {
     console.log(`selected ${value}`);
-}
-
-function onBlur() {
-    console.log('blur');
-}
-
-function onFocus() {
-    console.log('focus');
-}
-
-function onSearch(val) {
-    console.log('search:', val);
 }
 
 function searchForm() {
@@ -31,9 +17,6 @@ function searchForm() {
                     placeholder="毛小孩類別"
                     optionFilterProp="children"
                     onChange={onChange}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSearch={onSearch}
                     filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     }>
                     <Option value="Dog">Dog</Option>
@@ -46,9 +29,6 @@ function searchForm() {
                     placeholder="性別"
                     optionFilterProp="sex"
                     onChange={onChange}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSearch={onSearch}
                     filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     }>
                     <Option value="Male">Male</Option>
@@ -64,9 +44,6 @@ function searchForm() {
                     placeholder="品種"
                     optionFilterProp="category"
                     onChange={onChange}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSearch={onSearch}
                     filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     }>
                     <Option value="one">one</Option>
@@ -79,9 +56,6 @@ function searchForm() {
                     placeholder="縣市"
                     optionFilterProp="City"
                     onChange={onChange}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSearch={onSearch}
                     filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                     }>
                     <Option value="Taipei">Taipei</Option>
