@@ -8,6 +8,19 @@
     font-size: 20px;
   }
 
+  .container {
+    display: flex;
+  }
+
+  .ant-menu-horizontal {
+    flex: 3;
+  }
+
+  .sub-container {
+    flex: 1;
+    margin-top: 8px;
+  }
+  
   @include mobile {
     display: block;
 
