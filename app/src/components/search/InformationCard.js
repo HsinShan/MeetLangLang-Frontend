@@ -1,49 +1,58 @@
 import React from 'react';
-// import Data from './fetchData';
+// import Cookies from 'universal-cookie';
 import '../../assets/style/search/information-card.scss';
 
-let d = {};
-const id = [];
+const pic = [];
 const sex = [];
 const age = [];
 const kind = [];
-const place = [];
-const image = [];
+const address = [];
+// console.log('information card');
+let data = sessionStorage.getItem('data');
+data = JSON.parse(data);
 
-async function FetchData() {
-    console.log('information card :fetch data');
-    const url = 'https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL';
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    return data;
-}
-async function GetData() {
-    console.log('information card :get Data');
-    d = await FetchData();
-    for (let index = 0; index < d.length; index += 1) {
-        id.push(d[index].animal_id);
-        sex.push(d[index].animal_sex);
-        age.push(d[index].animal_age);
-        kind.push(d[index].animal_kind);
-        place.push(d[index].animal_place);
-        image.push(d[index].album_file);
-    }
-    console.log('id[0]:' + id[0]);
-    return [id];
-}
+// const i = Cookies.getItem('index');
 
 function InformationCard() {
-    console.log('information card');
-    d = GetData();
+    for (let index = 0; index < 5; index += 1) {
+        // pic.push(data[index].album_file);
+        sex.push(data[index].animal_sex);
+        age.push(data[index].animal_age);
+        kind.push(data[index].animal_kind);
+        address.push(data[index].shelter_address);
+        if (data[index].album_file === '') {
+            pic.push(' ');
+        } else {
+            age.push(data[index].album_file);
+        }
+        if (data[index].animal_age === '') {
+            age.push(' ');
+        } else {
+            age.push(data[index].animal_age);
+        }
+    }
+    console.log(sex[0]);
     return (
+        <p src={ pic[10] }></p>,
         <div className="informationcard">
             <div className="infor">
-                <p className="pic"></p>
-                <p className="title">性別</p>
-                <p className="title">年齡</p>
-                <p className="title">品種</p>
-                <p className="title">所在地</p>
+                <div className="image"><img src={ pic[10] }></img></div>
+                <p></p>
+                <div className="title">性別
+                </div><div className="data">{ sex[10] }
+                </div>
+                <p></p>
+                <div className="title">年齡
+                </div><div className="data">{ age[10] }
+                </div>
+                <p></p>
+                <div className="title">品種
+                </div><div className="data">{ kind[10] }
+                </div>
+                <p></p>
+                <div className="title">所在地
+                </div><div className="add">{ address[10] }
+                </div>
             </div>
         </div>
     );
