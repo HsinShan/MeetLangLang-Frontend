@@ -1,46 +1,39 @@
 .header {
-  display: flex;
-  align-items: center;
-  padding: 5px 20px;
-  justify-content: space-between;
+  padding: 12px 26px;
 
-  .logo {
-    h1 {
-      display: inline-block;
-      margin-bottom: 0px;
-    }
-
-    img {
-      width: 16px;
-      margin-left: 6px;
-      margin-bottom: 6px;
-    }
-  }
-
-  .container {
+  &-top {
     display: flex;
-  }
-
-  .ant-menu-horizontal {
-    flex: 3;
-  }
-
-  .sub-container {
-    flex: 1;
-    margin-top: 8px;
-  }
-  
-  @include mobile {
-    display: block;
-
-    .ant-menu-horizontal {
-      display: flex;
-      justify-content: space-around;
-    }
+    justify-content: space-between;
+    align-items: center;
 
     .logo {
-      text-align: center;
-      width: 100%;
+      h1 {
+        display: inline-block;
+        margin-bottom: 0px;
+        font-weight: 600;
+      }
+  
+      img {
+        width: 16px;
+        margin-left: 6px;
+        margin-bottom: 6px;
+      }
+    }
+
+    .ant-btn {
+      padding: 0 16px;
+      border-radius: 20px;
+      border-color: $background-brown;
+      background-color: $background-brown;
+      color: white;
+      font-weight: 600;
+
+      &:hover {
+        background-color: white;
+        border-color: $background-brown;
+        color: $font-brown;
+      }
     }
   }
+
 }
