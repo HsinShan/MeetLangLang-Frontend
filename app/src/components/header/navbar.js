@@ -16,11 +16,11 @@ const menuItems = ITEMS.map((item, i) => (
 const Navbar = () => {
     const pathname = usePathname();
     let activeIndex = _.findIndex(LINKS, (link) => pathname === link);
-
     if (activeIndex === -1) activeIndex = 0;
+    const selectedKeys = (pathname === '/login') ? [] : [activeIndex.toString()];
 
     return (
-        <Menu mode='horizontal' defaultSelectedKeys={[activeIndex.toString()]}>
+        <Menu mode='horizontal' selectedKeys={selectedKeys}>
             {menuItems}
         </Menu>
     );

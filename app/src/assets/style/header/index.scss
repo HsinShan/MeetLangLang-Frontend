@@ -20,7 +20,7 @@
       }
     }
 
-    .ant-btn {
+    .ant-btn, .ant-btn:focus {
       padding: 0 16px;
       border-radius: 20px;
       border-color: $background-brown;
