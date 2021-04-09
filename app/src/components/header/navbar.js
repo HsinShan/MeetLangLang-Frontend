@@ -4,7 +4,7 @@ import { Menu } from 'antd';
 import _ from 'lodash';
 import usePathname from '../../hooks/usePathname';
 
-const ITEMS = ['領養浪浪', '收容所搜尋', '飼養知識', '留言板', '我的收藏'];
+const ITEMS = ['領養浪浪', '找收容所', '飼養知識', '留言板', '我的收藏'];
 const LINKS = ['/search', '/map', '/share', '/discuss', '/member'];
 
 const menuItems = ITEMS.map((item, i) => (

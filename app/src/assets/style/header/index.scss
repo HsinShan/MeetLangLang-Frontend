@@ -58,4 +58,34 @@
       }
     }
   }
+
+  @include mobile {
+    padding: 12px 0;
+
+    &-top {
+      padding: 0 26px;
+    }
+
+    .ant-menu-horizontal {
+      padding: 6px 2px 0;
+      line-height: 36px;
+
+      &:not(.ant-menu-dark) {
+        > .ant-menu-item {
+          width: 19%;
+          text-align: center;
+          margin: 0;
+  
+          .link {
+            font-weight: normal;
+            font-size: 12px;
+          }
+  
+          &-selected, &:hover {
+            border-bottom: 2px solid $background-brown;
+          }
+        }
+      }
+    }
+  }
 }
