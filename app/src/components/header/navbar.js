@@ -4,23 +4,23 @@ import { Menu } from 'antd';
 import _ from 'lodash';
 import usePathname from '../../hooks/usePathname';
 
-const ITEMS = ['找寵物', '我的收藏'];
-const LINKS = ['/search', '/member'];
+const ITEMS = ['領養浪浪', '找收容所', '飼養知識', '留言板', '我的收藏'];
+const LINKS = ['/search', '/map', '/share', '/discuss', '/member'];
 
 const menuItems = ITEMS.map((item, i) => (
     <Menu.Item key={i}>
-        <Link to={LINKS[i]}>{item}</Link>
+        <Link to={LINKS[i]} className='link'>{item}</Link>
     </Menu.Item>
 ));
 
 const Navbar = () => {
     const pathname = usePathname();
     let activeIndex = _.findIndex(LINKS, (link) => pathname === link);
-
     if (activeIndex === -1) activeIndex = 0;
+    const selectedKeys = (pathname === '/login') ? [] : [activeIndex.toString()];
 
     return (
-        <Menu mode='horizontal' defaultSelectedKeys={[activeIndex.toString()]}>
+        <Menu mode='horizontal' selectedKeys={selectedKeys}>
             {menuItems}
         </Menu>
     );

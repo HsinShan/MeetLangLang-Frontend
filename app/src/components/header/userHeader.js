@@ -8,12 +8,12 @@ const UserHeader = (props) => {
             {(!isLogin) &&
                 <Link to='/login'>
                     <Button >
-                        Login
+                        登入
                     </Button>
                 </Link>
             }
             {(isLogin) &&
-                <Button onClick={() => logout()}>Logout</Button>
+                <Button onClick={() => logout()}>登出</Button>
             }
         </>
     );

@@ -1,37 +1,92 @@
 .header {
-  display: flex;
-  align-items: center;
-  padding: 5px 20px;
-  justify-content: space-between;
+  padding: 12px 26px 0;
 
-  .logo {
-    font-size: 20px;
-  }
-
-  .container {
+  &-top {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      h1 {
+        display: inline-block;
+        margin-bottom: 0px;
+        font-weight: 600;
+      }
+  
+      img {
+        width: 16px;
+        margin-left: 6px;
+        margin-bottom: 6px;
+      }
+    }
+
+    .ant-btn, .ant-btn:focus {
+      padding: 0 16px;
+      border-radius: 20px;
+      border-color: $background-brown;
+      background-color: $background-brown;
+      color: white;
+      font-weight: 600;
+
+      &:hover {
+        background-color: white;
+        border-color: $background-brown;
+        color: $font-brown;
+      }
+    }
   }
 
   .ant-menu-horizontal {
-    flex: 3;
-  }
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid $light-gray;
+    background-color: $page-background;
 
-  .sub-container {
-    flex: 1;
-    margin-top: 8px;
-  }
+    &:not(.ant-menu-dark) {
+      > .ant-menu-item {
+        width: calc(20% - 50px);
+        text-align: center;
+
+        .link {
+          color: $background-gray;
+          font-weight: bold;
   
-  @include mobile {
-    display: block;
+        }
 
-    .ant-menu-horizontal {
-      display: flex;
-      justify-content: space-around;
+        &-selected, &:hover {
+          border-bottom: 2px solid $background-brown;
+        }
+      }
+    }
+  }
+
+  @include mobile {
+    padding: 12px 0;
+
+    &-top {
+      padding: 0 26px;
     }
 
-    .logo {
-      text-align: center;
-      width: 100%;
+    .ant-menu-horizontal {
+      padding: 6px 2px 0;
+      line-height: 36px;
+
+      &:not(.ant-menu-dark) {
+        > .ant-menu-item {
+          width: 19%;
+          text-align: center;
+          margin: 0;
+  
+          .link {
+            font-weight: normal;
+            font-size: 12px;
+          }
+  
+          &-selected, &:hover {
+            border-bottom: 2px solid $background-brown;
+          }
+        }
+      }
     }
   }
 }
