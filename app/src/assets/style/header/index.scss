@@ -1,5 +1,5 @@
 .header {
-  padding: 12px 26px;
+  padding: 12px 26px 0;
 
   &-top {
     display: flex;
@@ -39,7 +39,8 @@
   .ant-menu-horizontal {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1.5px solid $light-gray;
+    background-color: $page-background;
 
     &:not(.ant-menu-dark) {
       > .ant-menu-item {
