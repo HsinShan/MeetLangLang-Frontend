@@ -9,7 +9,7 @@ const LINKS = ['/search', '/map', '/share', '/discuss', '/member'];
 
 const menuItems = ITEMS.map((item, i) => (
     <Menu.Item key={i}>
-        <Link to={LINKS[i]}>{item}</Link>
+        <Link to={LINKS[i]} className='link'>{item}</Link>
     </Menu.Item>
 ));
 

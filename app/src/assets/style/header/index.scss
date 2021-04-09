@@ -36,4 +36,26 @@
     }
   }
 
+  .ant-menu-horizontal {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $light-gray;
+
+    &:not(.ant-menu-dark) {
+      > .ant-menu-item {
+        width: calc(20% - 50px);
+        text-align: center;
+
+        .link {
+          color: $background-gray;
+          font-weight: bold;
+  
+        }
+
+        &-selected, &:hover {
+          border-bottom: 2px solid $background-brown;
+        }
+      }
+    }
+  }
 }
