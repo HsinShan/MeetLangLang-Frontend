@@ -1,58 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Informationcard from '../../components/search/InformationCard';
-import Searchform from '../../components/search/form';
+import InformationCard from '../../components/search/InformationCard';
+import SearchForm from '../../components/search/Form';
 import '../../assets/style/search/index.scss';
 
-function cardelements() {
-    console.log('cardelements');
-    const elements = [];
-    let i = 0;
-    for (i = 0; i < 5; i += 1) {
-        elements.push(< Informationcard />);
-    }
-    return elements;
+function getState(url, setAnimal) {
+    axios.get(url)
+        .then((response) => {
+            setAnimal(true);
+            sessionStorage.setItem('data', JSON.stringify(response.data));
+        });
 }
 
-function Fetchdata() {
-    console.log('fetch data');
+function Search() {
     const url = 'https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL&$top=500';
     const [animal, setAnimal] = useState(null);
-    console.log(animal);
 
     useEffect(() => {
-        axios.get(url)
-            .then((response) => {
-                setAnimal(response.data);
-                console.log(response);
-                sessionStorage.setItem('data', JSON.stringify(response.data));
-            });
+        getState(url, setAnimal);
     }, [url]);
 
-    // if (animal) {
-    //     return (
-    //         <h1>{animal[0].animal_id}</h1>,
-    //         <div></div>
-    //     );
-    // }
-    // return (
-    //     <div>
-    //         no data
-    //     </div>
-    // );
-}
+    let animaldata = sessionStorage.getItem('data');
+    animaldata = JSON.parse(animaldata);
 
-function search() {
-    console.log('index search data');
     return (
         <div>
-            {Fetchdata()}
-            <Searchform />
+            <SearchForm />
             <br></br>
-            <div className="row">{cardelements()}</div>
-            <div className="row">{cardelements()}</div>
-            <div className="row">{cardelements()}</div>
+            { !animal && (<h1> Loading Data... </h1>)}
+            { animal && (<div>
+                <InformationCard data={ animaldata }/>
+            </div>)}
         </div>
     );
 }
-export default search;
+export default Search;
