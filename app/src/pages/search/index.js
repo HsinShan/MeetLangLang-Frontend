@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import InformationCard from '../../components/search/InformationCard';
-import SearchForm from '../../components/search/Form.js';
+import SearchForm from '../../components/search/Form';
 
 function getState(url, setAnimal) {
     axios.get(url)
