@@ -1,6 +1,7 @@
 stages:
   - preparation
   - standard-test
+  - deploy-prod
 
 dev-standtest-preparation:
   stage: preparation
@@ -59,3 +60,14 @@ dev-style-test:
   script:
     - cd ./app
     - npm run styletest
+
+prod-deploy:
+  stage: deploy-prod
+  tags:
+    - sdm2021group3-prodssh
+  only:
+    - web
+  script:
+    - pwd
+    - docker-compose down -v
+    - docker-compose up -d
