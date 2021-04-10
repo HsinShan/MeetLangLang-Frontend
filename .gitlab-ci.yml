@@ -69,5 +69,6 @@ prod-deploy:
     - web
   script:
     - pwd
+    - export REACT_APP_API_PORT=38181
     - docker-compose down -v
     - docker-compose up -d
