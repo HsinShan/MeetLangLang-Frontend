@@ -2,8 +2,8 @@ import '../../assets/style/search/informationCard.scss';
 
 const InformationCard = (props) => {
     console.log(props.data);
+
     return (
-        <p src={ props.data[0].album_file }></p>,
         <div className="informationcard">
             <div className="infor">
                 <div className="image"><img src={ props.data[0].album_file }></img></div>
@@ -21,7 +21,7 @@ const InformationCard = (props) => {
                 </div>
                 <p></p>
                 <div className="title">所在地
-                </div><div className="add">{ props.data[0].shelter_addres }
+                </div><div className="add">{ props.data[0].shelter_adders }
                 </div>
             </div>
         </div>
