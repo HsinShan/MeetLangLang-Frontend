@@ -1,4 +1,10 @@
-import { Button, Input } from 'antd';
+import {
+    Button,
+    Input,
+    Row,
+    Col,
+} from 'antd';
+import { FacebookFilled } from '@ant-design/icons';
 import { Component } from 'react';
 import '../../assets/style/login/LoginForm.scss';
 
@@ -79,25 +85,35 @@ class LoginForm extends Component {
                     </Button>
                 </div>
                 {type === 'login' &&
-                    <div>
-                        <Button
-                            onClick={() => {
-                                window.FB.login(() => {
-                                    window.FB.getLoginStatus((res) => {
-                                        if (res.status === 'connected') {
-                                            this.props.fbLoginLogic('success', res.authResponse.accessToken);
-                                        } else {
-                                            this.props.fbLoginLogic('error');
-                                        }
+                    <Row align="center">
+                        <Col>
+                            <Button
+                                className="loginform-fblogin-button"
+                                block="true"
+                                type="primary"
+                                size="large"
+                                icon={(<FacebookFilled />)}
+                                onClick={() => {
+                                    window.FB.login(() => {
+                                        window.FB.getLoginStatus((res) => {
+                                            if (res.status === 'connected') {
+                                                this.props.fbLoginLogic('success', res.authResponse.accessToken);
+                                            } else {
+                                                this.props.fbLoginLogic('error');
+                                            }
+                                        });
+                                    }, {
+                                        scope: 'email',
                                     });
-                                }, {
-                                    scope: 'email',
-                                });
-                            }}
-                        >
-                            Sign in with Facebook
-                        </Button>
-                    </div>
+                                }}
+                            >
+                                <span>
+                                    <b>Continue with Facebook</b><br />
+                                    <small>we'll never post on your behalf</small>
+                                </span>
+                            </Button>
+                        </Col>
+                    </Row>
                 }
             </div>
         );
