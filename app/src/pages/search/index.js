@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import InformationCard from '../../components/search/InformationCard';
 import SearchForm from '../../components/search/Form';
-import '../../assets/style/search/index.scss';
 
 function getState(url, setAnimal) {
     axios.get(url)
