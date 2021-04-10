@@ -3,12 +3,15 @@ import axios from 'axios';
 import { message } from 'antd';
 import LoginForm from '../../components/login/LoginForm';
 
+const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
+const apiPort = process.env.REACT_APP_API_PORT;
+
 const Login = ({ isLogin, loggedin }) => {
     const loginLogic = async (account) => {
         try {
             const { hostname } = window.location;
             const { data } = await axios({
-                url: `http://${hostname}:8181/user/login`,
+                url: `${apiProtocol}://${hostname}:${apiPort}/user/login`,
                 method: 'post',
                 data: {
                     email: account,
