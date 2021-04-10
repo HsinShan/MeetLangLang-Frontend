@@ -71,4 +71,4 @@ prod-deploy:
     - pwd
     - export REACT_APP_API_PORT=38181
     - docker-compose down -v
-    - docker-compose up -d
+    - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
