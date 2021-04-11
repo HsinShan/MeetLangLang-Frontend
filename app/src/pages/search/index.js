@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { message, Pagination } from 'antd';
+import { message, Pagination, Spin } from 'antd';
 import '../../assets/style/search/index.scss';
 import Card from '../../components/search/card';
 import SearchForm from '../../components/search/SearchForm';
@@ -52,7 +52,7 @@ function Search() {
             <SearchForm />
             <br></br>
             { !animals ? (
-                <h1> Loading Data... </h1>
+                <Spin tip="加載中..." />
             ) : (
                 <>
                     <div className="card-block">

@@ -10,3 +10,18 @@ ul.ant-pagination {
     justify-content: center;
     margin: 20px 0;
 }
+
+.ant-spin {
+    &-spinning {
+        margin: 40px auto;
+        width: 100%;
+    }
+
+    &-dot-spin {
+        font-size: 40px;
+    }
+
+    &-text {
+        font-size: 30px;
+    }
+}
