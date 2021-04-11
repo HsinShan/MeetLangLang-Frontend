@@ -1,6 +1,7 @@
 stages:
   - preparation
   - standard-test
+  - deploy-prod
 
 dev-standtest-preparation:
   stage: preparation
@@ -59,3 +60,24 @@ dev-style-test:
   script:
     - cd ./app
     - npm run styletest
+
+prod-deploy:
+  stage: deploy-prod
+  tags:
+    - sdm2021group3-prodssh
+  only:
+    - web
+  before_script:
+    - pwd
+    - export REACT_APP_API_PORT=38181
+    - docker-compose down -v
+  script:
+    - pwd
+    - mkdir -p app/node_modules/ app/node_modules/.cache/ app/build/
+    - echo "prepare libs"
+    - docker-compose run --rm mll-frontend sh -c "npm install && npm run build"
+    - docker-compose down -v
+    - echo "start service"
+    - docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+    - sleep 30
+    - docker-compose -f docker-compose.yml -f docker-compose.prod.yml logs mll-frontend

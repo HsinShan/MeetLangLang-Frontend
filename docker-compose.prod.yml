@@ -1,0 +1,10 @@
+version: "3.5"
+
+services:
+    mll-frontend:
+        volumes:
+            - ./app/build:/app/build:delegated
+            - ./localhost.crt:/localhost.crt
+            - ./localhost.key:/localhost.key
+        command: ["sh", "-c", "npm install -g serve && \
+            serve --ssl-cert /localhost.crt --ssl-key /localhost.key -p 3000 --single ./build/"]
