@@ -1,0 +1,55 @@
+.infor{
+    width:fit-content;
+    height: fit-content;
+    margin: 15px;
+    background-color: #eee1cc;
+    display: inline-block;
+}
+.pic{
+    width: 100px;
+    height:100px;
+    text-align: center;
+}
+.sex{
+    width: 180px;
+    height: 30px;
+    display:inline;
+}
+.title{
+    width: 80px;
+    height: 25px;
+    margin-left: 15px;
+    border-radius: 25px;
+    float: left;
+    text-align:center;
+    color:white;
+    background-color: #B29059;
+    display:inline;
+}
+.data{
+    width: 200px;
+    height: 70px;
+    margin-left: 30px;
+    padding-bottom: 10px;
+    display:inline;
+    text-align:center;
+}
+.image{
+    height: 70px;
+    width: 200px;
+    text-align: center;
+    margin-top: 5px;
+}
+img{
+    vertical-align: middle;
+    border-style: none;
+    width: 80px;
+    height: 70px;
+    text-align: center;
+}
+.add{
+    width: 200px;
+    height: 70px;
+    padding-bottom: 10px;
+    text-align:center;
+}
