@@ -6,5 +6,5 @@ services:
             - ./app/build:/app/build:delegated
             - ./localhost.crt:/localhost.crt
             - ./localhost.key:/localhost.key
-        command: ["sh", "-c", "npm install -g http-server && \
-            http-server --ssl --cert /localhost.crt --key /localhost.key --port 3000 ./build/"]
+        command: ["sh", "-c", "npm install -g serve && \
+            serve --ssl-cert /localhost.crt --ssl-key /localhost.key -p 3000 --single ./build/"]
