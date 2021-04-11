@@ -1,3 +1,7 @@
-.row{
-    display: inline-flex;
+.card-block {
+    display: flex;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }

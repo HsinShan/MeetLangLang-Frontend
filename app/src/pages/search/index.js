@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { message, Pagination } from 'antd';
-import InformationCard from '../../components/search/InformationCard';
+import '../../assets/style/search/index.scss';
+import Card from '../../components/search/card';
 import SearchForm from '../../components/search/SearchForm';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
@@ -54,12 +55,14 @@ function Search() {
                 <h1> Loading Data... </h1>
             ) : (
                 <>
-                    {
-                        animals.slice(animalIndex.start, animalIndex.end)
-                            .map((animal) => (
-                                <InformationCard key={animal.animal_id} data={ animal }/>
-                            ))
-                    }
+                    <div className="card-block">
+                        {
+                            animals.slice(animalIndex.start, animalIndex.end)
+                                .map((animal) => (
+                                    <Card key={animal.animal_id} data={ animal }/>
+                                ))
+                        }
+                    </div>
                     <Pagination defaultCurrent={1} pageSize={cardPerPage} total={animals.length} onChange={changePage}/>
                 </>
             )}
