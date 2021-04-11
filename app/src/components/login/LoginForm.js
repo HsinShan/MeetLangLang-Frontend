@@ -1,6 +1,34 @@
-import { Button, Input } from 'antd';
+import {
+    Button,
+    Input,
+    Row,
+    Col,
+} from 'antd';
+import { FacebookFilled } from '@ant-design/icons';
 import { Component } from 'react';
 import '../../assets/style/login/LoginForm.scss';
+
+const initFacebookSdk = () => {
+    // facebook sdk to initialize
+    window.fbAsyncInit = () => {
+        window.FB.init({
+            appId: '3968724543170407',
+            cookie: true,
+            xfbml: true,
+            version: 'v10.0',
+        });
+    };
+    // load facebook sdk script
+    /* eslint-disable */
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    /* eslint-enable */
+};
 
 class LoginForm extends Component {
     constructor(props) {
@@ -9,6 +37,7 @@ class LoginForm extends Component {
             account: '',
             password: '',
         };
+        initFacebookSdk();
     }
 
     GetAccountValue = (e) => {
@@ -22,6 +51,7 @@ class LoginForm extends Component {
     }
 
     render() {
+        const { type } = this.props;
         return (
             <div className="login-form">
                 <header className="login-form-title">會員{this.props.type}</header>
@@ -46,11 +76,45 @@ class LoginForm extends Component {
                             onChange={(e) => this.GetPasswordValue(e)} />
                     </p>
                 </div>
-                <Button
-                    className="loginform-button"
-                    onClick={() => this.props.loginLogic(this.state.account)}>
-                    {this.props.type}
-                </Button>
+                <div>
+                    <Button
+                        className="loginform-button"
+                        onClick={() => this.props.loginLogic(this.state.account)}>
+                        {type === 'login' && '登入'}
+                        {type === 'register' && '註冊'}
+                    </Button>
+                </div>
+                {type === 'login' &&
+                    <Row align="center">
+                        <Col>
+                            <Button
+                                className="loginform-fblogin-button"
+                                block="true"
+                                type="primary"
+                                size="large"
+                                icon={(<FacebookFilled />)}
+                                onClick={() => {
+                                    window.FB.login(() => {
+                                        window.FB.getLoginStatus((res) => {
+                                            if (res.status === 'connected') {
+                                                this.props.fbLoginLogic('success', res.authResponse.accessToken);
+                                            } else {
+                                                this.props.fbLoginLogic('error');
+                                            }
+                                        });
+                                    }, {
+                                        scope: 'email',
+                                    });
+                                }}
+                            >
+                                <span>
+                                    <b>Continue with Facebook</b><br />
+                                    <small>we'll never post on your behalf</small>
+                                </span>
+                            </Button>
+                        </Col>
+                    </Row>
+                }
             </div>
         );
     }

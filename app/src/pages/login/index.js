@@ -18,8 +18,26 @@ const Login = ({ isLogin, loggedin }) => {
                 },
             });
             const { token } = data;
+            message.success('登入成功');
             loggedin(token);
         } catch (err) {
+            message.error('登入失敗');
+        }
+    };
+    const fbLoginLogic = async (type, fbtoken = '') => {
+        if (type === 'success') {
+            const { hostname } = window.location;
+            const { data } = await axios({
+                url: `${apiProtocol}://${hostname}:${apiPort}/user/fb-login`,
+                method: 'post',
+                data: {
+                    accessToken: fbtoken,
+                },
+            });
+            const { token } = data;
+            message.success('登入成功');
+            loggedin(token);
+        } else {
             message.error('登入失敗');
         }
     };
@@ -31,10 +49,14 @@ const Login = ({ isLogin, loggedin }) => {
             {!isLogin &&
                 <div className="login-page">
                     <div className="left-container">
-                        <LoginForm type='登入' loginLogic={(account) => loginLogic(account)} />
+                        <LoginForm
+                            type='login'
+                            loginLogic={(account) => loginLogic(account)}
+                            fbLoginLogic={fbLoginLogic}
+                        />
                     </div>
                     <div className="right-container">
-                        <LoginForm type='註冊' loginLogic={(account) => loginLogic(account)} />
+                        <LoginForm type='register' loginLogic={(account) => loginLogic(account)} />
                     </div>
                 </div>
             }
