@@ -1,35 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { message } from 'antd';
 import InformationCard from '../../components/search/InformationCard';
 import SearchForm from '../../components/search/SearchForm';
 
-function getState(url, setAnimal) {
-    axios.get(url)
-        .then((response) => {
-            setAnimal(true);
-            sessionStorage.setItem('data', JSON.stringify(response.data));
-        });
-}
+const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
+const apiPort = process.env.REACT_APP_API_PORT;
 
 function Search() {
-    const url = 'https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL&$top=500';
-    const [animal, setAnimal] = useState(null);
+    const [animals, setAnimals] = useState(null);
+
+    const getAnimals = async () => {
+        const { hostname } = window.location;
+        await axios.get(`${apiProtocol}://${hostname}:${apiPort}/animal/get`)
+            .then((res) => {
+                const { data } = res;
+                setAnimals(data);
+                sessionStorage.setItem('animalsData', JSON.stringify(data));
+            })
+            .catch((err) => {
+                message.error('錯誤' + err);
+            });
+    };
 
     useEffect(() => {
-        getState(url, setAnimal);
-    }, [url]);
-
-    let animaldata = sessionStorage.getItem('data');
-    animaldata = JSON.parse(animaldata);
+        const animalsData = sessionStorage.getItem('animalsData') || '';
+        if (animalsData) {
+            setAnimals(animalsData);
+        } else {
+            getAnimals(setAnimals);
+        }
+    }, []);
 
     return (
         <div>
             <SearchForm />
             <br></br>
-            { !animal && (<h1> Loading Data... </h1>)}
-            { animal && (<div>
-                <InformationCard data={ animaldata }/>
-            </div>)}
+            { !animals ? (
+                <h1> Loading Data... </h1>
+            ) : (
+                animals.map((animal) => <InformationCard key={animal.animal_id} data={ animal }/>)
+            )}
         </div>
     );
 }
