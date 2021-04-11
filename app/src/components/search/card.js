@@ -10,7 +10,7 @@ const Card = ({ data }) => {
         album_file: image,
     } = data;
 
-    const noData = '無資料';
+    const noData = '無';
     const formatSex = () => {
         if (sex === 'F') return '女生';
         if (sex === 'M') return '男生';

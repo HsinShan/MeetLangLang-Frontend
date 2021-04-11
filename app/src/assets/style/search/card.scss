@@ -2,15 +2,14 @@
 
 .ant-card {
     width: calc(20% - 12px);
-    margin-bottom: 20px;
+    margin: 10px 6px;
 
     .image {
         margin-bottom: 20px;
 
         img {
             border-radius: 3px;
-            height: 200px;
-            height: 120px;
+            height: 90px;
             display: block;
             margin: auto;
         }
@@ -36,6 +35,27 @@
         .data {
             width: calc(100% - 80px);
             text-align: center;
+        }
+    }
+
+    @include pad {
+        width: calc(33% - 10px);
+        margin: 10px 4px;
+
+        .image {
+            img {
+                height: 90px;
+            }
+        }
+    }
+
+    @include mobile {
+        width: 100%;
+
+        .image {
+            img {
+                height: 100px;
+            }
         }
     }
 }
