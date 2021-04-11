@@ -1,35 +1,62 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import InformationCard from '../../components/search/InformationCard';
+import { Pagination, Spin } from 'antd';
+import '../../assets/style/search/index.scss';
+import Card from '../../components/search/card';
 import SearchForm from '../../components/search/SearchForm';
 
-function getState(url, setAnimal) {
-    axios.get(url)
-        .then((response) => {
-            setAnimal(true);
-            sessionStorage.setItem('data', JSON.stringify(response.data));
-        });
-}
+const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
+const apiPort = process.env.REACT_APP_API_PORT;
 
 function Search() {
-    const url = 'https://data.coa.gov.tw/Service/OpenData/TransService.aspx?UnitId=QcbUEzN6E6DL&$top=500';
-    const [animal, setAnimal] = useState(null);
+    const [animals, setAnimals] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [animalIndex, setAnimalIndex] = useState({
+        start: 0,
+        end: 15,
+    });
+    const cardPerPage = 15;
+
+    const getAnimals = async () => {
+        const { hostname } = window.location;
+        await axios.get(`${apiProtocol}://${hostname}:${apiPort}/animal/get`)
+            .then((res) => {
+                const { data } = res;
+                setAnimals(data);
+            });
+    };
+
+    const changePage = (page) => {
+        setCurrentPage(page);
+        setAnimalIndex({
+            start: (currentPage - 1) * cardPerPage,
+            end: currentPage * cardPerPage,
+        });
+    };
 
     useEffect(() => {
-        getState(url, setAnimal);
-    }, [url]);
-
-    let animaldata = sessionStorage.getItem('data');
-    animaldata = JSON.parse(animaldata);
+        getAnimals(setAnimals);
+    }, []);
 
     return (
         <div>
             <SearchForm />
             <br></br>
-            { !animal && (<h1> Loading Data... </h1>)}
-            { animal && (<div>
-                <InformationCard data={ animaldata }/>
-            </div>)}
+            { !animals ? (
+                <Spin tip="加載中..." />
+            ) : (
+                <>
+                    <div className="card-block">
+                        {
+                            animals.slice(animalIndex.start, animalIndex.end)
+                                .map((animal) => (
+                                    <Card key={animal.animal_id} data={ animal }/>
+                                ))
+                        }
+                    </div>
+                    <Pagination defaultCurrent={1} pageSize={cardPerPage} total={animals.length} onChange={changePage}/>
+                </>
+            )}
         </div>
     );
 }
