@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { message, Pagination, Spin } from 'antd';
+import { Pagination, Spin } from 'antd';
 import '../../assets/style/search/index.scss';
 import Card from '../../components/search/card';
 import SearchForm from '../../components/search/SearchForm';
@@ -23,10 +23,6 @@ function Search() {
             .then((res) => {
                 const { data } = res;
                 setAnimals(data);
-                sessionStorage.setItem('animalsData', JSON.stringify(data));
-            })
-            .catch((err) => {
-                message.error('錯誤' + err);
             });
     };
 
@@ -39,12 +35,7 @@ function Search() {
     };
 
     useEffect(() => {
-        const animalsData = sessionStorage.getItem('animalsData') || '';
-        if (animalsData) {
-            setAnimals(animalsData);
-        } else {
-            getAnimals(setAnimals);
-        }
+        getAnimals(setAnimals);
     }, []);
 
     return (
