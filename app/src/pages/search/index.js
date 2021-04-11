@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { message } from 'antd';
+import { message, Pagination } from 'antd';
 import InformationCard from '../../components/search/InformationCard';
 import SearchForm from '../../components/search/SearchForm';
 
@@ -9,6 +9,12 @@ const apiPort = process.env.REACT_APP_API_PORT;
 
 function Search() {
     const [animals, setAnimals] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [animalIndex, setAnimalIndex] = useState({
+        start: 0,
+        end: 15,
+    });
+    const cardPerPage = 15;
 
     const getAnimals = async () => {
         const { hostname } = window.location;
@@ -21,6 +27,14 @@ function Search() {
             .catch((err) => {
                 message.error('錯誤' + err);
             });
+    };
+
+    const changePage = (page) => {
+        setCurrentPage(page);
+        setAnimalIndex({
+            start: (currentPage - 1) * cardPerPage,
+            end: currentPage * cardPerPage,
+        });
     };
 
     useEffect(() => {
@@ -39,7 +53,15 @@ function Search() {
             { !animals ? (
                 <h1> Loading Data... </h1>
             ) : (
-                animals.map((animal) => <InformationCard key={animal.animal_id} data={ animal }/>)
+                <>
+                    {
+                        animals.slice(animalIndex.start, animalIndex.end)
+                            .map((animal) => (
+                                <InformationCard key={animal.animal_id} data={ animal }/>
+                            ))
+                    }
+                    <Pagination defaultCurrent={1} pageSize={cardPerPage} total={animals.length} onChange={changePage}/>
+                </>
             )}
         </div>
     );
