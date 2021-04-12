@@ -1,4 +1,5 @@
 import { Card as AntdCard } from 'antd';
+import DefaultImage from '../../assets/images/defaultImage.svg';
 import '../../assets/style/search/card.scss';
 
 const Card = ({ data }) => {
@@ -19,11 +20,25 @@ const Card = ({ data }) => {
 
     return (
         <AntdCard>
-            <div className="image"><img src={ image }></img></div>
-            <div className="info"><p className="title">性別</p> <p className='data'>{ formatSex() }</p></div>
-            <div className="info"><p className="title">年齡</p> <p className='data'>{ age || noData }</p></div>
-            <div className="info"><p className="title">品種</p> <p className='data'>{ kind || noData }</p></div>
-            <div className="info"><p className="title">所在地</p> <p className='data'>{ area || noData }</p></div>
+            <div className="image">
+                <img src={ image || DefaultImage } />
+            </div>
+            <div className="info">
+                <p className="title">性別</p>
+                <p className='data'>{ formatSex() }</p>
+            </div>
+            <div className="info">
+                <p className="title">年齡</p>
+                <p className='data'>{ age || noData }</p>
+            </div>
+            <div className="info">
+                <p className="title">品種</p>
+                <p className='data'>{ kind || noData }</p>
+            </div>
+            <div className="info">
+                <p className="title">所在地</p>
+                <p className='data'>{ area || noData }</p>
+            </div>
         </AntdCard>
     );
 };

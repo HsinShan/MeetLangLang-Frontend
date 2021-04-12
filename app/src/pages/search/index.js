@@ -5,6 +5,7 @@ import { Pagination, Spin } from 'antd';
 import '../../assets/style/search/index.scss';
 import Card from '../../components/search/card';
 import SelectForm from '../../components/search/selectForm';
+import SortBlock from '../../components/search/sortBlock';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
@@ -37,6 +38,11 @@ function Search() {
             start: (currentPage - 1) * cardPerPage,
             end: currentPage * cardPerPage,
         });
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
     };
 
     const getFilterOptions = (filterOptions) => {
@@ -44,6 +50,12 @@ function Search() {
         const filters = _.pickBy(filterOptions, _.identity);
         const filteredData = _.filter(originAnimals, filters);
         setAnimals(filteredData);
+    };
+
+    const getSortOptions = (sortOptions) => {
+        setLoading(true);
+        const sortedData = _.orderBy(animals, [sortOptions], ['desc']);
+        setAnimals(sortedData);
     };
 
     useEffect(() => {
@@ -57,12 +69,19 @@ function Search() {
     }, []);
 
     useEffect(() => {
-        if (animals) setLoading(false);
+        let timer1 = null;
+        if (animals) {
+            timer1 = setTimeout(() => setLoading(false), 100);
+        }
+        return () => {
+            clearTimeout(timer1);
+        };
     }, [animals]);
 
     return (
         <>
             <SelectForm data={originAnimals} getFilterOptions={getFilterOptions} />
+            <SortBlock getSortOptions={getSortOptions} />
             { isLoading && <Spin tip="加載中..." /> }
             { !isLoading && animals.length === 0 && (
                 <div className="no-result"> 沒有符合條件的毛小孩！！ 請重新選擇條件...</div>
