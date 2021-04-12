@@ -41,10 +41,14 @@ function Search() {
     };
 
     const getFilterOptions = (filterOptions) => {
-        setLoading(true);
         const filters = _.pickBy(filterOptions, _.identity);
         const filteredData = _.filter(originAnimals, filters);
         setAnimals(filteredData);
+    };
+
+    const getSortOptions = (sortOptions) => {
+        const sortedData = _.orderBy(animals, [sortOptions], ['desc']);
+        setAnimals(sortedData);
     };
 
     useEffect(() => {
@@ -64,7 +68,7 @@ function Search() {
     return (
         <>
             <SelectForm data={originAnimals} getFilterOptions={getFilterOptions} />
-            <SortBlock />
+            <SortBlock getSortOptions={getSortOptions} />
             { isLoading && <Spin tip="加載中..." /> }
             { !isLoading && animals.length === 0 && (
                 <div className="no-result"> 沒有符合條件的毛小孩！！ 請重新選擇條件...</div>
