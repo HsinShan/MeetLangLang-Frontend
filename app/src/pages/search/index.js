@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 import { Pagination, Spin } from 'antd';
 import '../../assets/style/search/index.scss';
 import Card from '../../components/search/card';
@@ -9,7 +10,8 @@ const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
 
 function Search() {
-    const [animals, setAnimals] = useState(null);
+    const [animals, setAnimals] = useState(null); // processed animal data
+    const [originAnimals, setOriginAnimals] = useState(null);
     const [isLoading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [animalIndex, setAnimalIndex] = useState({
@@ -25,6 +27,7 @@ function Search() {
                 const { data } = res;
                 sessionStorage.setItem('animalData', JSON.stringify(data));
                 setAnimals(data);
+                setOriginAnimals(data);
             });
     };
 
@@ -36,10 +39,18 @@ function Search() {
         });
     };
 
+    const getFilterOptions = (filterOptions) => {
+        setLoading(true);
+        const filters = _.pickBy(filterOptions, _.identity);
+        const filteredData = _.filter(originAnimals, filters);
+        setAnimals(filteredData);
+    };
+
     useEffect(() => {
         const animalData = sessionStorage.getItem('animalData');
         if (animalData) {
             setAnimals(JSON.parse(animalData));
+            setOriginAnimals(JSON.parse(animalData));
         } else {
             getAnimals(setAnimals);
         }
@@ -51,11 +62,13 @@ function Search() {
 
     return (
         <>
-            { isLoading ? (
-                <Spin tip="加載中..." />
-            ) : (
+            <SelectForm data={originAnimals} getFilterOptions={getFilterOptions} />
+            { isLoading && <Spin tip="加載中..." /> }
+            { !isLoading && animals.length === 0 && (
+                <div className="no-result"> 沒有符合條件的毛小孩！！ 請重新選擇條件...</div>
+            )}
+            { !isLoading && animals.length !== 0 && (
                 <>
-                    <SelectForm data={animals} />
                     <div className="card-block">
                         {
                             animals.slice(animalIndex.start, animalIndex.end)
