@@ -21,6 +21,8 @@ const formatSterilization = (sterilization) => {
 const PetProfile = () => {
     const location = useLocation();
     const noData = '無';
+    if (!('state' in location) || !location.state) window.location.href = '/';
+    if (!('animal' in location.state) || !location.state.animal) window.location.href = '/';
     const { animal } = location.state;
     return (
         <div className="petprofile">
