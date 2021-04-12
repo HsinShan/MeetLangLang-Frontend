@@ -5,6 +5,7 @@ import { Pagination, Spin } from 'antd';
 import '../../assets/style/search/index.scss';
 import Card from '../../components/search/card';
 import SelectForm from '../../components/search/selectForm';
+import SortBlock from '../../components/search/sortBlock';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
@@ -63,6 +64,7 @@ function Search() {
     return (
         <>
             <SelectForm data={originAnimals} getFilterOptions={getFilterOptions} />
+            <SortBlock />
             { isLoading && <Spin tip="加載中..." /> }
             { !isLoading && animals.length === 0 && (
                 <div className="no-result"> 沒有符合條件的毛小孩！！ 請重新選擇條件...</div>
