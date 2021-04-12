@@ -38,6 +38,11 @@ function Search() {
             start: (currentPage - 1) * cardPerPage,
             end: currentPage * cardPerPage,
         });
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
     };
 
     const getFilterOptions = (filterOptions) => {
