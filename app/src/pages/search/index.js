@@ -3,13 +3,14 @@ import axios from 'axios';
 import { Pagination, Spin } from 'antd';
 import '../../assets/style/search/index.scss';
 import Card from '../../components/search/card';
-import SearchForm from '../../components/search/SearchForm';
+import SelectForm from '../../components/search/selectForm';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
 
 function Search() {
     const [animals, setAnimals] = useState(null);
+    const [isLoading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [animalIndex, setAnimalIndex] = useState({
         start: 0,
@@ -22,6 +23,7 @@ function Search() {
         await axios.get(`${apiProtocol}://${hostname}:${apiPort}/animal/get`)
             .then((res) => {
                 const { data } = res;
+                sessionStorage.setItem('animalData', JSON.stringify(data));
                 setAnimals(data);
             });
     };
@@ -35,17 +37,25 @@ function Search() {
     };
 
     useEffect(() => {
-        getAnimals(setAnimals);
+        const animalData = sessionStorage.getItem('animalData');
+        if (animalData) {
+            setAnimals(JSON.parse(animalData));
+        } else {
+            getAnimals(setAnimals);
+        }
     }, []);
 
+    useEffect(() => {
+        if (animals) setLoading(false);
+    }, [animals]);
+
     return (
-        <div>
-            <SearchForm />
-            <br></br>
-            { !animals ? (
+        <>
+            { isLoading ? (
                 <Spin tip="加載中..." />
             ) : (
                 <>
+                    <SelectForm data={animals} />
                     <div className="card-block">
                         {
                             animals.slice(animalIndex.start, animalIndex.end)
@@ -57,7 +67,7 @@ function Search() {
                     <Pagination defaultCurrent={1} pageSize={cardPerPage} total={animals.length} onChange={changePage}/>
                 </>
             )}
-        </div>
+        </>
     );
 }
 export default Search;
