@@ -41,12 +41,14 @@ function Search() {
     };
 
     const getFilterOptions = (filterOptions) => {
+        setLoading(true);
         const filters = _.pickBy(filterOptions, _.identity);
         const filteredData = _.filter(originAnimals, filters);
         setAnimals(filteredData);
     };
 
     const getSortOptions = (sortOptions) => {
+        setLoading(true);
         const sortedData = _.orderBy(animals, [sortOptions], ['desc']);
         setAnimals(sortedData);
     };
@@ -62,7 +64,13 @@ function Search() {
     }, []);
 
     useEffect(() => {
-        if (animals) setLoading(false);
+        let timer1 = null;
+        if (animals) {
+            timer1 = setTimeout(() => setLoading(false), 100);
+        }
+        return () => {
+            clearTimeout(timer1);
+        };
     }, [animals]);
 
     return (
