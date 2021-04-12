@@ -2,6 +2,7 @@ import React from 'react';
 import { Select, Button } from 'antd';
 import _ from 'lodash';
 import { AREA, ANIMAL_AGE, ANIMAL_SEX } from '../../constants';
+import '../../assets/style/search/searchForm.scss';
 
 const { Option } = Select;
 
@@ -24,10 +25,10 @@ const SelectForm = ({ data }) => {
     const areaList = getAreaList(data);
 
     return (
-        <div>
-            <p>我想找的毛小孩</p>
-            <div>
-                類別
+        <div className='search-form'>
+            <div className="title">我想找的毛小孩</div>
+            <div className="selection">
+                <p>類別</p>
                 <Select placeholder="種類">
                     {
                         kindList.map((option, i) => (
@@ -36,8 +37,8 @@ const SelectForm = ({ data }) => {
                     }
                 </Select>
             </div>
-            <div>
-                性別是
+            <div className="selection">
+                <p>性別是</p>
                 <Select placeholder="性別">
                     {
                         sexList.map((option, i) => (
@@ -46,8 +47,8 @@ const SelectForm = ({ data }) => {
                     }
                 </Select>
             </div>
-            <div>
-                年齡為
+            <div className="selection">
+                <p>年齡為</p>
                 <Select placeholder="年齡">
                     {
                         ageList.map((option, i) => (
@@ -56,8 +57,8 @@ const SelectForm = ({ data }) => {
                     }
                 </Select>
             </div>
-            <div>
-                所在地
+            <div className="selection">
+                <p>所在地</p>
                 <Select placeholder="地區">
                     {
                         areaList.map((option, i) => (
@@ -65,9 +66,8 @@ const SelectForm = ({ data }) => {
                         ))
                     }
                 </Select>
-
             </div>
-            <Button type="primary" style={{ backgroundColor: '#131834' }}>search</Button>
+            <Button type="primary">搜尋</Button>
         </div>
     );
 };
