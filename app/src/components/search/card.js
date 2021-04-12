@@ -1,4 +1,5 @@
 import { Card as AntdCard } from 'antd';
+import { Link } from 'react-router-dom';
 import '../../assets/style/search/card.scss';
 
 const Card = ({ data }) => {
@@ -24,6 +25,14 @@ const Card = ({ data }) => {
             <div className="info"><p className="title">年齡</p> <p className='data'>{ age || noData }</p></div>
             <div className="info"><p className="title">品種</p> <p className='data'>{ kind || noData }</p></div>
             <div className="info"><p className="title">所在地</p> <p className='data'>{ area || noData }</p></div>
+            <Link to={{
+                pathname: '/petprofile',
+                state: {
+                    animal: data,
+                },
+            }}>
+                看更多
+            </Link>
         </AntdCard>
     );
 };

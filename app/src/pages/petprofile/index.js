@@ -1,7 +1,9 @@
+import { useLocation } from 'react-router-dom';
 import { Row, Col } from 'antd';
 
 const PetProfile = (props) => {
-    console.log(props);
+    const location = useLocation();
+    console.log(location.state);
     return (
         <Row align="center">
             <Col>
