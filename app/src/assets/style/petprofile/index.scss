@@ -1,0 +1,43 @@
+$normal-font-size: 16px;
+@mixin main-title() {
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.petprofile {
+
+    .header {
+        padding: 15px;
+        @include main-title();
+    }
+
+    .info {
+        font-size: $normal-font-size;
+        padding: 0 15px 15px 20px;
+        font-weight: bold;
+        line-height: 2em;
+
+        .title {
+            color: #a37e39;
+        }
+
+    }
+
+    .others {
+        padding-top: 15px;
+
+        .board {
+            margin-top: 15px;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 20px;
+        }
+
+    }
+
+    .main-title {
+        @include main-title();
+    }
+
+}
