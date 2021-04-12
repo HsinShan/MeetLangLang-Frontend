@@ -1,29 +1,27 @@
 import React from 'react';
 import { Select, Button } from 'antd';
 import _ from 'lodash';
+import { AREA, ANIMAL_AGE, ANIMAL_SEX } from '../../constants';
 
 const { Option } = Select;
 
-const getSelectionList = (data) => {
-    const sexList = _.uniq(_.map(data, 'animal_sex'));
+const getKindList = (data) => {
     const kindList = _.uniq(_.map(data, 'animal_kind'));
-    const areaList = _.uniq(_.map(data, 'animal_area_pkid'));
-    const ageList = _.uniq(_.map(data, 'animal_age'));
-    return {
-        sexList,
-        kindList,
-        areaList,
-        ageList,
-    };
+    return kindList;
+};
+
+const getAreaList = (data) => {
+    const area = _.uniq(_.map(data, 'animal_area_pkid'));
+    const areaList = [];
+    _.forEach(_.sortBy(area), (a) => areaList.push(AREA[a]));
+    return areaList;
 };
 
 const SelectForm = ({ data }) => {
-    const {
-        sexList,
-        kindList,
-        areaList,
-        ageList,
-    } = getSelectionList(data);
+    const sexList = Object.values(ANIMAL_SEX);
+    const ageList = Object.values(ANIMAL_AGE);
+    const kindList = getKindList(data);
+    const areaList = getAreaList(data);
 
     return (
         <div>
@@ -33,7 +31,7 @@ const SelectForm = ({ data }) => {
                 <Select placeholder="種類">
                     {
                         kindList.map((option, i) => (
-                            <Option value={option} key={option + i}>{option}</Option>
+                            <Option value={option} key={`key-${i}`}>{option}</Option>
                         ))
                     }
                 </Select>
@@ -43,7 +41,7 @@ const SelectForm = ({ data }) => {
                 <Select placeholder="性別">
                     {
                         sexList.map((option, i) => (
-                            <Option value={option} key={option + i}>{option}</Option>
+                            <Option value={option} key={`key-${i}`}>{option}</Option>
                         ))
                     }
                 </Select>
@@ -53,7 +51,7 @@ const SelectForm = ({ data }) => {
                 <Select placeholder="年齡">
                     {
                         ageList.map((option, i) => (
-                            <Option value={option} key={option + i}>{option}</Option>
+                            <Option value={option} key={`key-${i}`}>{option}</Option>
                         ))
                     }
                 </Select>
@@ -63,7 +61,7 @@ const SelectForm = ({ data }) => {
                 <Select placeholder="地區">
                     {
                         areaList.map((option, i) => (
-                            <Option value={option} key={option + i}>{option}</Option>
+                            <Option value={option} key={`key-${i}`}>{option}</Option>
                         ))
                     }
                 </Select>
