@@ -36,10 +36,10 @@ const PetProfile = () => {
                 <Col flex="none">{ '加到收藏' }</Col>
             </Row>
             <Row justify="center">
-                <Col span={7}>
+                <Col md={7} sm={20} xs={24}>
                     <img width={'100%'} src={animal.album_file || DefaultImage} />
                 </Col>
-                <Col className="info" span={7}>
+                <Col className="info" md={10} sm={20} xs={24}>
                     <Row>
                         <Col className="title" span={8}>類別</Col>
                         <Col span={16}>{ (animal.animal_kind) ? animal.animal_kind : noData }</Col>
@@ -71,8 +71,8 @@ const PetProfile = () => {
                 </Col>
             </Row>
             <Row className="others" justify="center">
-                <Col className="main-title" span={14}>{ '[ 其他備註 ]' }</Col>
-                <Col className="board" span={14}>{ (animal.animal_remark) ? animal.animal_remark : noData }</Col>
+                <Col className="main-title" md={17} sm={20} xs={24}>{ '[ 其他備註 ]' }</Col>
+                <Col className="board" md={17} sm={20} xs={24}>{ (animal.animal_remark) ? animal.animal_remark : noData }</Col>
             </Row>
         </div>
     );
