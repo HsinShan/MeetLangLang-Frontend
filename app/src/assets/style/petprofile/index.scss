@@ -1,6 +1,9 @@
+@import '../base.scss';
+
 $normal-font-size: 16px;
-@mixin main-title() {
-    font-size: 18px;
+$mobile-font-size: 12px;
+@mixin main-title($fontsize) {
+    font-size: calc(#{$fontsize} + 2px);
     color: #000000;
     font-weight: bold;
 }
@@ -9,7 +12,7 @@ $normal-font-size: 16px;
 
     .header {
         padding: 15px;
-        @include main-title();
+        @include main-title($normal-font-size);
     }
 
     .info {
@@ -37,7 +40,24 @@ $normal-font-size: 16px;
     }
 
     .main-title {
-        @include main-title();
+        @include main-title($normal-font-size);
+    }
+
+    @mixin extendmobile($fontsize) {
+        .header {
+            @include main-title($fontsize);
+        }
+        .info {
+            font-size: $fontsize;
+            padding: 20px 0;
+        }
+        .main-title {
+            @include main-title($fontsize);
+        }
+    }
+
+    @include mobile {
+        @include extendmobile($mobile-font-size);
     }
 
 }
