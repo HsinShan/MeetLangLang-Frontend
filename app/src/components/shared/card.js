@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Card as AntdCard, Row, Col } from 'antd';
 import DefaultImage from '../../assets/images/defaultImage.svg';
-import '../../assets/style/search/card.scss';
+import '../../assets/style/shared/card.scss';
 
 const Card = ({ data }) => {
     const {

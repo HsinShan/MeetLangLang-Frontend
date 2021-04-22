@@ -3,7 +3,7 @@ import axios from 'axios';
 import _ from 'lodash';
 import { Pagination, Spin } from 'antd';
 import '../../assets/style/search/index.scss';
-import Card from '../../components/search/card';
+import Card from '../../components/shared/card';
 import SelectForm from '../../components/search/selectForm';
 import SortBlock from '../../components/search/sortBlock';
 
