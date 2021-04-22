@@ -10,7 +10,7 @@ function Discuss() {
 
     const getData = async () => {
         const { hostname } = window.location;
-        await axios.get(`${apiProtocol}://${hostname}:${apiPort}/discuss/topic/get`)
+        await axios.get(`${apiProtocol}://${hostname}:${apiPort}/discuss/topic/list`)
             .then((res) => {
                 const { data } = res;
                 setMessage(data);
