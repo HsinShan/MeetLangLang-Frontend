@@ -1,11 +1,12 @@
 import { Table, Input } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../assets/style/discuss/discussTable.scss';
 
 const DiscussTable = ({ data }) => {
     const [dataSource, setDataSource] = useState(data);
     const [titleValue, setTitleValue] = useState('');
     const [authorValue, setAuthorValue] = useState('');
+    const rowPerPage = 15;
 
     const FilterByTitleInput = (
         <div className='search-column-header'>
@@ -13,8 +14,8 @@ const DiscussTable = ({ data }) => {
             <Input
                 className='search-input'
                 placeholder="搜尋主題"
-                value = {titleValue}
-                onChange = {(e) => {
+                value={titleValue}
+                onChange={(e) => {
                     setAuthorValue(null);
                     const currValue = e.target.value;
                     setTitleValue(currValue);
@@ -31,8 +32,8 @@ const DiscussTable = ({ data }) => {
             <Input
                 className='search-input'
                 placeholder="搜尋作者"
-                value = {authorValue}
-                onChange = {(e) => {
+                value={authorValue}
+                onChange={(e) => {
                     setTitleValue(null);
                     const currValue = e.target.value;
                     setAuthorValue(currValue);
@@ -66,6 +67,10 @@ const DiscussTable = ({ data }) => {
         },
     ];
 
+    useEffect(() => {
+        setDataSource(data);
+    }, [data]);
+
     const changePage = () => {
         window.scroll({
             top: 0,
@@ -76,26 +81,16 @@ const DiscussTable = ({ data }) => {
 
     const paginationProps = {
         onChange: changePage,
-        pageSize: 15,
+        pageSize: rowPerPage,
     };
 
     return (
-        <>
-            {dataSource &&
-                <Table
-                    columns={columns}
-                    dataSource={dataSource}
-                    pagination={paginationProps}
-                />
-            }
-            {!dataSource &&
-                <Table
-                    columns={columns}
-                    dataSource={data}
-                    pagination={paginationProps}
-                />
-            }
-        </>
+        <Table
+            columns={columns}
+            dataSource={dataSource}
+            pagination={paginationProps}
+            pageSize={rowPerPage}
+        />
     );
 };
 

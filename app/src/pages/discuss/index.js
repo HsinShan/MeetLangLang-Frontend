@@ -18,7 +18,7 @@ function Discuss() {
     };
 
     useEffect(() => {
-        getData(setMessage);
+        getData();
     }, []);
 
     return (
