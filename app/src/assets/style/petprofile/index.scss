@@ -27,6 +27,23 @@ $mobile-font-size: 12px;
 
     }
 
+    .ant-btn.savepet-button {
+        background-color: $background-gray;
+        font-weight: bold;
+        color: white;
+        margin-left: 6px;
+        border-radius: 50px;
+    }
+
+    .ant-btn.deletepet-button {
+        background-color: white;
+        border-color: $background-gray;
+        color: $background-gray;
+        font-weight: bold;
+        margin-left: 6px;
+        border-radius: 50px;
+    }
+    
     .others {
         padding-top: 15px;
 

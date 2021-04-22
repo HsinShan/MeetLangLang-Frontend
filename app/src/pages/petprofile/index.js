@@ -1,8 +1,20 @@
 import { useLocation, Link } from 'react-router-dom';
-import { Row, Col } from 'antd';
+import { useState, useEffect } from 'react';
+import {
+    Row,
+    Col,
+    Button,
+    message,
+} from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
+import axios from 'axios';
+import _ from 'lodash';
 import DefaultImage from '../../assets/images/defaultImage.svg';
 import '../../assets/style/petprofile/index.scss';
+
+const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
+const apiPort = process.env.REACT_APP_API_PORT;
+const { hostname } = window.location;
 
 const formatSex = (sex) => {
     let result = sex;
@@ -10,6 +22,7 @@ const formatSex = (sex) => {
     if (sex === 'M') result = '男生';
     return result;
 };
+
 const formatSterilization = (sterilization) => {
     let result = sterilization;
     if (sterilization === 'T') result = '已結紮';
@@ -18,12 +31,97 @@ const formatSterilization = (sterilization) => {
     return result;
 };
 
-const PetProfile = () => {
+const token = localStorage.getItem('token');
+
+const PetProfile = ({ isLogin }) => {
     const location = useLocation();
     const noData = '無';
+    const [isSaved, setIsSaved] = useState(false);
     if (!('state' in location) || !location.state) window.location.href = '/';
     if (!('animal' in location.state) || !location.state.animal) window.location.href = '/';
     const { animal } = location.state;
+    const currentPet = animal.animal_id;
+
+    const checkPetSavedLogic = async () => {
+        try {
+            const { data } = await axios({
+                url: `${apiProtocol}://${hostname}:${apiPort}/pet/favorites`,
+                headers: { token },
+                method: 'get',
+            });
+            // Check if petId is already saved by user
+            const searchResult = _.filter(data.petInfo, ['petId', currentPet]);
+            if (searchResult.length !== 0) {
+                setIsSaved(true);
+            } else {
+                setIsSaved(false);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        if (isLogin) {
+            checkPetSavedLogic();
+        }
+    });
+
+    const savePetLogic = async () => {
+        if (isLogin) {
+            try {
+                const { data } = await axios({
+                    url: `${apiProtocol}://${hostname}:${apiPort}/pet/favorites`,
+                    method: 'post',
+                    headers: { token },
+                    data: {
+                        petId: currentPet,
+                        sex: animal.animal_sex,
+                        kind: animal.animal_kind,
+                        color: animal.animal_colour,
+                        sterilization: animal.animal_sterilization,
+                        remark: animal.animal_remark,
+                        tel: animal.shelter_tel,
+                        address: animal.shelter_address,
+                        place: animal.animal_place,
+                        picture: animal.album_file,
+                    },
+                });
+                const { success } = data;
+                if (success) {
+                    message.success('收藏成功');
+                    setIsSaved(true);
+                }
+            } catch (err) {
+                message.error('收藏失敗');
+            }
+        } else {
+            message.error('請先登入才可以使用收藏功能喔');
+        }
+    };
+
+    const unsavePetLogic = async () => {
+        if (isLogin) {
+            try {
+                const { data } = await axios({
+                    url: `${apiProtocol}://${hostname}:${apiPort}/pet/favorites`,
+                    method: 'delete',
+                    headers: { token },
+                    data: {
+                        petId: currentPet,
+                    },
+                });
+                const { success } = data;
+                if (success) {
+                    message.success('已取消收藏');
+                    setIsSaved(false);
+                }
+            } catch (err) {
+                message.error('收藏失敗');
+            }
+        }
+    };
+
     return (
         <div className="petprofile">
             <Row className="header" justify="space-between">
@@ -32,8 +130,22 @@ const PetProfile = () => {
                         <LeftOutlined /> 上一頁
                     </Link>
                 </Col>
-                <Col className="main-title" flex="none">{ '[ 浪浪資料 ]' }</Col>
-                <Col flex="none">{ '加到收藏' }</Col>
+                <Col className="main-title" flex="none">{'[ 浪浪資料 ]'}</Col>
+                <Col flex="none">
+                    {(!isSaved) &&
+                        <Button
+                            className="savepet-button"
+                            onClick={() => savePetLogic()}>加入收藏
+                        </Button>
+                    }
+                    {(isSaved) &&
+                        <Button
+                            className="deletepet-button"
+                            onClick={() => unsavePetLogic()}>
+                            取消收藏
+                        </Button>
+                    }
+                </Col>
             </Row>
             <Row justify="center">
                 <Col md={7} sm={20} xs={24}>
