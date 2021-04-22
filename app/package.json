@@ -6,7 +6,6 @@
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.14.1",
     "axios": "^0.21.1",
-    "google-map-react": "^2.1.9",
     "lodash": "^4.17.21",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
