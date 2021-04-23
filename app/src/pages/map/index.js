@@ -1,3 +1,13 @@
-const Map = () => <div className="map">頁面建置中...</div>;
+import SelectForm from '../../components/map/selectForm';
+import GoogleMap from '../../components/map/googleMap';
+
+function Map() {
+    return (
+        <>
+            <SelectForm />
+            <GoogleMap />
+        </>
+    );
+}
 
 export default Map;
