@@ -19,7 +19,7 @@ const DiscussTable = ({ data }) => {
                     setAuthorValue(null);
                     const currValue = e.target.value;
                     setTitleValue(currValue);
-                    const filteredData = data.filter((entry) => entry.Title.includes(currValue));
+                    const filteredData = data.filter((entry) => entry.title.includes(currValue));
                     setDataSource(filteredData);
                 }}
             />
@@ -47,8 +47,8 @@ const DiscussTable = ({ data }) => {
     const columns = [
         {
             title: FilterByTitleInput,
-            dataIndex: 'Title',
-            key: 'Title',
+            dataIndex: 'title',
+            key: 'title',
             className: 'column-title',
         },
         {
