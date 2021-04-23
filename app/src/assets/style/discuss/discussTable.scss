@@ -1,0 +1,39 @@
+@import '../_base.scss';
+
+.ant-table-thead > tr >th{
+    background: #131834;
+    color: white;
+}
+
+.ant-table-tbody > tr >th{
+    background: white;
+    color: #131834;
+}
+
+.search-column-header{
+    display: flex;
+    
+    .search-column-title{
+        width : 60%;
+    }
+
+    .search-input{
+        width: 40%;
+    }
+
+    @include pad{
+        display: block;
+    }
+}
+
+.column-title{
+    width: 50%;
+}
+
+.column-author{
+    width: 25%;
+}
+
+.column-date{
+    width: 25%;
+}

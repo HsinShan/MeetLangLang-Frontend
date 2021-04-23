@@ -50,9 +50,7 @@ const AnimalProfile = ({ isLogin }) => {
                 method: 'get',
             });
             // Check if animalId is already saved by user
-            console.log('data:', data);
             const searchResult = _.filter(data.animalInfo, ['animal_id', currentAnimal]);
-            console.log('searchresult:', searchResult);
             if (searchResult.length !== 0) {
                 setIsSaved(true);
             } else {
