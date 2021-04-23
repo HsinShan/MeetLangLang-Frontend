@@ -4,7 +4,7 @@ import Search from '../pages/search';
 import Map from '../pages/map';
 import Share from '../pages/share';
 import Discuss from '../pages/discuss';
-import PetProfile from '../pages/petprofile';
+import AnimalProfile from '../pages/animalprofile';
 
 const routes = [
     {
@@ -43,8 +43,8 @@ const routes = [
         exact: true,
     },
     {
-        path: '/petprofile',
-        component: PetProfile,
+        path: '/animalprofile',
+        component: AnimalProfile,
         exact: true,
     },
 ];

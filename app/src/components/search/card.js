@@ -43,7 +43,7 @@ const Card = ({ data }) => {
             <Row justify="end">
                 <Col>
                     <Link to={{
-                        pathname: '/petprofile',
+                        pathname: '/animalprofile',
                         state: {
                             animal: data,
                         },
