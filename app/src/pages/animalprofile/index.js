@@ -10,7 +10,7 @@ import { LeftOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import _ from 'lodash';
 import DefaultImage from '../../assets/images/defaultImage.svg';
-import '../../assets/style/petprofile/index.scss';
+import '../../assets/style/animalprofile/index.scss';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
@@ -33,24 +33,26 @@ const formatSterilization = (sterilization) => {
 
 const token = localStorage.getItem('token');
 
-const PetProfile = ({ isLogin }) => {
+const AnimalProfile = ({ isLogin }) => {
     const location = useLocation();
     const noData = '無';
     const [isSaved, setIsSaved] = useState(false);
     if (!('state' in location) || !location.state) window.location.href = '/';
     if (!('animal' in location.state) || !location.state.animal) window.location.href = '/';
     const { animal } = location.state;
-    const currentPet = animal.animal_id;
+    const currentAnimal = animal.animal_id;
 
-    const checkPetSavedLogic = async () => {
+    const checkAnimalSavedLogic = async () => {
         try {
             const { data } = await axios({
-                url: `${apiProtocol}://${hostname}:${apiPort}/pet/favorites`,
+                url: `${apiProtocol}://${hostname}:${apiPort}/animal/favorites`,
                 headers: { token },
                 method: 'get',
             });
-            // Check if petId is already saved by user
-            const searchResult = _.filter(data.petInfo, ['petId', currentPet]);
+            // Check if animalId is already saved by user
+            console.log('data:', data);
+            const searchResult = _.filter(data.animalInfo, ['animal_id', currentAnimal]);
+            console.log('searchresult:', searchResult);
             if (searchResult.length !== 0) {
                 setIsSaved(true);
             } else {
@@ -63,22 +65,22 @@ const PetProfile = ({ isLogin }) => {
 
     useEffect(() => {
         if (isLogin) {
-            checkPetSavedLogic();
+            checkAnimalSavedLogic();
         }
     });
 
-    const savePetLogic = async () => {
+    const saveAnimalLogic = async () => {
         if (isLogin) {
             try {
                 const { data } = await axios({
-                    url: `${apiProtocol}://${hostname}:${apiPort}/pet/favorites`,
+                    url: `${apiProtocol}://${hostname}:${apiPort}/animal/favorites`,
                     method: 'post',
                     headers: { token },
                     data: {
-                        petId: currentPet,
+                        animalId: currentAnimal,
                         sex: animal.animal_sex,
                         kind: animal.animal_kind,
-                        color: animal.animal_colour,
+                        colour: animal.animal_colour,
                         sterilization: animal.animal_sterilization,
                         remark: animal.animal_remark,
                         tel: animal.shelter_tel,
@@ -100,15 +102,15 @@ const PetProfile = ({ isLogin }) => {
         }
     };
 
-    const unsavePetLogic = async () => {
+    const unsaveAnimalLogic = async () => {
         if (isLogin) {
             try {
                 const { data } = await axios({
-                    url: `${apiProtocol}://${hostname}:${apiPort}/pet/favorites`,
+                    url: `${apiProtocol}://${hostname}:${apiPort}/animal/favorites`,
                     method: 'delete',
                     headers: { token },
                     data: {
-                        petId: currentPet,
+                        animalId: currentAnimal,
                     },
                 });
                 const { success } = data;
@@ -123,7 +125,7 @@ const PetProfile = ({ isLogin }) => {
     };
 
     return (
-        <div className="petprofile">
+        <div className="animalprofile">
             <Row className="header" justify="space-between">
                 <Col flex="none">
                     <Link to="/">
@@ -134,14 +136,14 @@ const PetProfile = ({ isLogin }) => {
                 <Col flex="none">
                     {(!isSaved) &&
                         <Button
-                            className="savepet-button"
-                            onClick={() => savePetLogic()}>加入收藏
+                            className="saveanimal-button"
+                            onClick={() => saveAnimalLogic()}>加入收藏
                         </Button>
                     }
                     {(isSaved) &&
                         <Button
-                            className="deletepet-button"
-                            onClick={() => unsavePetLogic()}>
+                            className="deleteanimal-button"
+                            onClick={() => unsaveAnimalLogic()}>
                             取消收藏
                         </Button>
                     }
@@ -190,4 +192,4 @@ const PetProfile = ({ isLogin }) => {
     );
 };
 
-export default PetProfile;
+export default AnimalProfile;

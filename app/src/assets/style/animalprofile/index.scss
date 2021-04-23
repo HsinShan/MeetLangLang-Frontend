@@ -8,7 +8,7 @@ $mobile-font-size: 12px;
     font-weight: bold;
 }
 
-.petprofile {
+.animalprofile {
 
     .header {
         padding: 15px;
@@ -27,7 +27,7 @@ $mobile-font-size: 12px;
 
     }
 
-    .ant-btn.savepet-button {
+    .ant-btn.saveanimal-button {
         background-color: $background-gray;
         font-weight: bold;
         color: white;
@@ -35,7 +35,7 @@ $mobile-font-size: 12px;
         border-radius: 50px;
     }
 
-    .ant-btn.deletepet-button {
+    .ant-btn.deleteanimal-button {
         background-color: white;
         border-color: $background-gray;
         color: $background-gray;
@@ -43,7 +43,7 @@ $mobile-font-size: 12px;
         margin-left: 6px;
         border-radius: 50px;
     }
-    
+
     .others {
         padding-top: 15px;
 
