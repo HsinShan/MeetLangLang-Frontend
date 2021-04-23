@@ -6,7 +6,6 @@ function App() {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
     useEffect(() => {
-        sessionStorage.clear();
         navigator.geolocation.watchPosition((position) => {
             setLat(Number(position.coords.latitude));
             setLng(Number(position.coords.longitude));
