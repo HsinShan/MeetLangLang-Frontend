@@ -36,7 +36,10 @@ const SelectForm = ({ data, getFilterOptions }) => {
     };
 
     const onAreaSelect = (value) => {
-        setFilterOptions({ ...filterOptions, animal_area_pkid: value });
+        setFilterOptions({
+            ...filterOptions,
+            animal_area_pkid: parseInt(value, 10),
+        });
     };
 
     const onSearchBtnClick = () => {
