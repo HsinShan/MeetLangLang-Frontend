@@ -64,7 +64,7 @@ function Search() {
             setAnimals(JSON.parse(animalData));
             setOriginAnimals(JSON.parse(animalData));
         } else {
-            getAnimals(setAnimals);
+            getAnimals();
         }
     }, []);
 
