@@ -14,10 +14,10 @@ function Search() {
     const [animals, setAnimals] = useState(null); // processed animal data
     const [originAnimals, setOriginAnimals] = useState(null);
     const [isLoading, setLoading] = useState(true);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [animalIndex, setAnimalIndex] = useState({
-        start: 0,
-        end: 15,
+    const [currentPage, setCurrentPage] = useState({
+        page: 1,
+        startIndex: 0,
+        endIndex: 15,
     });
     const cardPerPage = 15;
 
@@ -33,10 +33,10 @@ function Search() {
     };
 
     const changePage = (page) => {
-        setCurrentPage(page);
-        setAnimalIndex({
-            start: (currentPage - 1) * cardPerPage,
-            end: currentPage * cardPerPage,
+        setCurrentPage({
+            page,
+            startIndex: (page - 1) * cardPerPage,
+            endIndex: page * cardPerPage,
         });
         window.scroll({
             top: 0,
@@ -90,7 +90,7 @@ function Search() {
                 <>
                     <div className="card-block">
                         {
-                            animals.slice(animalIndex.start, animalIndex.end)
+                            animals.slice(currentPage.startIndex, currentPage.endIndex)
                                 .map((animal) => (
                                     <Card key={animal.animal_id} data={ animal }/>
                                 ))
