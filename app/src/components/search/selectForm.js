@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Select, Button } from 'antd';
 import _ from 'lodash';
 import { AREA, ANIMAL_AGE, ANIMAL_SEX } from '../../constants';
-import '../../assets/style/search/searchForm.scss';
+import '../../assets/style/search/selectForm.scss';
 
 const { Option } = Select;
 
@@ -90,7 +90,7 @@ const SelectForm = ({ data, getFilterOptions }) => {
                     }
                 </Select>
             </div>
-            <Button type="primary" onClick={onSearchBtnClick}>搜尋</Button>
+            <Button type="primary" className="search-btn" onClick={onSearchBtnClick}>搜尋</Button>
         </div>
     );
 };
