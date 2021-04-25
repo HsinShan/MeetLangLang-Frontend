@@ -7,6 +7,7 @@ import {
     Input,
     Select,
     message,
+    Form,
 } from 'antd';
 import axios from 'axios';
 import '../../assets/style/adddiscuss/index.scss';
@@ -16,10 +17,9 @@ const apiPort = process.env.REACT_APP_API_PORT;
 const { hostname } = window.location;
 
 const AddDiscuss = ({ isLogin }) => {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
     const [redirect, setRedirect] = useState('');
-    const submit = async () => {
+    const [form] = Form.useForm();
+    const submit = async (title, content) => {
         const token = localStorage.getItem('token');
         try {
             const { data } = await axios({
@@ -50,43 +50,52 @@ const AddDiscuss = ({ isLogin }) => {
             {redirect !== '' &&
                 <Redirect to={redirect} />
             }
-            <Row className="row-input" justify="center">
-                <Col className="inputtitle" span={3}>
-                    作者
-                </Col>
-                <Col span={15}>
+            <Form
+                form={form}
+                name="add-discuss"
+                initialValues={{
+                    title: '',
+                    content: '',
+                }}
+                onFinish={(values) => submit(values.title, values.content)}
+                labelCol={{ span: 3, offset: 3 }}
+                wrapperCol={{ span: 15 }}
+                validateMessages={{
+                    required: '\'${label}\' is required!', // eslint-disable-line no-template-curly-in-string
+                }}
+            >
+                <Form.Item
+                    label="作者"
+                >
                     製作中...
-                </Col>
-            </Row>
-            <Row className="row-input" justify="center">
-                <Col className="inputtitle" span={3}>
-                    主題
-                </Col>
-                <Col span={15}>
-                    <Input placeholder="大家都怎麼照顧幼犬的呢？" onChange={(e) => setTitle(e.target.value)} />
-                </Col>
-            </Row>
-            <Row className="row-input" justify="center">
-                <Col className="inputtitle" span={3}>
-                    類別
-                </Col>
-                <Col span={15}>
+                </Form.Item>
+                <Form.Item
+                    label="主題"
+                    name="title"
+                    rules={[{ required: true, min: 1 }]}
+                >
+                    <Input placeholder="大家都怎麼照顧幼犬的呢？" />
+                </Form.Item>
+                <Form.Item
+                    label="類別"
+                    name="category"
+                    wrapperCol={{ span: 5 }}
+                >
                     <Select defaultValue="default" disabled>
                         <Select.Option value="default">製作中...</Select.Option>
                     </Select>
-                </Col>
-            </Row>
-            <Row className="row-input" justify="center">
-                <Col className="inputtitle" span={3}>
-                    內容
-                </Col>
-                <Col span={15}>
-                    <Input.TextArea rows={4} placeholder="家裡誕生了新成員，想問大家都怎麼照顧幼犬的呢？" onChange={(e) => setContent(e.target.value)} />
-                </Col>
-            </Row>
+                </Form.Item>
+                <Form.Item
+                    label="內容"
+                    name="content"
+                    rules={[{ required: true, min: 1 }]}
+                >
+                    <Input.TextArea rows={4} placeholder="家裡誕生了新成員，想問大家都怎麼照顧幼犬的呢？" />
+                </Form.Item>
+            </Form>
             <Row className="row-input bottom" justify="end">
                 <Col className="col-buttons" span={18} pull={3}>
-                    <Button type="primary" onClick={() => submit()}>張貼</Button>
+                    <Button type="primary" onClick={() => form.submit()}>張貼</Button>
                     <Button type="primary"><Link to="/">取消</Link></Button>
                 </Col>
             </Row>
