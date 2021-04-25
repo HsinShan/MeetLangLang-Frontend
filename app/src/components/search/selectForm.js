@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Select, Button } from 'antd';
 import { useTranslation } from 'react-i18next';
 import _ from 'lodash';
-import { AREA, ANIMAL_AGE, ANIMAL_SEX } from '../../constants';
 import '../../assets/style/search/selectForm.scss';
 
 const { Option } = Select;
@@ -14,10 +13,10 @@ const getKindList = (data) => {
 
 const SelectForm = ({ data, getFilterOptions }) => {
     const { t } = useTranslation();
-    const sexOptions = { ...ANIMAL_SEX };
-    const ageOptions = { ...ANIMAL_AGE };
+    const sexOptions = { ...t('animal_sex', { returnObjects: true }) };
+    const ageOptions = { ...t('animal_age', { returnObjects: true }) };
     const kindList = getKindList(data);
-    const areaOptions = { ...AREA };
+    const areaOptions = { ...t('area', { returnObjects: true }) };
     const [filterOptions, setFilterOptions] = useState({
         animal_sex: '',
         animal_kind: '',

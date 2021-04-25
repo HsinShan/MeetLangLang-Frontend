@@ -3,7 +3,6 @@ import { Card as AntdCard, Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 import DefaultImage from '../../assets/images/defaultImage.svg';
 import '../../assets/style/shared/card.scss';
-import { AREA, ANIMAL_AGE, ANIMAL_SEX } from '../../constants';
 
 const Card = ({ data }) => {
     const { t } = useTranslation();
@@ -24,11 +23,11 @@ const Card = ({ data }) => {
             </div>
             <div className="info">
                 <p className="title">{t('card.sex')}</p>
-                <p className='data'>{ ANIMAL_SEX[sex] || noData }</p>
+                <p className='data'>{ t('animal_sex', { returnObjects: true })[sex] || noData }</p>
             </div>
             <div className="info">
                 <p className="title">{t('card.age')}</p>
-                <p className='data'>{ ANIMAL_AGE[age] || noData }</p>
+                <p className='data'>{ t('animal_age', { returnObjects: true })[age] || noData }</p>
             </div>
             <div className="info">
                 <p className="title">{t('card.kind')}</p>
@@ -36,7 +35,7 @@ const Card = ({ data }) => {
             </div>
             <div className="info">
                 <p className="title">{t('card.area')}</p>
-                <p className='data'>{ AREA[area && area.toString()] || noData }</p>
+                <p className='data'>{ t('area', { returnObjects: true })[area && area.toString()] || noData }</p>
             </div>
             <Row justify="end">
                 <Col>
