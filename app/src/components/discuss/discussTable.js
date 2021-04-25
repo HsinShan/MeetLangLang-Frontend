@@ -1,8 +1,10 @@
 import { Table, Input } from 'antd';
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../../assets/style/discuss/discussTable.scss';
 
 const DiscussTable = ({ data }) => {
+    const { t } = useTranslation();
     const [dataSource, setDataSource] = useState(data);
     const [titleValue, setTitleValue] = useState('');
     const [authorValue, setAuthorValue] = useState('');
@@ -10,10 +12,10 @@ const DiscussTable = ({ data }) => {
 
     const FilterByTitleInput = (
         <div className='search-column-header'>
-            <div className='search-column-title'>主題</div>
+            <div className='search-column-title'>{t('discuss.title')}</div>
             <Input
                 className='search-input'
-                placeholder="搜尋主題"
+                placeholder={t('discuss.title-search')}
                 value={titleValue}
                 onChange={(e) => {
                     setAuthorValue(null);
@@ -28,10 +30,10 @@ const DiscussTable = ({ data }) => {
 
     const FilterByAuthorInput = (
         <div className='search-column-header'>
-            <div className='search-column-title'>作者</div>
+            <div className='search-column-title'>{t('discuss.author')}</div>
             <Input
                 className='search-input'
-                placeholder="搜尋作者"
+                placeholder={t('discuss.author-search')}
                 value={authorValue}
                 onChange={(e) => {
                     setTitleValue(null);
@@ -58,7 +60,7 @@ const DiscussTable = ({ data }) => {
             className: 'column-author',
         },
         {
-            title: '發布日期',
+            title: t('discuss.date'),
             dataIndex: 'date',
             key: 'date',
             sorter: (a, b) => a.date.localeCompare(b.date),

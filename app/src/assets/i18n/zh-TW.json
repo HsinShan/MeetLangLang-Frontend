@@ -2,8 +2,9 @@
     "age": "年齡",
     "discuss": {
         "title": "主題",
-        "search": "搜尋主題",
+        "title-search": "搜尋主題",
         "author": "作者",
+        "author-search": "搜尋作者",
         "date": "發布日期"
     },
     "header": {
@@ -14,31 +15,38 @@
         "login": "登入",
         "logout": "登出",
         "success": "登入成功",
-        "error": "登入失敗"
+        "error": "登入失敗",
+        "member": "會員",
+        "username": "帳號",
+        "password": "密碼"
     },
     "map": {
         "default": "我要找縣市收容所"
     },
     "search": {
-        "title": "我想找的毛小孩",
-        "class-text": "類別",
-        "class": "種類",
+        "default": "我想找的毛小孩",
         "all": "-- 全部 --",
+        "kind-text": "類別",
+        "kind": "種類",
         "sex-text": "性別是",
         "sex": "性別",
-        "place-text": "所在地",
-        "place": "地區",
+        "age-text": "年齡為",
+        "age": "年齡",
+        "area-text": "所在地",
+        "area": "地區",
         "sort": "--排序方式--",
         "update-date": "-- 依照資料更新日期排序 --",
         "open-date": "-- 依照開放認養日期排序 --",
+        "search": "搜尋",
         "loading": "載入中...",
         "text": " 沒有符合條件的毛小孩！！ 請重新選擇條件..."
     },
     "card": {
+        "none": "無",
         "sex": "性別",
         "age": "年齡",
-        "species": "品種",
-        "place": "所在地",
+        "kind": "品種",
+        "area": "所在地",
         "more": "看更多"
     },
     "animalprofile": {
@@ -62,16 +70,17 @@
             "error": "收藏失敗"
         },
         "info": {
+            "data": "[ 浪浪資料 ]",
             "prev": "上一頁",
             "add": "加入收藏",
             "delete": "取消收藏",
-            "class": "類別",
+            "kind": "類別",
             "sex": "性別",
-            "color": "毛色",
+            "colour": "毛色",
             "sterilization": "結紮與否",
             "place": "所在地",
             "address": "地址",
-            "contact": "聯絡電話",
+            "tel": "聯絡電話",
             "other": "[ 其他備註 ]"
         }
     },
@@ -79,7 +88,7 @@
         "not-log-in": "請先登入",
         "loading": "載入中...",
         "text": {
-            "0": "沒有收藏的寵物，快去",
+            "0": " 沒有收藏的寵物，快去",
             "1": "領養浪浪",
             "2": "頁面看看吧"
         }
@@ -92,7 +101,7 @@
         "3": "新北市",
         "4": "基隆市",
         "5": "宜蘭縣",
-        "6": "桃園縣",
+        "6": "桃園市",
         "7": "新竹縣",
         "8": "新竹市",
         "9": "苗栗縣",

@@ -7,8 +7,10 @@ import {
     message,
 } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
+import { useTranslation, getI18n } from 'react-i18next';
 import axios from 'axios';
 import _ from 'lodash';
+
 import DefaultImage from '../../assets/images/defaultImage.svg';
 import '../../assets/style/animalprofile/index.scss';
 
@@ -17,25 +19,28 @@ const apiPort = process.env.REACT_APP_API_PORT;
 const { hostname } = window.location;
 
 const formatSex = (sex) => {
+    const i18n = getI18n();
     let result = sex;
-    if (sex === 'F') result = '女生';
-    if (sex === 'M') result = '男生';
+    if (sex === 'F') result = i18n.t('animalprofile.sex.f');
+    if (sex === 'M') result = i18n.t('animalprofile.sex.m');
     return result;
 };
 
 const formatSterilization = (sterilization) => {
+    const i18n = getI18n();
     let result = sterilization;
-    if (sterilization === 'T') result = '已結紮';
-    if (sterilization === 'F') result = '未結紮';
-    if (sterilization === 'N') result = '不確定';
+    if (sterilization === 'T') result = i18n.t('animalprofile.sterilization.t');
+    if (sterilization === 'F') result = i18n.t('animalprofile.sterilization.f');
+    if (sterilization === 'N') result = i18n.t('animalprofile.sterilization.n');
     return result;
 };
 
 const token = localStorage.getItem('token');
 
 const AnimalProfile = ({ isLogin }) => {
+    const { t } = useTranslation();
     const location = useLocation();
-    const noData = '無';
+    const noData = t('animalprofile.none');
     const [isSaved, setIsSaved] = useState(false);
     if (!('state' in location) || !location.state) window.location.href = '/';
     if (!('animal' in location.state) || !location.state.animal) window.location.href = '/';
@@ -89,14 +94,14 @@ const AnimalProfile = ({ isLogin }) => {
                 });
                 const { success } = data;
                 if (success) {
-                    message.success('收藏成功');
+                    message.success(t('animalprofile.save.success'));
                     setIsSaved(true);
                 }
             } catch (err) {
-                message.error('收藏失敗');
+                message.error(t('animalprofile.save.error'));
             }
         } else {
-            message.error('請先登入才可以使用收藏功能喔');
+            message.error(t('animalprofile.not-log-in'));
         }
     };
 
@@ -113,11 +118,11 @@ const AnimalProfile = ({ isLogin }) => {
                 });
                 const { success } = data;
                 if (success) {
-                    message.success('已取消收藏');
+                    message.success(t('animalprofile.unsave.success'));
                     setIsSaved(false);
                 }
             } catch (err) {
-                message.error('收藏失敗');
+                message.error(t('animalprofile.unsave.error'));
             }
         }
     };
@@ -127,22 +132,21 @@ const AnimalProfile = ({ isLogin }) => {
             <Row className="header" justify="space-between">
                 <Col flex="none">
                     <Link to="/">
-                        <LeftOutlined /> 上一頁
+                        <LeftOutlined /> {t('animalprofile.info.prev')}
                     </Link>
                 </Col>
-                <Col className="main-title" flex="none">{'[ 浪浪資料 ]'}</Col>
+                <Col className="main-title" flex="none">{t('animalprofile.info.data')}</Col>
                 <Col flex="none">
                     {(!isSaved) &&
                         <Button
                             className="saveanimal-button"
-                            onClick={() => saveAnimalLogic()}>加入收藏
+                            onClick={() => saveAnimalLogic()}>{t('animalprofile.info.add')}
                         </Button>
                     }
                     {(isSaved) &&
                         <Button
                             className="deleteanimal-button"
-                            onClick={() => unsaveAnimalLogic()}>
-                            取消收藏
+                            onClick={() => unsaveAnimalLogic()}>{t('animalprofile.info.delete')}
                         </Button>
                     }
                 </Col>
@@ -153,37 +157,37 @@ const AnimalProfile = ({ isLogin }) => {
                 </Col>
                 <Col className="info" md={10} sm={20} xs={24}>
                     <Row>
-                        <Col className="title" span={8}>類別</Col>
+                        <Col className="title" span={8}>{t('animalprofile.info.kind')}</Col>
                         <Col span={16}>{ (animal.animal_kind) ? animal.animal_kind : noData }</Col>
                     </Row>
                     <Row>
-                        <Col className="title" span={8}>性別</Col>
+                        <Col className="title" span={8}>{t('animalprofile.info.sex')}</Col>
                         <Col span={16}>{ (animal.animal_sex) ? formatSex(animal.animal_sex) : noData }</Col>
                     </Row>
                     <Row>
-                        <Col className="title" span={8}>毛色</Col>
+                        <Col className="title" span={8}>{t('animalprofile.info.colour')}</Col>
                         <Col span={16}>{ (animal.animal_colour) ? animal.animal_colour : noData }</Col>
                     </Row>
                     <Row>
-                        <Col className="title" span={8}>結紮與否</Col>
+                        <Col className="title" span={8}>{t('animalprofile.info.sterilization')}</Col>
                         <Col span={16}>{ (animal.animal_sterilization) ? formatSterilization(animal.animal_sterilization) : noData }</Col>
                     </Row>
                     <Row>
-                        <Col className="title" span={8}>所在地</Col>
+                        <Col className="title" span={8}>{t('animalprofile.info.place')}</Col>
                         <Col span={16}>{ (animal.animal_place) ? animal.animal_place : noData }</Col>
                     </Row>
                     <Row>
-                        <Col className="title" span={8}>地址</Col>
+                        <Col className="title" span={8}>{t('animalprofile.info.address')}</Col>
                         <Col span={16}>{ (animal.shelter_address) ? animal.shelter_address : noData }</Col>
                     </Row>
                     <Row>
-                        <Col className="title" span={8}>聯絡電話</Col>
+                        <Col className="title" span={8}>{t('animalprofile.info.tel')}</Col>
                         <Col span={16}>{ (animal.shelter_tel) ? animal.shelter_tel : noData }</Col>
                     </Row>
                 </Col>
             </Row>
             <Row className="others" justify="center">
-                <Col className="main-title" md={17} sm={20} xs={24}>{ '[ 其他備註 ]' }</Col>
+                <Col className="main-title" md={17} sm={20} xs={24}>{t('animalprofile.info.other')}</Col>
                 <Col className="board" md={17} sm={20} xs={24}>{ (animal.animal_remark) ? animal.animal_remark : noData }</Col>
             </Row>
         </div>

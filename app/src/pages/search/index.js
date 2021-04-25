@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 import { Pagination, Spin } from 'antd';
+import { useTranslation } from 'react-i18next';
 import '../../assets/style/search/index.scss';
 import Card from '../../components/shared/card';
 import SelectForm from '../../components/search/selectForm';
@@ -11,6 +12,7 @@ const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
 
 function Search() {
+    const { t } = useTranslation();
     const [animals, setAnimals] = useState(null); // processed animal data
     const [originAnimals, setOriginAnimals] = useState(null);
     const [isLoading, setLoading] = useState(true);
@@ -82,9 +84,9 @@ function Search() {
         <>
             <SelectForm data={originAnimals} getFilterOptions={getFilterOptions} />
             <SortBlock getSortOptions={getSortOptions} />
-            { isLoading && <Spin tip="加載中..." /> }
+            { isLoading && <Spin tip={t('search.loading')} /> }
             { !isLoading && animals.length === 0 && (
-                <div className="no-result"> 沒有符合條件的毛小孩！！ 請重新選擇條件...</div>
+                <div className="no-result">{t('search.text')}</div>
             )}
             { !isLoading && animals.length !== 0 && (
                 <>

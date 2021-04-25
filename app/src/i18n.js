@@ -21,5 +21,5 @@ i18n.use(initReactI18next).init({
         escapeValue: false, // React already does escaping
     },
 });
-
+// i18n.changeLanguage('en');
 export default i18n;

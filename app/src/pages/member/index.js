@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { Pagination, Spin, message } from 'antd';
+import { useTranslation } from 'react-i18next';
 import Card from '../../components/shared/card';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
@@ -12,6 +13,7 @@ const goToLoginPage = (history) => {
 };
 
 function Member() {
+    const { t } = useTranslation();
     const history = useHistory();
     const [animals, setAnimals] = useState(null); // processed animal data
     const [isLoading, setLoading] = useState(true);
@@ -50,20 +52,20 @@ function Member() {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
-            message.warning('請先登入');
+            message.warning(t('member.not-log-in'));
             goToLoginPage(history);
         } else {
             getFavorites(token);
         }
-    }, [history]);
+    }, [history, t]);
 
     return (
         <>
-            { isLoading && <Spin tip="加載中..." /> }
+            { isLoading && <Spin tip={t('member.loading')} /> }
             { !isLoading && animals.length === 0 && (
-                <div className="no-result"> 沒有收藏的寵物，快去
-                    <Link to='/search' className='link'>領養浪浪</Link>
-                    頁面看看吧
+                <div className="no-result">{t('member.text.0')}
+                    <Link to='/search' className='link'>{t('member.text.1')}</Link>
+                    {t('member.text.2')}
                 </div>
             )}
             { !isLoading && animals.length !== 0 && (
