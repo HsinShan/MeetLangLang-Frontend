@@ -1,4 +1,4 @@
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useState } from 'react';
 import {
     Row,
@@ -42,6 +42,7 @@ const AddDiscuss = ({ isLogin }) => {
             console.log(err);
         }
     };
+    const goback = () => setRedirect('/discuss');
     return (
         <div className="adddiscuss">
             {!isLogin &&
@@ -96,7 +97,7 @@ const AddDiscuss = ({ isLogin }) => {
             <Row className="row-input bottom" justify="end">
                 <Col className="col-buttons" span={18} pull={3}>
                     <Button type="primary" onClick={() => form.submit()}>張貼</Button>
-                    <Button type="primary"><Link to="/">取消</Link></Button>
+                    <Button type="primary" onClick={() => goback()}>取消</Button>
                 </Col>
             </Row>
         </div>
