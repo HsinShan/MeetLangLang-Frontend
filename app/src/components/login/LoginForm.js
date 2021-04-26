@@ -6,6 +6,7 @@ import {
 } from 'antd';
 import { FacebookFilled } from '@ant-design/icons';
 import { Component } from 'react';
+import { withTranslation } from 'react-i18next';
 import '../../assets/style/login/LoginForm.scss';
 
 const initFacebookSdk = () => {
@@ -52,12 +53,13 @@ class LoginForm extends Component {
 
     render() {
         const { type } = this.props;
+        const { t } = this.props;
         return (
             <div className="login-form">
-                <header className="login-form-title">會員{this.props.type}</header>
+                <header className="login-form-title">{t('login.member')}{this.props.type}</header>
                 <div className="account">
                     <p>
-                        <label className="label">帳號</label>
+                        <label className="label">{t('login.username')}</label>
                         <Input
                             type="text"
                             className="accout-text"
@@ -68,7 +70,7 @@ class LoginForm extends Component {
                 </div>
                 <div className="password">
                     <p>
-                        <label className="label">密碼</label>
+                        <label className="label">{t('login.password')}</label>
                         <Input
                             type="password"
                             className="password-text"
@@ -120,4 +122,4 @@ class LoginForm extends Component {
     }
 }
 
-export default LoginForm;
+export default withTranslation()(LoginForm);

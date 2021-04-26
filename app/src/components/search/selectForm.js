@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Select, Button } from 'antd';
+import { useTranslation } from 'react-i18next';
 import _ from 'lodash';
 import { AREA, ANIMAL_AGE, ANIMAL_SEX } from '../../constants';
 import '../../assets/style/search/selectForm.scss';
@@ -12,6 +13,7 @@ const getKindList = (data) => {
 };
 
 const SelectForm = ({ data, getFilterOptions }) => {
+    const { t } = useTranslation();
     const sexOptions = { ...ANIMAL_SEX };
     const ageOptions = { ...ANIMAL_AGE };
     const kindList = getKindList(data);
@@ -48,11 +50,11 @@ const SelectForm = ({ data, getFilterOptions }) => {
 
     return (
         <div className='search-form'>
-            <div className="title">我想找的毛小孩</div>
+            <div className="title">{t('search.default')}</div>
             <div className="selection">
-                <p>類別</p>
-                <Select placeholder="種類" onChange={onKindSelect}>
-                    <Option value="" key="kind">-- 全部 --</Option>
+                <p>{t('search.kind-text')}</p>
+                <Select placeholder={t('search.kind')} onChange={onKindSelect}>
+                    <Option value="" key="kind">{t('search.all')}</Option>
                     {
                         kindList.map((option, i) => (
                             <Option value={option} key={`kind-${i}`}>{option}</Option>
@@ -61,9 +63,9 @@ const SelectForm = ({ data, getFilterOptions }) => {
                 </Select>
             </div>
             <div className="selection">
-                <p>性別是</p>
-                <Select placeholder="性別" onChange={onSexSelect}>
-                    <Option value="" key={`sex-${0}`}>-- 全部 --</Option>
+                <p>{t('search.sex-text')}</p>
+                <Select placeholder={t('search.sex')} onChange={onSexSelect}>
+                    <Option value="" key={`sex-${0}`}>{t('search.all')}</Option>
                     {
                         _.map(sexOptions, (value, key) => (
                             <Option value={key} key={`sex-${key}`}>{value}</Option>
@@ -72,9 +74,9 @@ const SelectForm = ({ data, getFilterOptions }) => {
                 </Select>
             </div>
             <div className="selection">
-                <p>年齡為</p>
-                <Select placeholder="年齡" onChange={onAgeSelect}>
-                    <Option value="" key={`age-${0}`}>-- 全部 --</Option>
+                <p>{t('search.age-text')}</p>
+                <Select placeholder={t('search.age')} onChange={onAgeSelect}>
+                    <Option value="" key={`age-${0}`}>{t('search.all')}</Option>
                     {
                         _.map(ageOptions, (value, key) => (
                             <Option value={key} key={`age-${key}`}>{value}</Option>
@@ -83,9 +85,9 @@ const SelectForm = ({ data, getFilterOptions }) => {
                 </Select>
             </div>
             <div className="selection">
-                <p>所在地</p>
-                <Select placeholder="地區" onChange={onAreaSelect}>
-                    <Option value="" key={`area-${0}`}>-- 全部 --</Option>
+                <p>{t('search.area-text')}</p>
+                <Select placeholder={t('search.area')} onChange={onAreaSelect}>
+                    <Option value="" key={`area-${0}`}>{t('search.all')}</Option>
                     {
                         _.map(areaOptions, (value, key) => (
                             <Option value={key} key={`area-${key}`}>{value}</Option>
@@ -93,7 +95,7 @@ const SelectForm = ({ data, getFilterOptions }) => {
                     }
                 </Select>
             </div>
-            <Button type="primary" className="search-btn" onClick={onSearchBtnClick}>搜尋</Button>
+            <Button type="primary" className="search-btn" onClick={onSearchBtnClick}>{t('search.search')}</Button>
         </div>
     );
 };
