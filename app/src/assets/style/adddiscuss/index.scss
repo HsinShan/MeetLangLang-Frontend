@@ -1,0 +1,23 @@
+@import '../base.scss';
+
+.adddiscuss {
+
+
+    input, textarea {
+        border-radius: 15px;
+    }
+
+    .bottom {
+        .col-buttons {
+            text-align: right;
+
+            button {
+                margin-left: 10px;
+                background-color: #000000;
+                border-color: #000000;
+                border-radius: 20px;
+            }
+        }
+    }
+
+}

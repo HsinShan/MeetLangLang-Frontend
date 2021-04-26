@@ -5,6 +5,7 @@ import Map from '../pages/map';
 import Share from '../pages/share';
 import Discuss from '../pages/discuss';
 import AnimalProfile from '../pages/animalprofile';
+import AddDiscuss from '../pages/adddiscuss';
 
 const routes = [
     {
@@ -45,6 +46,11 @@ const routes = [
     {
         path: '/animalprofile',
         component: AnimalProfile,
+        exact: true,
+    },
+    {
+        path: '/adddiscuss',
+        component: AddDiscuss,
         exact: true,
     },
 ];
