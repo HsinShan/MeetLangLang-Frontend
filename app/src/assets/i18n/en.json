@@ -1,0 +1,145 @@
+{
+    "age": "age",
+    "discuss": {
+        "title": "Topic",
+        "title-search": "Search topic",
+        "author": "Author",
+        "author-search": "Search author",
+        "date": "Date",
+        "post-success": "Post success!",
+        "building": "building...",
+        "title-text": "How do you take care of puppies?",
+        "category": "Category",
+        "content": "Content",
+        "content-text": "A new member has been born in the family. I want to ask how everyone takes care of the puppies?",
+        "post": "Post",
+        "cancel": "Cancel"
+    },
+    "header": {
+        "title": "Meet Lang Lang",
+        "navbar": [
+            "Adoption",
+            "Shelters",
+            "Feeding knowledge",
+            "Message board",
+            "My favorites"
+        ]
+    },
+    "login": {
+        "login": "login",
+        "logout": "logout",
+        "success": "Login success",
+        "error": "Login failed",
+        "member": "Member",
+        "username": "Username",
+        "password": "Password"
+    },
+    "map": {
+        "default": "Find shelters"
+    },
+    "search": {
+        "default": "Find fur babies",
+        "all": "-- All --",
+        "kind-text": "kind",
+        "kind": "kind",
+        "sex-text": "sex",
+        "sex": "sex",
+        "age-text": "age",
+        "age": "age",
+        "area-text": "area",
+        "area": "area",
+        "sort": "--Sort by--",
+        "update-date": "-- update date --",
+        "open-date": "-- open date --",
+        "search": "Search",
+        "loading": "loading...",
+        "text": " There are no fur babies that meets the conditions!! Please re-select the conditions..."
+    },
+    "card": {
+        "none": "none",
+        "sex": "sex",
+        "age": "age",
+        "kind": "kind",
+        "area": "area",
+        "more": "more"
+    },
+    "animalprofile": {
+        "sex": {
+            "f": "Female",
+            "m": "Male"
+        },
+        "sterilization": {
+            "t": "Ligated",
+            "f": "Unligated",
+            "n": "Not sure"
+        },
+        "none": "none",
+        "save": {
+            "success": "success",
+            "error": "failed"
+        },
+        "not-log-in": "Please login first to use the favorite function",
+        "unsave": {
+            "success": "success",
+            "error": "failed"
+        },
+        "info": {
+            "data": "[ Fur babies data ]",
+            "prev": "Back",
+            "add": "Add to favorites",
+            "delete": "delete form favorites",
+            "kind": "Kind",
+            "sex": "Sex",
+            "colour": "Colour",
+            "sterilization": "Sterilization",
+            "place": "Place",
+            "address": "Address",
+            "tel": "Tel",
+            "other": "[ Other ]"
+        }
+    },
+    "member": {
+        "not-log-in": "Please log in first",
+        "loading": "loading...",
+        "text": {
+            "0": " There are no any favorite fur babies yet. Go to",
+            "1": " Adoption",
+            "2": " page!"
+        }
+    },
+    "share": {
+        "building": "building..."
+    },
+    "area": {
+        "2": "Taipei City",
+        "3": "New Taipei City",
+        "4": "Keelung City",
+        "5": "Yilan County",
+        "6": "Taoyuan City",
+        "7": "Hsinchu County",
+        "8": "Hsinchu City",
+        "9": "Miaoli County",
+        "10": "Taichung City",
+        "11": "Changhua County",
+        "12": "Nantou County",
+        "13": "Yunlin County",
+        "14": "Chiayi County",
+        "15": "Chiayi City",
+        "16": "Tainan City",
+        "17": "Kaohsiung City",
+        "18": "Pingtung County",
+        "19": "Hualien County",
+        "20": "Taitung County",
+        "21": "Penghu County",
+        "22": "Kinmen County",
+        "23": "Lianjiang County"
+    },
+    "animal_age": {
+        "child": "child",
+        "adult": "adult"
+    },
+    "animal_sex": {
+        "F": "female",
+        "M": "male"
+    }
+}

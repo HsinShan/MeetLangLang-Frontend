@@ -1,12 +1,14 @@
 import '../../assets/style/login/index.scss';
 import axios from 'axios';
 import { message } from 'antd';
+import { useTranslation } from 'react-i18next';
 import LoginForm from '../../components/login/LoginForm';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
 
 const Login = ({ isLogin, loggedin }) => {
+    const { t } = useTranslation();
     const loginLogic = async (account) => {
         try {
             const { hostname } = window.location;
@@ -18,10 +20,10 @@ const Login = ({ isLogin, loggedin }) => {
                 },
             });
             const { token } = data;
-            message.success('登入成功');
+            message.success(t('login.success'));
             loggedin(token);
         } catch (err) {
-            message.error('登入失敗');
+            message.error(t('login.error'));
         }
     };
     const fbLoginLogic = async (type, fbtoken = '') => {
@@ -35,10 +37,10 @@ const Login = ({ isLogin, loggedin }) => {
                 },
             });
             const { token } = data;
-            message.success('登入成功');
+            message.success(t('login.success'));
             loggedin(token);
         } else {
-            message.error('登入失敗');
+            message.error(t('login.error'));
         }
     };
     return (
