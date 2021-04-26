@@ -1,129 +1,137 @@
 {
-    "age": "年齡",
+    "age": "age",
     "discuss": {
-        "title": "主題",
-        "title-search": "搜尋主題",
-        "author": "作者",
-        "author-search": "搜尋作者",
-        "date": "發布日期"
+        "title": "Topic",
+        "title-search": "Search topic",
+        "author": "Author",
+        "author-search": "Search author",
+        "date": "Date"
     },
     "header": {
-        "title": "遇見浪浪",
+        "title": "Meet Lang Lang",
         "navbar": [
-            "領養浪浪",
-            "找收容所",
-            "飼養知識",
-            "留言板",
-            "我的收藏"
+            "Adoption",
+            "Shelters",
+            "Feeding knowledge",
+            "Message board",
+            "My favorites"
         ]
     },
     "login": {
-        "login": "登入",
-        "logout": "登出",
-        "success": "登入成功",
-        "error": "登入失敗",
-        "member": "會員",
-        "username": "帳號",
-        "password": "密碼"
+        "login": "login",
+        "logout": "logout",
+        "success": "Login success",
+        "error": "Login failed",
+        "member": "Member",
+        "username": "Username",
+        "password": "Password"
     },
     "map": {
-        "default": "我要找縣市收容所"
+        "default": "Find shelters"
     },
     "search": {
-        "default": "我想找的毛小孩",
-        "all": "-- 全部 --",
-        "kind-text": "類別",
-        "kind": "種類",
-        "sex-text": "性別是",
-        "sex": "性別",
-        "age-text": "年齡為",
-        "age": "年齡",
-        "area-text": "所在地",
-        "area": "地區",
-        "sort": "--排序方式--",
-        "update-date": "-- 依照資料更新日期排序 --",
-        "open-date": "-- 依照開放認養日期排序 --",
-        "search": "搜尋",
-        "loading": "載入中...",
-        "text": " 沒有符合條件的毛小孩！！ 請重新選擇條件..."
+        "default": "Find fur babies",
+        "all": "-- All --",
+        "kind-text": "kind",
+        "kind": "kind",
+        "sex-text": "sex",
+        "sex": "sex",
+        "age-text": "age",
+        "age": "age",
+        "area-text": "area",
+        "area": "area",
+        "sort": "--Sort by--",
+        "update-date": "-- update date --",
+        "open-date": "-- open date --",
+        "search": "Search",
+        "loading": "loading...",
+        "text": " There are no fur babies that meets the conditions!! Please re-select the conditions..."
     },
     "card": {
-        "none": "無",
-        "sex": "性別",
-        "age": "年齡",
-        "kind": "品種",
-        "area": "所在地",
-        "more": "看更多"
+        "none": "none",
+        "sex": "sex",
+        "age": "age",
+        "kind": "kind",
+        "area": "area",
+        "more": "more"
     },
     "animalprofile": {
         "sex": {
-            "f": "女生",
-            "m": "男生"
+            "f": "Female",
+            "m": "Male"
         },
         "sterilization": {
-            "t": "已結紮",
-            "f": "未結紮",
-            "n": "不確定"
+            "t": "Ligated",
+            "f": "Unligated",
+            "n": "Not sure"
         },
-        "none": "無",
+        "none": "none",
         "save": {
-            "success": "收藏成功",
-            "error": "收藏失敗"
+            "success": "success",
+            "error": "failed"
         },
-        "not-log-in": "請先登入才可以使用收藏功能喔",
+        "not-log-in": "Please login first to use the favorite function",
         "unsave": {
-            "success": "已取消收藏",
-            "error": "收藏失敗"
+            "success": "success",
+            "error": "failed"
         },
         "info": {
-            "data": "[ 浪浪資料 ]",
-            "prev": "上一頁",
-            "add": "加入收藏",
-            "delete": "取消收藏",
-            "kind": "類別",
-            "sex": "性別",
-            "colour": "毛色",
-            "sterilization": "結紮與否",
-            "place": "所在地",
-            "address": "地址",
-            "tel": "聯絡電話",
-            "other": "[ 其他備註 ]"
+            "data": "[ Fur babies data ]",
+            "prev": "Back",
+            "add": "Add to favorites",
+            "delete": "delete form favorites",
+            "kind": "Kind",
+            "sex": "Sex",
+            "colour": "Colour",
+            "sterilization": "Sterilization",
+            "place": "Place",
+            "address": "Address",
+            "tel": "Tel",
+            "other": "[ Other ]"
         }
     },
     "member": {
-        "not-log-in": "請先登入",
-        "loading": "載入中...",
+        "not-log-in": "Please log in first",
+        "loading": "loading...",
         "text": {
-            "0": " 沒有收藏的寵物，快去",
-            "1": "領養浪浪",
-            "2": "頁面看看吧"
+            "0": " There are no any favorite fur babies yet. Go to",
+            "1": " Adoption",
+            "2": " page!"
         }
     },
     "share": {
-        "building": "頁面建置中..."
+        "building": "building..."
     },
     "area": {
-        "2": "臺北市",
-        "3": "新北市",
-        "4": "基隆市",
-        "5": "宜蘭縣",
-        "6": "桃園市",
-        "7": "新竹縣",
-        "8": "新竹市",
-        "9": "苗栗縣",
-        "10": "臺中市",
-        "11": "彰化縣",
-        "12": "南投縣",
-        "13": "雲林縣",
-        "14": "嘉義縣",
-        "15": "嘉義市",
-        "16": "臺南市",
-        "17": "高雄市",
-        "18": "屏東縣",
-        "19": "花蓮縣",
-        "20": "臺東縣",
-        "21": "澎湖縣",
-        "22": "金門縣",
-        "23": "連江縣"
+        "2": "Taipei City",
+        "3": "New Taipei City",
+        "4": "Keelung City",
+        "5": "Yilan County",
+        "6": "Taoyuan City",
+        "7": "Hsinchu County",
+        "8": "Hsinchu City",
+        "9": "Miaoli County",
+        "10": "Taichung City",
+        "11": "Changhua County",
+        "12": "Nantou County",
+        "13": "Yunlin County",
+        "14": "Chiayi County",
+        "15": "Chiayi City",
+        "16": "Tainan City",
+        "17": "Kaohsiung City",
+        "18": "Pingtung County",
+        "19": "Hualien County",
+        "20": "Taitung County",
+        "21": "Penghu County",
+        "22": "Kinmen County",
+        "23": "Lianjiang County"
+    },
+    "animal_age": {
+        "child": "child",
+        "adult": "adult"
+    },
+    "animal_sex": {
+        "F": "female",
+        "M": "male"
     }
 }
