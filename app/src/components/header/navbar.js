@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
 import _ from 'lodash';
+import { useTranslation } from 'react-i18next';
 import usePathname from '../../hooks/usePathname';
 
-const ITEMS = ['領養浪浪', '找收容所', '飼養知識', '留言板', '我的收藏'];
 const LINKS = ['/search', '/map', '/share', '/discuss', '/member'];
 
-const menuItems = ITEMS.map((item, i) => (
-    <Menu.Item key={i}>
-        <Link to={LINKS[i]} className='link'>{item}</Link>
-    </Menu.Item>
-));
-
 const Navbar = () => {
+    const { t } = useTranslation();
+    const menuItems = t('header.navbar', { returnObjects: true }).map((item, i) => (
+        <Menu.Item key={i}>
+            <Link to={LINKS[i]} className='link'>{item}</Link>
+        </Menu.Item>
+    ));
     const pathname = usePathname();
     let activeIndex = _.findIndex(LINKS, (link) => pathname === link);
     if (activeIndex === -1) activeIndex = 0;
