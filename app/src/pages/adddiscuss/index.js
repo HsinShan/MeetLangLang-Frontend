@@ -9,6 +9,7 @@ import {
     message,
     Form,
 } from 'antd';
+import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import '../../assets/style/adddiscuss/index.scss';
 
@@ -17,6 +18,7 @@ const apiPort = process.env.REACT_APP_API_PORT;
 const { hostname } = window.location;
 
 const AddDiscuss = ({ isLogin }) => {
+    const { t } = useTranslation();
     const [redirect, setRedirect] = useState('');
     const [form] = Form.useForm();
     const submit = async (title, content) => {
@@ -31,7 +33,7 @@ const AddDiscuss = ({ isLogin }) => {
                 },
                 method: 'post',
             });
-            if (data.success) message.success('張貼成功!');
+            if (data.success) message.success(t('post-success'));
             setRedirect('/discuss');
         } catch (err) {
             if ('response' in err) {
@@ -66,38 +68,38 @@ const AddDiscuss = ({ isLogin }) => {
                 }}
             >
                 <Form.Item
-                    label="作者"
+                    label={t('discuss.author')}
                 >
-                    製作中...
+                    {t('discuss.building')}
                 </Form.Item>
                 <Form.Item
-                    label="主題"
+                    label={t('discuss.title')}
                     name="title"
                     rules={[{ required: true, min: 1 }]}
                 >
-                    <Input placeholder="大家都怎麼照顧幼犬的呢？" />
+                    <Input placeholder={t('discuss.title-text')} />
                 </Form.Item>
                 <Form.Item
-                    label="類別"
+                    label={t('discuss.category')}
                     name="category"
                     wrapperCol={{ span: 5 }}
                 >
                     <Select defaultValue="default" disabled>
-                        <Select.Option value="default">製作中...</Select.Option>
+                        <Select.Option value="default">{t('discuss.building')}</Select.Option>
                     </Select>
                 </Form.Item>
                 <Form.Item
-                    label="內容"
+                    label={t('discuss.content')}
                     name="content"
                     rules={[{ required: true, min: 1 }]}
                 >
-                    <Input.TextArea rows={4} placeholder="家裡誕生了新成員，想問大家都怎麼照顧幼犬的呢？" />
+                    <Input.TextArea rows={4} placeholder={t('discuss.content-text')} />
                 </Form.Item>
             </Form>
             <Row className="row-input bottom" justify="end">
                 <Col className="col-buttons" span={18} pull={3}>
-                    <Button type="primary" onClick={() => form.submit()}>張貼</Button>
-                    <Button type="primary" onClick={() => goback()}>取消</Button>
+                    <Button type="primary" onClick={() => form.submit()}>{t('discuss.post')}</Button>
+                    <Button type="primary" onClick={() => goback()}>{t('discuss.cancel')}</Button>
                 </Col>
             </Row>
         </div>

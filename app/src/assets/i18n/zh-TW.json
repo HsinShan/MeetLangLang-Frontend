@@ -5,7 +5,15 @@
         "title-search": "搜尋主題",
         "author": "作者",
         "author-search": "搜尋作者",
-        "date": "發布日期"
+        "date": "發布日期",
+        "post-success": "張貼成功!",
+        "building": "製作中...",
+        "title-text": "大家都怎麼照顧幼犬的呢？",
+        "category": "類別",
+        "content": "內容",
+        "content-text": "家裡誕生了新成員，想問大家都怎麼照顧幼犬的呢？",
+        "post": "張貼",
+        "cancel": "取消"
     },
     "header": {
         "title": "遇見浪浪",

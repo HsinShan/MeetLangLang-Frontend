@@ -5,7 +5,15 @@
         "title-search": "Search topic",
         "author": "Author",
         "author-search": "Search author",
-        "date": "Date"
+        "date": "Date",
+        "post-success": "Post success!",
+        "building": "building...",
+        "title-text": "How do you take care of puppies?",
+        "category": "Category",
+        "content": "Content",
+        "content-text": "A new member has been born in the family. I want to ask how everyone takes care of the puppies?",
+        "post": "Post",
+        "cancel": "Cancel"
     },
     "header": {
         "title": "Meet Lang Lang",
