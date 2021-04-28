@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Spin } from 'antd';
 import '../../assets/style/map/googleMap.scss';
 
-function App() {
+function GoogleMap({ area }) {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
+    // const [Area,setArea] = useState(null);
     useEffect(() => {
         navigator.geolocation.watchPosition((position) => {
             setLat(Number(position.coords.latitude));
@@ -21,8 +22,9 @@ function App() {
                     </iframe>
                 </div>
             }
+            {console.log('area in map', area)}
         </>
     );
 }
 
-export default App;
+export default GoogleMap;
