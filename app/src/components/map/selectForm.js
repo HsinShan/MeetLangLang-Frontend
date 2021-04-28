@@ -10,6 +10,7 @@ const SelectForm = () => {
         console.log('search:', val);
     }
     const { t } = useTranslation();
+    const areas = Object.values(t('area', { returnObjects: true }));
     return (
         <div className="search-form">
             <Select
@@ -20,9 +21,12 @@ const SelectForm = () => {
                 onSearch={onSearch}
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
             >
-                <Option value="新北市">{t('area.3')}</Option>
-                <Option value="台北市">{t('area.2')}</Option>
-                <Option value="桃園市">{t('area.6')}</Option>
+                <Option value="">{t('map.default')}</Option>
+                {
+                    areas.map((area) => (
+                        <Option value={ area } key={ area }>{ area }</Option>
+                    ))
+                }
             </Select>
 
             <Tooltip title="search">
