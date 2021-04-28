@@ -5,7 +5,6 @@ import '../../assets/style/map/googleMap.scss';
 function GoogleMap({ area }) {
     const [lat, setLat] = useState(null);
     const [lng, setLng] = useState(null);
-    // const [Area,setArea] = useState(null);
     useEffect(() => {
         navigator.geolocation.watchPosition((position) => {
             setLat(Number(position.coords.latitude));
@@ -16,11 +15,18 @@ function GoogleMap({ area }) {
     return (
         <>
             { lat === null && <div><Spin tip="Loading..." /></div>}
-            { lat !== null &&
+            { lat !== null && area === null &&
                 <div className="google-map">
                     <iframe className="iframe" src={`https://www.google.com/maps/embed/v1/search?key=AIzaSyA93EqfOkICl0lzRjq3Zb5bNRWFriWzlfE&center=${lat},${lng}&zoom=13&q=收容所`}>
                     </iframe>
                 </div>
+            }
+            { lat !== null && area !== null &&
+                <div className="google-map">
+                    <iframe className="iframe" src={`https://www.google.com/maps/embed/v1/search?key=AIzaSyA93EqfOkICl0lzRjq3Zb5bNRWFriWzlfE&zoom=14&q=${area}收容所`}>
+                    </iframe>
+                </div>
+
             }
             {console.log('area in map', area)}
         </>
