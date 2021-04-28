@@ -6,7 +6,6 @@ function Map() {
     const [area, setArea] = useState(null);
 
     const getSelectArea = (selectArea) => {
-        console.log('area', selectArea);
         setArea(selectArea);
     };
 

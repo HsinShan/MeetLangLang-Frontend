@@ -28,7 +28,6 @@ function GoogleMap({ area }) {
                 </div>
 
             }
-            {console.log('area in map', area)}
         </>
     );
 }

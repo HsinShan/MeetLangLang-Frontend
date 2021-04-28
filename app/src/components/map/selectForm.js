@@ -34,7 +34,7 @@ const SelectForm = ({ getSelectArea }) => {
             </Select>
 
             <Tooltip title="search">
-                <Button shape="circle" onClick={() => getSelectArea(selectarea)} icon={<SearchOutlined />} />
+                <Button shape="circle" onClick={() => getSelectArea(selectarea) } icon={<SearchOutlined />} />
             </Tooltip>
         </div>
     );
