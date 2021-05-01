@@ -2,14 +2,19 @@ import { Select, Button, Tooltip } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import '../../assets/style/map/selectForm.scss';
+import { useState } from 'react';
 
 const { Option } = Select;
 
-const SelectForm = () => {
-    function onSearch(val) {
-        console.log('search:', val);
-    }
+const SelectForm = ({ getSelectArea }) => {
     const { t } = useTranslation();
+    const [selectarea, setSelectArea] = useState(null);
+
+    function onSelect(val) {
+        setSelectArea(val);
+    }
+
+    const areas = Object.values(t('area', { returnObjects: true }));
     return (
         <div className="search-form">
             <Select
@@ -17,16 +22,19 @@ const SelectForm = () => {
                 style={{ width: 200 }}
                 placeholder={t('map.default')}
                 optionFilterProp="region"
-                onSearch={onSearch}
+                onChange={onSelect}
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
             >
-                <Option value="新北市">{t('area.3')}</Option>
-                <Option value="台北市">{t('area.2')}</Option>
-                <Option value="桃園市">{t('area.6')}</Option>
+                <Option value="">{t('map.default')}</Option>
+                {
+                    areas.map((area) => (
+                        <Option value={ area } key={ area }>{ area }</Option>
+                    ))
+                }
             </Select>
 
             <Tooltip title="search">
-                <Button shape="circle" icon={<SearchOutlined />} />
+                <Button shape="circle" onClick={() => getSelectArea(selectarea) } icon={<SearchOutlined />} />
             </Tooltip>
         </div>
     );
