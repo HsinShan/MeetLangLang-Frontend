@@ -26,7 +26,8 @@
         "error": "登入失敗",
         "member": "會員",
         "username": "帳號",
-        "password": "密碼"
+        "password": "密碼",
+        "welcome": "歡迎"
     },
     "map": {
         "default": "我要找縣市收容所"

@@ -105,7 +105,7 @@ class LoginForm extends Component {
                                             }
                                         });
                                     }, {
-                                        scope: 'email',
+                                        scope: 'email,public_profile',
                                     });
                                 }}
                             >

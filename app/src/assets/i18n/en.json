@@ -32,7 +32,8 @@
         "error": "Login failed",
         "member": "Member",
         "username": "Username",
-        "password": "Password"
+        "password": "Password",
+        "welcome": "Welcome"
     },
     "map": {
         "default": "Find shelters"

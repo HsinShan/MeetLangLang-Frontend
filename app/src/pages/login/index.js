@@ -36,9 +36,9 @@ const Login = ({ isLogin, loggedin }) => {
                     accessToken: fbtoken,
                 },
             });
-            const { token } = data;
+            const { token, firstName } = data;
             message.success(t('login.success'));
-            loggedin(token);
+            loggedin(token, firstName);
         } else {
             message.error(t('login.error'));
         }
