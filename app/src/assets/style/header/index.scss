@@ -12,7 +12,7 @@
         margin-bottom: 0px;
         font-weight: 600;
       }
-  
+
       img {
         width: 16px;
         margin-left: 6px;
@@ -20,18 +20,35 @@
       }
     }
 
-    .ant-btn, .ant-btn:focus {
-      padding: 0 16px;
-      border-radius: 20px;
-      border-color: $background-brown;
-      background-color: $background-brown;
-      color: white;
-      font-weight: 600;
-
-      &:hover {
-        background-color: white;
+    .right-section {
+      text-align: right;
+      .ant-btn,
+      .ant-btn:focus {
+        padding: 0 16px;
+        border-radius: 20px;
         border-color: $background-brown;
-        color: $font-brown;
+        background-color: $background-brown;
+        color: white;
+        font-weight: 600;
+
+        &:hover {
+          background-color: white;
+          border-color: $background-brown;
+          color: $font-brown;
+        }
+      }
+
+      .language {
+        padding-right: 5px;
+        padding-bottom: 5px;
+      }
+      
+      .language-label {
+        background-color: $page-background;
+        font-size: 13px;
+        &:hover {
+          color: $background-brown;
+        }
       }
     }
   }
@@ -50,10 +67,10 @@
         .link {
           color: $background-gray;
           font-weight: bold;
-  
         }
 
-        &-selected, &:hover {
+        &-selected,
+        &:hover {
           border-bottom: 2px solid $background-brown;
         }
       }
@@ -76,13 +93,14 @@
           width: 19%;
           text-align: center;
           margin: 0;
-  
+
           .link {
             font-weight: normal;
             font-size: 12px;
           }
-  
-          &-selected, &:hover {
+
+          &-selected,
+          &:hover {
             border-bottom: 2px solid $background-brown;
           }
         }
