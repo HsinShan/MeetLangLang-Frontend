@@ -13,7 +13,8 @@
         "content": "Content",
         "content-text": "A new member has been born in the family. I want to ask how everyone takes care of the puppies?",
         "post": "Post",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "add-discuss": "Add Discuss"
     },
     "header": {
         "title": "Meet Lang Lang",
