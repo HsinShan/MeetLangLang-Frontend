@@ -7,10 +7,12 @@ function App() {
     const [isLogin, setIsLogin] = useState((localStorage.getItem('token') !== null && localStorage.getItem('token') !== ''));
     const logout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('firstName');
         setIsLogin(false);
     };
-    const loggedin = (token) => {
+    const loggedin = (token, firstName) => {
         localStorage.setItem('token', token);
+        localStorage.setItem('firstName', firstName);
         setIsLogin(true);
     };
     return (

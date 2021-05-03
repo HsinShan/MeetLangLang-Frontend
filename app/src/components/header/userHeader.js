@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 const UserHeader = (props) => {
     const { isLogin, logout } = props;
+    const firstName = localStorage.getItem('firstName');
     const { t } = useTranslation();
     return (
         <>
@@ -15,7 +16,10 @@ const UserHeader = (props) => {
                 </Link>
             }
             {(isLogin) &&
-                <Button onClick={() => logout()}>{t('login.logout')}</Button>
+                <div>
+                    <label className='welcome'>{t('login.welcome')}, {firstName}</label>
+                    <Button onClick={() => logout()}>{t('login.logout')}</Button>
+                </div>
             }
         </>
     );
