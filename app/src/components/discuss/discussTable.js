@@ -1,10 +1,10 @@
 import { Table, Input } from 'antd';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../../assets/style/discuss/discussTable.scss';
 
-const DiscussTable = ({ data, GetUuid }) => {
+const DiscussTable = ({ data }) => {
     const { t } = useTranslation();
     const [dataSource, setDataSource] = useState(data);
     const [titleValue, setTitleValue] = useState('');
@@ -90,15 +90,6 @@ const DiscussTable = ({ data, GetUuid }) => {
     function click(index) {
         console.log(index);
         window.location.href = [`/discuss/detail?uuid=${index}`];
-        return (
-            <Link to={{
-                pathname: '/discuss/detail',
-                state: {
-                    uuid: index,
-                },
-            }}>
-            </Link>
-        );
     }
 
     return (
@@ -107,7 +98,7 @@ const DiscussTable = ({ data, GetUuid }) => {
             dataSource={dataSource}
             pagination={paginationProps}
             pageSize={rowPerPage}
-            onRow={(record) => ({ onClick: () => { click(record.key); GetUuid(record.key); } }) }
+            onRow={(record) => ({ onClick: () => { click(record.key); } }) }
         />
     );
 };
