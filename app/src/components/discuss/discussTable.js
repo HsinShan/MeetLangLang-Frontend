@@ -1,9 +1,10 @@
 import { Table, Input } from 'antd';
+import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../../assets/style/discuss/discussTable.scss';
 
-const DiscussTable = ({ data }) => {
+const DiscussTable = ({ data, GetUuid }) => {
     const { t } = useTranslation();
     const [dataSource, setDataSource] = useState(data);
     const [titleValue, setTitleValue] = useState('');
@@ -86,12 +87,27 @@ const DiscussTable = ({ data }) => {
         pageSize: rowPerPage,
     };
 
+    function click(index) {
+        console.log(index);
+        window.location.href = [`/discuss/detail?uuid=${index}`];
+        return (
+            <Link to={{
+                pathname: '/discuss/detail',
+                state: {
+                    uuid: index,
+                },
+            }}>
+            </Link>
+        );
+    }
+
     return (
         <Table
             columns={columns}
             dataSource={dataSource}
             pagination={paginationProps}
             pageSize={rowPerPage}
+            onRow={(record) => ({ onClick: () => { click(record.key); GetUuid(record.key); } }) }
         />
     );
 };
