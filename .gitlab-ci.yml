@@ -6,8 +6,6 @@ stages:
 dev-standtest-preparation:
   stage: preparation
   image: node:10.17.0
-  tags:
-    - sdm2021group3-docker
   only:
     - /^feature\/.*$/
     - /^bugfix\/.*$/
@@ -26,8 +24,6 @@ dev-standtest-preparation:
 dev-commit-test:
   stage: standard-test
   image: node:10.17.0
-  tags:
-    - sdm2021group3-docker
   only:
     - /^feature\/.*$/
     - /^bugfix\/.*$/
@@ -45,8 +41,6 @@ dev-commit-test:
 dev-style-test:
   stage: standard-test
   image: node:10.17.0
-  tags:
-    - sdm2021group3-docker
   only:
     - /^feature\/.*$/
     - /^bugfix\/.*$/
