@@ -87,8 +87,7 @@ const DiscussTable = ({ data }) => {
     };
 
     function click(index) {
-        console.log(index);
-        window.location.href = [`/discuss/detail?uuid=${index}`];
+        window.location.href = `/discuss/detail?uuid=${index}`;
     }
 
     return (
