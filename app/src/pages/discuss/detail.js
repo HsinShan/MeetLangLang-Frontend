@@ -29,7 +29,7 @@ function DiscussDetail() {
     });
 
     return (
-        <>
+        <div className="discuss">
             { discuss !== null &&
                 <Card title={discuss.title}>
                     <p className="author">{t('discuss.author')}：{discuss.author}</p>
@@ -37,8 +37,8 @@ function DiscussDetail() {
                     <p className="contnet">{t('discuss.content')}：{discuss.content}</p>
                 </Card>
             }
-            { discuss === null && uuidFromURL === null && <div><Spin tip="Loading..." /></div>}
-        </>
+            { discuss === null && <div><Spin tip="Loading..." /></div>}
+        </div>
     );
 }
 export default DiscussDetail;
