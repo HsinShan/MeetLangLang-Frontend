@@ -86,12 +86,17 @@ const DiscussTable = ({ data }) => {
         pageSize: rowPerPage,
     };
 
+    function click(index) {
+        window.location.href = `/discuss/detail?uuid=${index}`;
+    }
+
     return (
         <Table
             columns={columns}
             dataSource={dataSource}
             pagination={paginationProps}
             pageSize={rowPerPage}
+            onRow={(record) => ({ onClick: () => { click(record.key); } }) }
         />
     );
 };

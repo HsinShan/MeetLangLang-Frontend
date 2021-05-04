@@ -4,6 +4,7 @@ import Search from '../pages/search';
 import Map from '../pages/map';
 import Share from '../pages/share';
 import Discuss from '../pages/discuss';
+import DiscussDetail from '../pages/discuss/detail';
 import AnimalProfile from '../pages/animalprofile';
 import AddDiscuss from '../pages/adddiscuss';
 
@@ -53,6 +54,12 @@ const routes = [
         component: AddDiscuss,
         exact: true,
     },
+    {
+        path: '/discuss/detail',
+        component: DiscussDetail,
+        exact: true,
+    },
+
 ];
 
 export default routes;
