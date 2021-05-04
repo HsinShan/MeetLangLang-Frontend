@@ -1,5 +1,4 @@
 import { Table, Input } from 'antd';
-// import { Link } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../../assets/style/discuss/discussTable.scss';
