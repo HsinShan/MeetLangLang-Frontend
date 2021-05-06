@@ -16,8 +16,9 @@ const Navbar = () => {
     ));
     const pathname = usePathname();
     let activeIndex = _.findIndex(LINKS, (link) => pathname === link);
-    if (activeIndex === -1) activeIndex = 0;
-    const selectedKeys = (pathname === '/login') ? [] : [activeIndex.toString()];
+    let selectedKeys = [activeIndex.toString()];
+    if (!pathname) activeIndex = 0;
+    if (pathname && activeIndex === -1) selectedKeys = [];
 
     return (
         <Menu mode='horizontal' selectedKeys={selectedKeys}>
