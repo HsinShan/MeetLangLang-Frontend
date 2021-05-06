@@ -6,16 +6,11 @@ import '../../assets/style/search/selectForm.scss';
 
 const { Option } = Select;
 
-const getKindList = (data) => {
-    const kindList = _.uniq(_.map(data, 'animal_kind'));
-    return kindList;
-};
-
-const SelectForm = ({ data, getFilterOptions }) => {
+const SelectForm = ({ getFilterOptions }) => {
     const { t } = useTranslation();
     const sexOptions = { ...t('animal_sex', { returnObjects: true }) };
     const ageOptions = { ...t('animal_age', { returnObjects: true }) };
-    const kindList = getKindList(data);
+    const kindOptions = { ...t('animal_kind', { returnObjects: true }) };
     const areaOptions = { ...t('area', { returnObjects: true }) };
     const [filterOptions, setFilterOptions] = useState({
         animal_sex: '',
@@ -55,8 +50,8 @@ const SelectForm = ({ data, getFilterOptions }) => {
                 <Select placeholder={t('search.kind')} onChange={onKindSelect}>
                     <Option value="" key="kind">{t('search.all')}</Option>
                     {
-                        kindList.map((option, i) => (
-                            <Option value={option} key={`kind-${i}`}>{option}</Option>
+                        _.map(kindOptions, (value, key) => (
+                            <Option value={key} key={`kind-${key}`}>{value}</Option>
                         ))
                     }
                 </Select>
