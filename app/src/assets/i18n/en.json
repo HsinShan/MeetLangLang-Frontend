@@ -34,7 +34,8 @@
         "member": "Member",
         "username": "Username",
         "password": "Password",
-        "welcome": "Welcome"
+        "welcome": "Welcome",
+        "already-login": "You already logged in."
     },
     "map": {
         "default": "Find shelters"
