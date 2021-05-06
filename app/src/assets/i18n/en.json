@@ -21,7 +21,7 @@
         "navbar": [
             "Adoption",
             "Shelters",
-            "Feeding knowledge",
+            "Draw card",
             "Message board",
             "My favorites"
         ]
@@ -109,7 +109,7 @@
             "2": " page!"
         }
     },
-    "share": {
+    "drawcards": {
         "building": "building..."
     },
     "area": {

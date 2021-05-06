@@ -5,7 +5,7 @@ import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
 import usePathname from '../../hooks/usePathname';
 
-const LINKS = ['/search', '/map', '/share', '/discuss', '/member'];
+const LINKS = ['/search', '/map', '/drawcards', '/discuss', '/member'];
 
 const Navbar = () => {
     const { t } = useTranslation();
