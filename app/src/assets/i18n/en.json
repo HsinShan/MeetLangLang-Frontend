@@ -137,11 +137,16 @@
         "23": "Lianjiang County"
     },
     "animal_age": {
-        "child": "child",
-        "adult": "adult"
+        "CHILD": "child",
+        "ADULT": "adult"
     },
     "animal_sex": {
         "F": "female",
         "M": "male"
+    },
+    "animal_kind":{
+        "貓": "Cat",
+        "狗": "Dog",
+        "其他": "Others"
     }
 }
