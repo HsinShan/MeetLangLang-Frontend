@@ -82,7 +82,7 @@ function Search() {
 
     return (
         <>
-            <SelectForm data={originAnimals} getFilterOptions={getFilterOptions} />
+            <SelectForm getFilterOptions={getFilterOptions} />
             <SortBlock getSortOptions={getSortOptions} />
             { isLoading && <Spin tip={t('search.loading')} /> }
             { !isLoading && animals.length === 0 && (

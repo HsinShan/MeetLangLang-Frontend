@@ -2,7 +2,7 @@ import Login from '../pages/login';
 import Member from '../pages/member';
 import Search from '../pages/search';
 import Map from '../pages/map';
-import Share from '../pages/share';
+import DrawCards from '../pages/drawcards';
 import Discuss from '../pages/discuss';
 import DiscussDetail from '../pages/discuss/detail';
 import AnimalProfile from '../pages/animalprofile';
@@ -40,8 +40,8 @@ const routes = [
         exact: true,
     },
     {
-        path: '/share',
-        component: Share,
+        path: '/drawcards',
+        component: DrawCards,
         exact: true,
     },
     {

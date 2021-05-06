@@ -22,16 +22,16 @@ const Card = ({ data }) => {
                 <img src={ image || DefaultImage } />
             </div>
             <div className="info">
-                <p className="title">{t('card.sex')}</p>
+                <p className="title">{ t('card.sex') }</p>
                 <p className='data'>{ t('animal_sex', { returnObjects: true })[sex] || noData }</p>
             </div>
             <div className="info">
-                <p className="title">{t('card.age')}</p>
+                <p className="title">{ t('card.age') }</p>
                 <p className='data'>{ t('animal_age', { returnObjects: true })[age] || noData }</p>
             </div>
             <div className="info">
-                <p className="title">{t('card.kind')}</p>
-                <p className='data'>{ kind || noData }</p>
+                <p className="title">{ t('card.kind') }</p>
+                <p className='data'>{ t('animal_kind', { returnObjects: true })[kind] || noData }</p>
             </div>
             <div className="info">
                 <p className="title">{t('card.area')}</p>

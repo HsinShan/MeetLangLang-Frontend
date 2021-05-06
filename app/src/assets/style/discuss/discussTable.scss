@@ -41,3 +41,22 @@
 .column-date{
     width: 25%;
 }
+
+.ant-table-row {
+    cursor: pointer;
+
+    &:hover >td {
+        background-color: $background-brown;
+        font-weight: bold;
+    }
+}
+
+.ant-table-thead {
+    th.ant-table-column-has-sorters:hover {
+        background-color: $background-gray;
+    }
+
+    th.ant-table-column-sort {
+        background-color: $background-gray;
+    }
+}

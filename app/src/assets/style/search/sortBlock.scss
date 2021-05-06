@@ -1,7 +1,21 @@
+@import '../base';
+
 .sort-block {
     float: right;
 
     .ant-select {
         width: 200px;
+    }
+}
+
+@include mobile {
+    .sort-block {
+        float: none;
+        display: flex;
+        justify-content: center;
+    
+        .ant-select {
+            width: 200px;
+        }
     }
 }

@@ -158,7 +158,7 @@ const AnimalProfile = ({ isLogin }) => {
                 <Col className="info" md={10} sm={20} xs={24}>
                     <Row>
                         <Col className="title" span={8}>{t('animalprofile.info.kind')}</Col>
-                        <Col span={16}>{ (animal.animal_kind) ? animal.animal_kind : noData }</Col>
+                        <Col span={16}>{ (animal.animal_kind) ? t('animal_kind', { returnObjects: true })[animal.animal_kind] : noData }</Col>
                     </Row>
                     <Row>
                         <Col className="title" span={8}>{t('animalprofile.info.sex')}</Col>
