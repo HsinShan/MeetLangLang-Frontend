@@ -155,5 +155,13 @@
         "貓": "貓",
         "狗": "狗",
         "其他": "其他"
+    },
+    "petadd":{
+        "Pet Name":"寵物姓名",
+        "Pet Sex":"寵物性別",
+        "Pet Age":"寵物年紀",
+        "Pet Kind":"寵物類別",
+        "Pet Photo":"寵物照片",
+        "Pet Intorduction":"寵物介紹"
     }
 }
