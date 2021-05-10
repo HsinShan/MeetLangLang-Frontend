@@ -1,0 +1,20 @@
+.pet-form{
+    display: flex;
+    justify-content: space-around;
+
+    .ant-form{
+        width:47%;
+    }
+}
+.ant-upload-picture-card-wrapper {
+    display: inline-block;
+    width: 47%;
+}
+.pet-input{
+    width: 300px;
+    margin:10px auto;
+}
+.pet-image > .ant-upload {
+    width: 200px;
+    height: 200px;
+  }
