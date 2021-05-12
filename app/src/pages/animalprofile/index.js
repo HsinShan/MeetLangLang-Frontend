@@ -98,7 +98,16 @@ const AnimalProfile = ({ isLogin }) => {
                     setIsSaved(true);
                 }
             } catch (err) {
-                message.error(t('animalprofile.save.error'));
+                const three = err.errCode / 10;
+                if (three === 1) {
+                    message.error('Insert animal info into animalInfo table error');
+                } else if (three === 2) {
+                    message.error('Insert uuid & animalId into FavoriteMap table error');
+                } else if (three === 3) {
+                    message.error('Delete link in FavoriteMap table error');
+                } else {
+                    message.error('Check if need to delete animal in AnimalInfo table error');
+                }
             }
         } else {
             message.error(t('animalprofile.not-log-in'));
@@ -122,7 +131,16 @@ const AnimalProfile = ({ isLogin }) => {
                     setIsSaved(false);
                 }
             } catch (err) {
-                message.error(t('animalprofile.unsave.error'));
+                const three = err.errCode / 10;
+                if (three === 1) {
+                    message.error('Insert animal info into animalInfo table error');
+                } else if (three === 2) {
+                    message.error('Insert uuid & animalId into FavoriteMap table error');
+                } else if (three === 3) {
+                    message.error('Delete link in FavoriteMap table error');
+                } else {
+                    message.error('Check if need to delete animal in AnimalInfo table error');
+                }
             }
         }
     };
