@@ -98,7 +98,7 @@ const AnimalProfile = ({ isLogin }) => {
                     setIsSaved(true);
                 }
             } catch (err) {
-                const three = err.errCode / 10;
+                const three = parseInt(err.response.data.errorCode / 10, 10);
                 if (three === 1) {
                     message.error('Insert animal info into animalInfo table error');
                 } else if (three === 2) {
@@ -131,7 +131,7 @@ const AnimalProfile = ({ isLogin }) => {
                     setIsSaved(false);
                 }
             } catch (err) {
-                const three = err.errCode / 10;
+                const three = parseInt(err.response.data.errorCode / 10, 10);
                 if (three === 1) {
                     message.error('Insert animal info into animalInfo table error');
                 } else if (three === 2) {

@@ -36,12 +36,11 @@ const AddDiscuss = ({ isLogin }) => {
             if (data.success) message.success(t('post-success'));
             setRedirect('/discuss');
         } catch (err) {
-            const two = (err.errCode % 100) / 10;
-            const three = err.errCode / 10;
+            const two = parseInt((err.response.data.errorCode % 100) / 10, 10);
+            const three = parseInt(err.response.data.errorCode / 10, 10);
+            console.log(two);
             if ('response' in err) {
-                if (two === 1) {
-                    message.error('token error');
-                } else if (two === 2) {
+                if (two === 2) {
                     if (three === 1 || three === 3) {
                         message.error('field title is missing');
                     } else {
@@ -55,6 +54,8 @@ const AddDiscuss = ({ isLogin }) => {
                     } else {
                         message.error('get detail form Message table error');
                     }
+                } else {
+                    message.error('token error');
                 }
             } else {
                 message.error(err.toString());
