@@ -1,6 +1,5 @@
 import '../../assets/style/login/index.scss';
 import axios from 'axios';
-import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { message } from 'antd';
 import { useTranslation } from 'react-i18next';
@@ -9,7 +8,7 @@ import LoginForm from '../../components/login/LoginForm';
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
 
-const Login = ({ isLogin, loggedin }) => {
+const Login = ({ loggedin }) => {
     const { t } = useTranslation();
     const history = useHistory();
     const loginLogic = async (account) => {
@@ -48,13 +47,6 @@ const Login = ({ isLogin, loggedin }) => {
             message.error(t('login.error'));
         }
     };
-
-    useEffect(() => {
-        if (isLogin) {
-            message.warning(t('login.already-login'));
-            history.push('/');
-        }
-    }, [isLogin, history, t]);
 
     return (
         <>
