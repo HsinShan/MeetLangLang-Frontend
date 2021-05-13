@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Tabs, message } from 'antd';
 import { useTranslation } from 'react-i18next';
 import MyFavorites from '../../components/member/myFavorites';
-import UseDeviceDetect from '../../hooks/useDeviceDetect';
 import '../../assets/style/member/index.scss';
 
 const { TabPane } = Tabs;
@@ -15,8 +14,6 @@ const goToLoginPage = (history) => {
 function Member() {
     const { t } = useTranslation();
     const history = useHistory();
-    const device = UseDeviceDetect();
-    const [mode, setMode] = useState('left');
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -24,13 +21,11 @@ function Member() {
             message.warning(t('member.not-log-in'));
             goToLoginPage(history);
         }
-
-        if (device === 'mobile') setMode('top');
-    }, [history, t, setMode, device]);
+    }, [history, t]);
 
     return (
         <div className="member">
-            <Tabs defaultActiveKey="1" tabPosition={mode} centered>
+            <Tabs defaultActiveKey="1" tabPosition="top" centered>
                 <TabPane tab={t('member.pets')} key="1">
                     My Pets
                 </TabPane>
