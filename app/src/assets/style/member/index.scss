@@ -1,0 +1,49 @@
+@import '../base';
+
+.member {
+    width: 98%;
+    margin: auto;
+    
+    .ant-tabs {
+        overflow: visible;
+        border: 1px solid $background-brown;
+        border-radius: 10px;
+        background-color: $light-brown;
+
+        &-nav {
+            border-right: 1px solid $background-brown;
+        }
+
+        &-tab {
+            .ant-tabs-tab-btn {
+                color: $background-gray;
+                font-weight: bold;
+            }
+
+            &:hover {
+                color: $font-brown;
+            }
+
+            &-active {
+                .ant-tabs-tab-btn {
+                    color: $font-brown;
+                }
+            }
+        }
+
+        &-content {
+            min-height: 100px;
+            padding: 20px 0;
+        }
+
+        &-ink-bar {
+            background-color: $font-brown;
+        }
+    }
+}
+
+@include mobile {
+    .member {
+        width: 100%;
+    }
+}

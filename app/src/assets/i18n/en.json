@@ -108,7 +108,9 @@
             "0": " There are no any favorite fur babies yet. Go to",
             "1": " Adoption",
             "2": " page!"
-        }
+        },
+        "favorites": "My favorites",
+        "pets": "My pets"
     },
     "drawcards": {
         "building": "building..."
