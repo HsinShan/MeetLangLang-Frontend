@@ -1,15 +1,12 @@
 @import '../base';
 
-.member {
-    width: 98%;
-    margin: auto;
-    
+.member { 
     .ant-tabs {
         overflow: visible;
         border: 1px solid $light-gray;
         border-radius: 10px;
         background-color: $light-brown;
-
+        padding: 10px;
 
         &-nav {
             border-bottom: 1px solid $light-gray;
@@ -40,12 +37,9 @@
             background-color: $font-brown;
         }
     }
-}
 
-@include mobile {
-    .member {
-        width: 100%;
-
+    
+    @include mobile {
         .ant-tabs {
             &-content {
                 .card-block {

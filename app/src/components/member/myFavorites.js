@@ -69,7 +69,11 @@ function MyFavorites() {
                                 ))
                         }
                     </div>
-                    {<Pagination defaultCurrent={1} pageSize={cardPerPage} total={animals.length} onChange={changePage}/>}
+                    {
+                        animals.length > 15 && (
+                            <Pagination defaultCurrent={1} pageSize={cardPerPage} total={animals.length} onChange={changePage}/>
+                        )
+                    }
                 </>
             )}
         </>
