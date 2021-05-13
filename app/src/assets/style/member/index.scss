@@ -6,12 +6,16 @@
     
     .ant-tabs {
         overflow: visible;
-        border: 1px solid $background-brown;
+        border: 2px solid $light-gray;
         border-radius: 10px;
         background-color: $light-brown;
 
+        &-left {
+            padding: 10px 0;
+        }
+
         &-nav {
-            border-right: 1px solid $background-brown;
+            border-right: 1px solid $light-gray;
         }
 
         &-tab {
@@ -45,5 +49,12 @@
 @include mobile {
     .member {
         width: 100%;
+
+        .ant-tabs {
+            &-nav {
+                border-bottom: 1px solid $light-gray;
+                border-right: none;
+            }
+        }
     }
 }
