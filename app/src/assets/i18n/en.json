@@ -172,6 +172,9 @@
         "add":"Add",
         "male":"Male",
         "female":"Female",
-        "null":"null"
+        "null":"null",
+        "dog":"dog",
+        "cat":"cat",
+        "other":"other"
     }
 }
