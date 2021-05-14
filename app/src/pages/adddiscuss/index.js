@@ -36,8 +36,26 @@ const AddDiscuss = ({ isLogin }) => {
             if (data.success) message.success(t('post-success'));
             setRedirect('/discuss');
         } catch (err) {
+            const two = (err.errCode % 100) / 10;
+            const three = err.errCode / 10;
             if ('response' in err) {
-                message.error(JSON.stringify(err.response.data));
+                if (two === 1) {
+                    message.error('token error');
+                } else if (two === 2) {
+                    if (three === 1 || three === 3) {
+                        message.error('field title is missing');
+                    } else {
+                        message.error('field content is missing');
+                    }
+                } else if (two === 3) {
+                    if (three === 1) {
+                        message.error('insert into Message table error');
+                    } else if (three === 2) {
+                        message.error('get topics form Message table error');
+                    } else {
+                        message.error('get detail form Message table error');
+                    }
+                }
             } else {
                 message.error(err.toString());
             }
