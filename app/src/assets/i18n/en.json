@@ -64,7 +64,8 @@
         "age": "age",
         "kind": "kind",
         "area": "area",
-        "more": "more"
+        "more": "more",
+        "intro": "about"
     },
     "animalprofile": {
         "sex": {

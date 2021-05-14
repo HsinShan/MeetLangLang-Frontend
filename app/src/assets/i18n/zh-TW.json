@@ -58,7 +58,8 @@
         "age": "年齡",
         "kind": "品種",
         "area": "所在地",
-        "more": "看更多"
+        "more": "看更多",
+        "intro": "簡介"
     },
     "animalprofile": {
         "sex": {
