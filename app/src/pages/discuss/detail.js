@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {
+    Form,
     Button,
     Card,
     Spin,
@@ -21,7 +22,7 @@ function DiscussDetail({ isLogin }) {
     const uuidFromURL = params.get('uuid');
     const [discuss, setDiscuss] = useState(null);
     const [isResponsing, setIsResponsing] = useState(false);
-    const [response, setResponse] = useState(null);
+    const [form] = Form.useForm();
     const { hostname } = window.location;
     const getData = async () => {
         await axios.get(`${apiProtocol}://${hostname}:${apiPort}/discuss/topic/detail/${uuidFromURL}`)
@@ -35,12 +36,8 @@ function DiscussDetail({ isLogin }) {
             getData();
         }
     });
-    const addResponseLogic = async () => {
+    const addResponseLogic = async (content) => {
         if (isLogin) {
-            if (response === null || response === '') {
-                message.error(t('discuss.content-empty'));
-                return;
-            }
             const token = localStorage.getItem('token');
             try {
                 const { data } = await axios({
@@ -49,16 +46,15 @@ function DiscussDetail({ isLogin }) {
                     headers: { token },
                     data: {
                         mesgId: uuidFromURL,
-                        content: response,
+                        content,
                     },
                 });
                 const { success } = data;
                 if (success) {
-                    setResponse(null);
                     message.success(t('discuss.response-success'));
                 }
             } catch (err) {
-                message.error(t('discuss.response-failde'));
+                message.error(t('discuss.response-failed'));
             }
         } else {
             message.warning(t('discuss.not-login'));
@@ -74,18 +70,29 @@ function DiscussDetail({ isLogin }) {
                         <p className="date">{t('discuss.date')}：{discuss.date}</p>
                         <p className="contnet">{t('discuss.content')}：{discuss.content}</p>
                         <Card title={t('discuss.add-response')}>
-                            <Input.TextArea
-                                className='input-response'
-                                rows={4}
-                                placeholder={t('discuss.content-text-response')}
-                                value={response}
-                                onChange={(e) => {
-                                    const currValue = e.target.value;
-                                    setResponse(currValue);
+                            <Form
+                                form={form}
+                                initialValues={{
+                                    content: '',
                                 }}
-                            />
+                                onFinish={(values) => addResponseLogic(values.content)}
+                                validateMessages={{
+                                    required: t('discuss.content-empty'),
+                                }}
+                            >
+                                <Form.Item
+                                    name="content"
+                                    rules={[{ required: true, min: 1 }]}
+                                >
+                                    <Input.TextArea
+                                        className='input-response'
+                                        rows={4}
+                                        placeholder={t('discuss.content-text-response')}
+                                    />
+                                </Form.Item>
+                            </Form>
                             <div className='button-responsing'>
-                                <Button onClick={() => addResponseLogic()}>{t('discuss.response')}</Button>
+                                <Button onClick={() => form.submit()}>{t('discuss.response')}</Button>
                                 <Button onClick={() => { setIsResponsing(false); }}>{t('discuss.cancel')}</Button>
                             </div>
                         </Card>
