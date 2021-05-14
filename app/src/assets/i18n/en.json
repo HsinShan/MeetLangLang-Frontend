@@ -22,8 +22,8 @@
             "Adoption",
             "Shelters",
             "Draw card",
-            "Message board",
-            "My favorites"
+            "Discuss board",
+            "Member"
         ]
     },
     "login": {
@@ -64,7 +64,8 @@
         "age": "age",
         "kind": "kind",
         "area": "area",
-        "more": "more"
+        "more": "more",
+        "intro": "about"
     },
     "animalprofile": {
         "sex": {
@@ -108,7 +109,11 @@
             "0": " There are no any favorite fur babies yet. Go to",
             "1": " Adoption",
             "2": " page!"
-        }
+        },
+        "favorites": "My favorites",
+        "pets": "My pets",
+        "no-pets": "You have not add your pet yet.",
+        "add-pets": "Add Pet"
     },
     "drawcards": {
         "building": "building..."
