@@ -111,7 +111,8 @@
             "2": " page!"
         },
         "favorites": "My favorites",
-        "pets": "My pets"
+        "pets": "My pets",
+        "no-pets": "You have not add your pet yet."
     },
     "drawcards": {
         "building": "building..."
