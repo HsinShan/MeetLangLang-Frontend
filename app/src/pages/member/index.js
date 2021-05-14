@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Tabs, message } from 'antd';
 import { useTranslation } from 'react-i18next';
 import MyFavorites from '../../components/member/myFavorites';
+import MyPets from '../../components/member/myPets';
 import '../../assets/style/member/index.scss';
 
 const { TabPane } = Tabs;
@@ -27,7 +28,7 @@ function Member() {
         <div className="member">
             <Tabs defaultActiveKey="1" tabPosition="top" centered>
                 <TabPane tab={t('member.pets')} key="1">
-                    My Pets
+                    <MyPets />
                 </TabPane>
                 <TabPane tab={t('member.favorites')} key="2">
                     <MyFavorites />
