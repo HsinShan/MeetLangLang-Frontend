@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
-import { Spin } from 'antd';
+import { Spin, Button } from 'antd';
 import PetList from './petList';
 import '../../assets/style/member/myPets.scss';
 
@@ -34,6 +34,11 @@ function MyPets() {
 
     return (
         <div className="my-pets">
+            <div className="add-pet">
+                <Button>
+                    {t('member.add-pets')}
+                </Button>
+            </div>
             { isLoading && <Spin tip={t('member.loading')} /> }
             { !isLoading && pets.length === 0 && (
                 <div className="no-result">

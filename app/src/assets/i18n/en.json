@@ -112,7 +112,8 @@
         },
         "favorites": "My favorites",
         "pets": "My pets",
-        "no-pets": "You have not add your pet yet."
+        "no-pets": "You have not add your pet yet.",
+        "add-pets": "Add Pet"
     },
     "drawcards": {
         "building": "building..."

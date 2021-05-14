@@ -1,6 +1,18 @@
 @import '../base';
 
 .my-pets {
+    .add-pet {
+        text-align: right;
+        padding: 0 40px;
+
+        .ant-btn {
+            background-color: $background-gray;
+            border-color: $background-gray;
+            border-radius: 20px;
+            color: white;
+        }
+    }
+
     .ant-list {
         width: 96%;
         margin: 20px auto;
