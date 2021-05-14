@@ -14,7 +14,14 @@
         "content-text": "A new member has been born in the family. I want to ask how everyone takes care of the puppies?",
         "post": "Post",
         "cancel": "Cancel",
-        "add-discuss": "Add Discuss"
+        "add-discuss": "Add Discuss",
+        "add-response": "Add Response",
+        "response": "Response",
+        "response-success": "Post success",
+        "response-failed": "Post failed!",
+        "not-login": "Please login first",
+        "content-empty": "Response content can not be empty",
+        "content-text-response": "I want to say....."
     },
     "header": {
         "title": "Meet Lang Lang",
