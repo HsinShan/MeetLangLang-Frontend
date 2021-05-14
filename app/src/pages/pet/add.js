@@ -7,7 +7,7 @@ const AddPet = () => {
     return (
         <div>{t('petadd.pet-name')}</div>,
         <div className="petform">
-            <PetForm/>
+            <PetForm />
         </div>
     );
 };
