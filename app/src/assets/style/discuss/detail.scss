@@ -1,4 +1,42 @@
-.discuss .ant-card {
-    width: auto;
-    margin: 10px 6px;
+.discuss {
+    .ant-card {
+        width: auto;
+        margin: 10px 6px;
+        border-radius: 15px;
+    }
+
+    .ant-card-head{
+        border-radius: 15px;
+        background-color: #131834;
+        color: white;
+        border-bottom-right-radius: initial;
+        border-bottom-left-radius: initial;
+    }
+}
+
+.input-response{
+    border-radius: 15px;
+}
+
+.ant-btn.button-add-response{
+    background-color: #131834;
+    border-color: #131834;
+    border-radius: 20px;
+    color: white;
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.button-responsing{
+    float: right;
+
+    .ant-btn{
+        background-color: #131834;
+        border-color: #131834;
+        border-radius: 20px;
+        color: white;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
 }
