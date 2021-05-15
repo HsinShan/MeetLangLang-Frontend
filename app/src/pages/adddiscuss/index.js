@@ -36,20 +36,18 @@ const AddDiscuss = ({ isLogin }) => {
             if (data.success) message.success(t('post-success'));
             setRedirect('/discuss');
         } catch (err) {
-            const two = parseInt((err.response.data.errorCode % 100) / 10, 10);
-            const three = parseInt(err.response.data.errorCode / 10, 10);
-            console.log(two);
             if ('response' in err) {
-                if (two === 2) {
-                    if (three === 1 || three === 3) {
+                const code = err.response.data.errorCode.toString();
+                if (code[1] === '2') {
+                    if (code[2] === '1' || code[2] === '3') {
                         message.error('field title is missing');
                     } else {
                         message.error('field content is missing');
                     }
-                } else if (two === 3) {
-                    if (three === 1) {
+                } else if (code[1] === '3') {
+                    if (code[2] === 1) {
                         message.error('insert into Message table error');
-                    } else if (three === 2) {
+                    } else if (code[2] === '2') {
                         message.error('get topics form Message table error');
                     } else {
                         message.error('get detail form Message table error');
