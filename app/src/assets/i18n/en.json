@@ -175,6 +175,7 @@
         "null":"null",
         "dog":"dog",
         "cat":"cat",
-        "other":"other"
+        "other":"other",
+        "alert":"Please input pet name!"
     }
 }
