@@ -98,16 +98,7 @@ const AnimalProfile = ({ isLogin }) => {
                     setIsSaved(true);
                 }
             } catch (err) {
-                const three = parseInt(err.response.data.errorCode / 10, 10);
-                if (three === 1) {
-                    message.error('Insert animal info into animalInfo table error');
-                } else if (three === 2) {
-                    message.error('Insert uuid & animalId into FavoriteMap table error');
-                } else if (three === 3) {
-                    message.error('Delete link in FavoriteMap table error');
-                } else {
-                    message.error('Check if need to delete animal in AnimalInfo table error');
-                }
+                message.error(t('err.' + err.response.data.errorCode.toString()));
             }
         } else {
             message.error(t('animalprofile.not-log-in'));
