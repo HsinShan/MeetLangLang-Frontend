@@ -98,7 +98,7 @@ const AnimalProfile = ({ isLogin }) => {
                     setIsSaved(true);
                 }
             } catch (err) {
-                message.error(t('animalprofile.save.error'));
+                message.error(t('err.' + err.response.data.errorCode.toString()));
             }
         } else {
             message.error(t('animalprofile.not-log-in'));
@@ -122,7 +122,7 @@ const AnimalProfile = ({ isLogin }) => {
                     setIsSaved(false);
                 }
             } catch (err) {
-                message.error(t('animalprofile.unsave.error'));
+                message.error(t('err.' + err.response.data.errorCode.toString()));
             }
         }
     };

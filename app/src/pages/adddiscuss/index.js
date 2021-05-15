@@ -37,9 +37,9 @@ const AddDiscuss = ({ isLogin }) => {
             setRedirect('/discuss');
         } catch (err) {
             if ('response' in err) {
-                message.error(JSON.stringify(err.response.data));
+                message.error(t('err.' + err.response.data.errorCode.toString()));
             } else {
-                message.error(err.toString());
+                message.error(t('err.default'));
             }
             console.log(err);
         }
