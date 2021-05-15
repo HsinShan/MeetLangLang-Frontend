@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import {
-    Form, Input, Upload, Button, Radio, Select, InputNumber, message,
+    Form, Input, Upload, Button, Radio, Select, message,
 } from 'antd';
 import { PlusOutlined, LoadingOutlined } from '@ant-design/icons';
 import '../../assets/style/pet/petForm.scss';
@@ -84,18 +84,20 @@ const PetForm = () => {
     };
     return (
         <div className="pet-form">
-            <Form form={form} onFinish={(values) => submit(values)}>
-                <Form.Item className="pet-input" label={t('petadd.pet-name')} name="name" rules={[{ required: true, message: 'Please input your petname!' }]}>
-                    <Input onChange={onChange} />
+            <Form form={form} autoComplete="off" onFinish={(values) => submit(values)}>
+                <Form.Item className="pet-input" label={t('petadd.pet-name')} name="name" rules={[{ required: true, message: `${t('petadd.alert')}` }]}>
+                    <Input onChange={onChange}/>
                 </Form.Item>
                 <Form.Item className="pet-input" label={t('petadd.pet-sex')} name="sex">
-                    <Radio.Group>
-                        <Radio value="F">{t('petadd.male')}</Radio>
-                        <Radio value="M">{t('petadd.female')}</Radio>
-                    </Radio.Group>
+                    <div className="dropdown">
+                        <Radio.Group>
+                            <Radio value="F">{t('petadd.male')}</Radio>
+                            <Radio value="M">{t('petadd.female')}</Radio>
+                        </Radio.Group>
+                    </div>
                 </Form.Item>
                 <Form.Item className="pet-input" label={t('petadd.pet-age')} name="age">
-                    <InputNumber />
+                    <Input type="number"/>
                 </Form.Item>
                 <Form.Item className="pet-input" label={t('petadd.pet-kind')} name="kind">
                     <Select>
@@ -107,9 +109,6 @@ const PetForm = () => {
                 <Form.Item className="pet-input" label={t('petadd.pet-introduction')} name="introduction">
                     <TextArea autoSize={{ minRows: 3, maxRows: 5 }} />
                 </Form.Item>
-                {/* <Form.Item> */}
-                {/* {information ? <Button className="click-button" type="Default" htmlType="submit">{t('petadd.add')}</Button> : <Button className="no-click-button" type="Default" disabled>{t('petadd.add')}</Button>} */}
-                {/* </Form.Item> */}
             </Form>
             <Upload className="avatar-uploader pet-image" listType="picture-card" action="https://api.imgur.com/3/image" showUploadList={false} customRequest={customRequest}>
                 {imageUrl ? <img src={`https://images.weserv.nl/?url=${imageUrl}`} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
