@@ -131,16 +131,7 @@ const AnimalProfile = ({ isLogin }) => {
                     setIsSaved(false);
                 }
             } catch (err) {
-                const code = err.response.data.errorCode.toString();
-                if (code[2] === '1') {
-                    message.error('insert animal info into animalInfo table error');
-                } else if (code[2] === '2') {
-                    message.error('insert uuid & animalId into FavoriteMap table error');
-                } else if (code[2] === '3') {
-                    message.error('delete link in FavoriteMap table error');
-                } else {
-                    message.error('delete animal in AnimalInfo table error');
-                }
+                message.error(t('err.' + err.response.data.errorCode.toString()));
             }
         }
     };
