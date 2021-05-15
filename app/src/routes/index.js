@@ -7,6 +7,7 @@ import Discuss from '../pages/discuss';
 import DiscussDetail from '../pages/discuss/detail';
 import AnimalProfile from '../pages/animalprofile';
 import AddDiscuss from '../pages/adddiscuss';
+import AddPet from '../pages/pet/add';
 
 const routes = [
     {
@@ -57,6 +58,11 @@ const routes = [
     {
         path: '/discuss/detail',
         component: DiscussDetail,
+        exact: true,
+    },
+    {
+        path: '/pet/add',
+        component: AddPet,
         exact: true,
     },
 

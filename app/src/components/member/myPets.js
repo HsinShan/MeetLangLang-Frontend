@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { Spin, Button } from 'antd';
@@ -35,9 +35,11 @@ function MyPets() {
     return (
         <div className="my-pets">
             <div className="add-pet">
-                <Button>
-                    {t('member.add-pets')}
-                </Button>
+                <Link to='pet/add'>
+                    <Button>
+                        {t('member.add-pets')}
+                    </Button>
+                </Link>
             </div>
             { isLoading && <Spin tip={t('member.loading')} /> }
             { !isLoading && pets.length === 0 && (
