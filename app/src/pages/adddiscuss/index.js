@@ -46,9 +46,9 @@ const AddDiscuss = ({ isLogin }) => {
                     }
                 } else if (code[1] === '3') {
                     if (code[2] === 1) {
-                        message.error('insert into Message table error');
+                        message.error('insert topic into Message table error');
                     } else if (code[2] === '2') {
-                        message.error('get topics form Message table error');
+                        message.error('get topic form Message table error');
                     } else {
                         message.error('get detail form Message table error');
                     }
