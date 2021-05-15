@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import {
@@ -80,7 +79,6 @@ const PetForm = () => {
             }
             console.log(err);
         }
-        console.log('Received values of form: ', allvalues);
     };
     return (
         <div className="pet-form">
