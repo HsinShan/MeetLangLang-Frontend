@@ -50,14 +50,12 @@ const PetForm = () => {
     };
     const submit = async (allvalues) => {
         const token = localStorage.getItem('token');
-        console.log('get value:', allvalues);
         const petName = allvalues.name;
         const petSex = allvalues.sex;
         const petAge = allvalues.age;
         const petKind = allvalues.kind;
         const petIntro = allvalues.introduction;
         const petPhoto = imageUrl;
-        console.log('imgurl:', petPhoto);
         try {
             const { data } = await axios({
                 url: `${apiProtocol}://${hostname}:${apiPort}/pet`,
