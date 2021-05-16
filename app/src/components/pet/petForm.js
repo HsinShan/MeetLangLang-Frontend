@@ -50,12 +50,14 @@ const PetForm = () => {
     };
     const submit = async (allvalues) => {
         const token = localStorage.getItem('token');
+        console.log('get value:', allvalues);
         const petName = allvalues.name;
         const petSex = allvalues.sex;
         const petAge = allvalues.age;
         const petKind = allvalues.kind;
         const petIntro = allvalues.introduction;
         const petPhoto = imageUrl;
+        console.log('imgurl:', petPhoto);
         try {
             const { data } = await axios({
                 url: `${apiProtocol}://${hostname}:${apiPort}/pet`,
@@ -81,8 +83,8 @@ const PetForm = () => {
         }
     };
     return (
-        <div className="pet-form">
-            <Form form={form} autoComplete="off" onFinish={(values) => submit(values)}>
+        <Form className="petform" form={form} autoComplete="off" onFinish={(values) => submit(values)}>
+            <div className="pet-form">
                 <Form.Item className="pet-input" label={t('petadd.pet-name')} name="name" rules={[{ required: true, message: `${t('petadd.alert')}` }]}>
                     <Input onChange={onChange}/>
                 </Form.Item>
@@ -107,14 +109,16 @@ const PetForm = () => {
                 <Form.Item className="pet-input" label={t('petadd.pet-introduction')} name="introduction">
                     <TextArea autoSize={{ minRows: 3, maxRows: 5 }} />
                 </Form.Item>
-            </Form>
+            </div>
             <Upload className="avatar-uploader pet-image" listType="picture-card" action="https://api.imgur.com/3/image" showUploadList={false} customRequest={customRequest}>
                 {imageUrl ? <img src={`https://images.weserv.nl/?url=${imageUrl}`} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
             </Upload>
             <div className="button">
-                {information ? <Button className="click-button" type="Default" htmlType="submit">{t('petadd.add')}</Button> : <Button className="no-click-button" type="Default" disabled>{t('petadd.add')}</Button>}
+                <Form.Item>
+                    { information ? <Button className="click-button" type="Default" htmlType="submit">{t('petadd.add')}</Button> : <Button className="no-click-button" type="Default" disabled>{t('petadd.add')}</Button>}
+                </Form.Item>
             </div>
-        </div>
+        </Form>
     );
 };
 

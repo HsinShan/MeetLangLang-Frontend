@@ -2,10 +2,15 @@
 
 .petform{
     width:900px;
+    display: flex;
     margin:auto;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    justify-content: space-around;
 
     @include pad{
         display: block;
+        width: auto;
         text-align:center;
         justify-content: center;
     }
@@ -13,12 +18,14 @@
 }
 
 .pet-form{
-    display: flex;
+    display: block;
     justify-content: space-around;
     border-radius: 15px;
     font-weight: 500;
     background-color: antiquewhite;
+    // background-color: $light-gray;
     padding-top: 10px;
+    width: 35%;
 
     .ant-form{
         width:50%;
@@ -34,7 +41,7 @@
     display: inline-block;
     // width: 47%;
     width:25%;
-    text-align: left;
+    text-align: center;
     
     @include pad{
         display: inline-block;
@@ -48,7 +55,7 @@
 }
 
 .pet-input{
-    width: 280px;
+    width: auto;
     margin:10px auto;
 }
 

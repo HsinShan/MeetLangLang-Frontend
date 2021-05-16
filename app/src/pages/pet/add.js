@@ -6,9 +6,7 @@ const AddPet = () => {
     const { t } = useTranslation();
     return (
         <div>{t('petadd.pet-name')}</div>,
-        <div className="petform">
-            <PetForm />
-        </div>
+        <PetForm />
     );
 };
 export default AddPet;
