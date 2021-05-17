@@ -123,7 +123,13 @@
         "add-pets": "Add Pet"
     },
     "drawcards": {
-        "building": "building..."
+        "building": "building...",
+        "title": "Use the draw card function to meet more pets with the same interests~",
+        "start": "Start",
+        "no-pet": "You haven't added pet information yet ",
+        "add-pet": "Add Pet!",
+        "have-pet": "Hurry up and press the button to meet more new friends~",
+        "description": "There is no limit on the number of times a day, so the more you draw, the more new pet you will meet!"
     },
     "area": {
         "2": "Taipei City",
