@@ -1,0 +1,110 @@
+@import '../_base.scss';
+
+.content {
+    justify-content: center;
+    text-align: center;
+}
+
+.draw-card {
+    text-align: center;
+    justify-content: center;
+
+    @include pad{
+        display: inline-block;
+        text-align: center;
+    }
+}
+
+.description {
+    display: inline-block;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    @include pad{
+        display: inline-block;
+        text-align: center;
+    }
+}
+
+.img {
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    display: flex;
+    margin: auto 10px;
+}
+
+.cat{
+    width: 8%;
+    height: 8%;
+    margin: auto;
+
+    @include pad{
+        display: inline-block;
+    }
+}
+
+.dog {
+    width: 8%;
+    height: 8%;
+    margin: auto;
+
+    @include pad{
+        display: inline-block;
+    }
+
+    @mixin mobile {
+        display: inline-block;
+        }
+}
+
+.title {
+    text-align: center;
+    justify-content: center;
+}
+
+.have-pet {
+    text-align: center;
+    justify-content: center;
+}
+
+.draw-card-button {
+    justify-content: center;
+    text-align: center;
+}
+
+.go-add-pet {
+    background-color: #A37E39;
+    color: aliceblue;
+    border-color:#A37E39;
+    font-weight: 500;
+}
+
+.start-draw-card,.ant-btn-round .ant-btn-lg {
+        width: auto;
+        justify-content: center;
+        text-align: center;
+        background-color: #131834;
+        border-color:#131834;
+        color:#fff;
+        padding: 6.4px 20px;
+        font-size: 18px;
+        border-radius: 10px
+};
+
+.start-draw-card.ant-btn:hover,.ant-btn:focus {
+    background-color: #fff;
+    border-color:#131834;
+    color:#131834;
+}
+
+.cannot-draw-card {
+    width: auto;
+    justify-content: center;
+    text-align: center;
+    background-color: azure;
+    padding: 6.4px 20px;
+    font-size: 18px;
+    border-radius: 10px;
+}
