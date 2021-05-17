@@ -73,7 +73,7 @@ const PetForm = () => {
                 method: 'post',
             });
             if (data.success) message.success('add success');
-            history.push('member');
+            history.push('/member');
         } catch (err) {
             if ('response' in err) {
                 message.error(JSON.stringify(err.response.data));
