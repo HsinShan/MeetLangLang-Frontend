@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import {
@@ -12,6 +13,7 @@ const apiPort = process.env.REACT_APP_API_PORT;
 const { hostname } = window.location;
 
 const PetForm = () => {
+    const history = useHistory();
     const { t } = useTranslation();
     const [form] = Form.useForm();
     const { TextArea } = Input;
@@ -71,6 +73,7 @@ const PetForm = () => {
                 method: 'post',
             });
             if (data.success) message.success('add success');
+            history.push('member');
         } catch (err) {
             if ('response' in err) {
                 message.error(JSON.stringify(err.response.data));
