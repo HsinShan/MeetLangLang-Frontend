@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import {
@@ -12,6 +13,7 @@ const apiPort = process.env.REACT_APP_API_PORT;
 const { hostname } = window.location;
 
 const PetForm = () => {
+    const history = useHistory();
     const { t } = useTranslation();
     const [form] = Form.useForm();
     const { TextArea } = Input;
@@ -71,6 +73,7 @@ const PetForm = () => {
                 method: 'post',
             });
             if (data.success) message.success('add success');
+            history.push('/member');
         } catch (err) {
             if ('response' in err) {
                 message.error(JSON.stringify(err.response.data));
@@ -81,8 +84,8 @@ const PetForm = () => {
         }
     };
     return (
-        <div className="pet-form">
-            <Form form={form} autoComplete="off" onFinish={(values) => submit(values)}>
+        <Form className="petform" form={form} autoComplete="off" onFinish={(values) => submit(values)}>
+            <div className="pet-form">
                 <Form.Item className="pet-input" label={t('petadd.pet-name')} name="name" rules={[{ required: true, message: `${t('petadd.alert')}` }]}>
                     <Input onChange={onChange}/>
                 </Form.Item>
@@ -107,14 +110,16 @@ const PetForm = () => {
                 <Form.Item className="pet-input" label={t('petadd.pet-introduction')} name="introduction">
                     <TextArea autoSize={{ minRows: 3, maxRows: 5 }} />
                 </Form.Item>
-            </Form>
+            </div>
             <Upload className="avatar-uploader pet-image" listType="picture-card" action="https://api.imgur.com/3/image" showUploadList={false} customRequest={customRequest}>
                 {imageUrl ? <img src={`https://images.weserv.nl/?url=${imageUrl}`} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
             </Upload>
             <div className="button">
-                {information ? <Button className="click-button" type="Default" htmlType="submit">{t('petadd.add')}</Button> : <Button className="no-click-button" type="Default" disabled>{t('petadd.add')}</Button>}
+                <Form.Item>
+                    { information ? <Button className="click-button" type="Default" htmlType="submit">{t('petadd.add')}</Button> : <Button className="no-click-button" type="Default" disabled>{t('petadd.add')}</Button>}
+                </Form.Item>
             </div>
-        </div>
+        </Form>
     );
 };
 
