@@ -1,10 +1,11 @@
-import { useTranslation } from 'react-i18next';
+import React from 'react';
+import DrawCardsPage from '../../components/drawcards/drawCardPage';
 
-const DrawCards = () => {
-    const { t } = useTranslation();
-    return (
-        <div className="draw-cards">{t('drawcards.building')}</div>
-    );
-};
+const DrawCards = () => (
+    <>
+        <div className="draw-card"></div>
+        <DrawCardsPage></DrawCardsPage>
+    </>
+);
 
 export default DrawCards;
