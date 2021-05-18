@@ -1,0 +1,69 @@
+@import '../base.scss';
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    word-wrap:break-word;
+}
+.all {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 15px;
+    width: 60%;
+    align-items: center;
+}
+.pet-photo {
+    vertical-align: middle;
+    border-style: none;
+    width: 25%;
+}
+
+.pet-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.row {
+    display: inline-flex;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 50%;
+    
+}
+
+.result-title {
+    display: flex;
+    width: 80%;
+    background-color: #c7a974;
+    border-radius: 10px;
+    color:azure;
+    margin-left: 5px;
+    justify-content: space-around;
+    align-items: center
+}
+
+.result-content {
+    padding-left: 5px;
+    word-break: break-all;
+    width: 80%;
+}
+
+.again-button {
+    padding: 10px;
+}
+
+.result-button {
+    background-color: #A37E39;
+    font-size: 17px;
+    font-weight: 600;
+    color:white;
+
+}
