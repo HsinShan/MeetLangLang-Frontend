@@ -17,14 +17,16 @@ const Result = () => {
 
     const getData = async (token) => {
         const { hostname } = window.location;
-        await axios.get(`${apiProtocol}://${hostname}:${apiPort}/pet/info`, {
+        const reqData = {};
+        const { data } = await axios({
+            method: 'post',
+            url: `${apiProtocol}://${hostname}:${apiPort}/pet/draw`,
             headers: { token },
-        })
-            .then((res) => {
-                const { data } = res;
-                setPet(data[0]);
-                setIsLoading(false);
-            });
+            data: { reqData },
+        });
+        console.log(data);
+        setPet(data);
+        setIsLoading(false);
     };
     useEffect(() => {
         const token = localStorage.getItem('token');
