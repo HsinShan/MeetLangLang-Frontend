@@ -13,6 +13,11 @@
     border-radius: 15px;
     width: 50%;
     align-items: center;
+
+    @include mobile {
+        display:flex;
+        width: 50%;
+    }
 }
 .pet-photo {
     vertical-align: middle;
@@ -25,7 +30,15 @@
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
+
+    @include mobile {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
 .row {
@@ -35,25 +48,37 @@
     padding: 5px;
     flex-direction: row;
     flex-wrap: nowrap;
-    width: 50%;
-    
+    width: 80%;
+
+    @include mobile {
+        width: 80%;
+        display: inline-flex;
+    }
 }
 
 .result-title {
     display: flex;
-    width: 80%;
+    width: 30%;
     background-color: #c7a974;
     border-radius: 10px;
     color:azure;
     margin-left: 5px;
     justify-content: space-around;
-    align-items: center
+    align-items: center;
+
+    @include mobile {
+        width: 50%;
+    }
 }
 
 .result-content {
     padding-left: 5px;
     word-break: break-all;
-    width: 80%;
+    width: 50%;
+
+    @include mobile {
+        width: 40%;
+    }
 }
 
 .again-button {
