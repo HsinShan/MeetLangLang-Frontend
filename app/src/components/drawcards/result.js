@@ -30,24 +30,19 @@ const Result = () => {
         const token = localStorage.getItem('token');
         getData(token);
     }, [history]);
-    const PetData = () => {
-        console.log(typeof (pet));
-        console.log(pet);
-        return (
-            <>
-                <img className="pet-photo" src={`https://images.weserv.nl/?url=${pet.petPhoto}`}></img>
-                <div className="pet-data">
-                    <div className="row"><div className="result-title">{t('drawcards.pet-name')}</div><div className="result-content">{pet.petName}</div></div>
-                    <div className="row"><div className="result-title">{t('drawcards.pet-kind')}</div><div className="result-content">{pet.petKind}</div></div>
-                    <div className="row"><div className="result-title">{t('drawcards.pet-sex')}</div><div className="result-content">{pet.petSex}</div></div>
-                    <div className="row"><div className="result-title">{t('drawcards.pet-age')}</div><div className="result-content">{pet.petAge}</div></div>
-                    <div className="row"><div className="result-title">{t('drawcards.pet-introduction')}</div><div className="result-content">{pet.petIntro}</div></div>
-                </div>
-            </>
-        );
-    };
+    const PetData = () => (
+        <>
+            <img className="pet-photo" src={`https://images.weserv.nl/?url=${pet.petPhoto}`}></img>
+            <div className="pet-data">
+                <div className="row"><div className="result-title">{t('drawcards.pet-name')}</div><div className="result-content">{pet.petName}</div></div>
+                <div className="row"><div className="result-title">{t('drawcards.pet-kind')}</div><div className="result-content">{pet.petKind}</div></div>
+                <div className="row"><div className="result-title">{t('drawcards.pet-sex')}</div><div className="result-content">{pet.petSex}</div></div>
+                <div className="row"><div className="result-title">{t('drawcards.pet-age')}</div><div className="result-content">{pet.petAge}</div></div>
+                <div className="row"><div className="result-title">{t('drawcards.pet-introduction')}</div><div className="result-content">{pet.petIntro}</div></div>
+            </div>
+        </>
+    );
     const drawAgain = () => {
-        console.log('draw again');
         const token = localStorage.getItem('token');
         getData(token);
     };
@@ -55,7 +50,7 @@ const Result = () => {
         <Button className="result-button" shape="round" icon={<SyncOutlined />} onClick={() => drawAgain()}>{t('drawcards.again')}</Button>
     );
     return (
-        <div className="result-content">
+        <div className="result">
             { isLoading && <div><Spin tip="Loading..." /></div> }
             { !isLoading && <div className="all">{ <PetData/> }</div> }
             { !isLoading && <div className="again-button">{ <Again/> }</div>}

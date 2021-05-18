@@ -5,7 +5,6 @@ import Result from '../../components/drawcards/result';
 const DrawCards = () => {
     const [drawCard, setDrawCard] = useState(false);
     const petInformation = (pet) => {
-        console.log(pet);
         setDrawCard(pet);
     };
 
