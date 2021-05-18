@@ -129,7 +129,18 @@
         "no-pet": "You haven't added pet information yet ",
         "add-pet": "Add Pet!",
         "have-pet": "Hurry up and press the button to meet more new friends~",
-        "description": "There is no limit on the number of times a day, so the more you draw, the more new pet you will meet!"
+        "description": "There is no limit on the number of times a day, so the more you draw, the more new pet you will meet!",
+        "pet-name":"Pet Name",
+        "pet-sex":"Pet Sex",
+        "pet-age":"Pet Age",
+        "pet-kind":"Pet Kind",
+        "pet-introduction":"Pet Intorduction",
+        "male":"Male",
+        "female":"Female",
+        "dog":"dog",
+        "cat":"cat",
+        "other":"other",
+        "again":"again"
     },
     "area": {
         "2": "Taipei City",
