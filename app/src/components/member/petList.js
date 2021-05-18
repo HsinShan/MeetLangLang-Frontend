@@ -13,7 +13,7 @@ const PetList = ({ pets }) => {
             renderItem={(pet) => (
                 <List.Item
                     key={pet.key}
-                    extra={ <img alt="pet" src={pet.petPhoto} /> }
+                    extra={ <img alt="pet" src={`https://images.weserv.nl/?url=${pet.petPhoto}`} /> }
                 >
                     <List.Item.Meta
                         title={pet.petName}
