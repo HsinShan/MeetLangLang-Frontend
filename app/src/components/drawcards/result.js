@@ -24,7 +24,6 @@ const Result = () => {
             headers: { token },
             data: { reqData },
         });
-        console.log(data);
         setPet(data);
         setIsLoading(false);
     };
