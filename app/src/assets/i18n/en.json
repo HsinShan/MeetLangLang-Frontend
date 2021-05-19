@@ -124,6 +124,7 @@
     },
     "drawcards": {
         "building": "building...",
+        "login":"hurry up to login...",
         "title": "Use the draw card function to meet more pets with the same interests~",
         "start": "Start",
         "no-pet": "You haven't added pet information yet ",
