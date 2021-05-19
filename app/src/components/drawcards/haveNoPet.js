@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from 'antd';
 import { MehOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import '../../assets/style/drawcards/nonePet.scss';
+import '../../assets/style/drawcards/haveNoPet.scss';
 import cat from '../../assets/images/drawCardsCat.png';
 import dog from '../../assets/images/drawCardsDog.png';
 
