@@ -43,11 +43,10 @@ function DiscussDetail({ isLogin }) {
     useEffect(() => {
         if (uuidFromURL && discuss === null) {
             getData();
+            getResponse();
         }
     });
-    useEffect(() => {
-        getResponse();
-    }, []);
+
     const addResponseLogic = async (content) => {
         if (isLogin) {
             const token = localStorage.getItem('token');

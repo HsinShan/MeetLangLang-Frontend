@@ -42,7 +42,7 @@ const ResponseList = ({ data }) => {
                 <div className='no-comment'>
                     <div>
                         <EditOutlined />
-                        <p>目前還沒有留言喔，幫這篇文章留第一個留言吧！</p>
+                        <p>{t('discuss.no-response-msg')}</p>
                     </div>
                 </div>
             }
