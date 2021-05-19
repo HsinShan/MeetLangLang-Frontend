@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import HavePet from '../../components/drawcards/havePet';
-import NonePet from '../../components/drawcards/nonePet';
+import NoPet from '../../components/drawcards/nonePet';
 import Result from '../../components/drawcards/result';
 import '../../assets/style/drawcards/index.scss';
 
@@ -44,7 +44,7 @@ const DrawCards = ({ isLogin }) => {
         <>
             { !isLogin && <div className="login">{t('drawcards.login')}</div> }
             { isLogin && havePets !== 0 && !isLoading && !drawCard && <div className="draw-card"><HavePet setDraw={setDraw} /></div> }
-            { isLogin && havePets === 0 && !isLoading && !drawCard && <div className="draw-card"><NonePet /></div> }
+            { isLogin && havePets === 0 && !isLoading && !drawCard && <div className="draw-card"><NoPet /></div> }
             { isLogin && havePets !== 0 && !isLoading && drawCard && <Result/>}
         </>
     );
