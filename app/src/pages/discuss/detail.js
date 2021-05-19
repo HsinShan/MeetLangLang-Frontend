@@ -10,6 +10,7 @@ import {
 } from 'antd';
 import { useTranslation } from 'react-i18next';
 import '../../assets/style/discuss/detail.scss';
+import ResponseList from '../../components/response/responseList';
 
 // use api
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
@@ -21,6 +22,7 @@ function DiscussDetail({ isLogin }) {
     const params = new URLSearchParams(search);
     const uuidFromURL = params.get('uuid');
     const [discuss, setDiscuss] = useState(null);
+    const [response, setResponse] = useState(null);
     const [isResponsing, setIsResponsing] = useState(false);
     const [form] = Form.useForm();
     const { hostname } = window.location;
@@ -31,11 +33,20 @@ function DiscussDetail({ isLogin }) {
                 setDiscuss(data[0]);
             });
     };
+    const getResponse = async () => {
+        await axios.get(`${apiProtocol}://${hostname}:${apiPort}/response/${uuidFromURL}`)
+            .then((res) => {
+                const { data } = res;
+                setResponse(data);
+            });
+    };
     useEffect(() => {
         if (uuidFromURL && discuss === null) {
             getData();
+            getResponse();
         }
     });
+
     const addResponseLogic = async (content) => {
         if (isLogin) {
             const token = localStorage.getItem('token');
@@ -52,6 +63,8 @@ function DiscussDetail({ isLogin }) {
                 const { success } = data;
                 if (success) {
                     message.success(t('discuss.response-success'));
+                    setIsResponsing(false);
+                    getResponse();
                 }
             } catch (err) {
                 message.error(t('discuss.response-failed'));
@@ -65,46 +78,56 @@ function DiscussDetail({ isLogin }) {
         <>
             <div className="discuss">
                 {discuss !== null && isResponsing &&
-                    <Card title={discuss.title}>
-                        <p className="author">{t('discuss.author')}：{discuss.author}</p>
-                        <p className="date">{t('discuss.date')}：{discuss.date}</p>
-                        <p className="contnet">{t('discuss.content')}：{discuss.content}</p>
-                        <Card title={t('discuss.add-response')}>
-                            <Form
-                                form={form}
-                                initialValues={{
-                                    content: '',
-                                }}
-                                onFinish={(values) => addResponseLogic(values.content)}
-                                validateMessages={{
-                                    required: t('discuss.content-empty'),
-                                }}
-                            >
-                                <Form.Item
-                                    name="content"
-                                    rules={[{ required: true, min: 1 }]}
+                    <div>
+                        <Card title={discuss.title}>
+                            <p className="author">{t('discuss.author')}：{discuss.author}</p>
+                            <p className="date">{t('discuss.date')}：{discuss.date}</p>
+                            <p className="content">{t('discuss.content')}：{discuss.content}</p>
+                            <Card title={t('discuss.add-response')}>
+                                <Form
+                                    form={form}
+                                    initialValues={{
+                                        content: '',
+                                    }}
+                                    onFinish={(values) => addResponseLogic(values.content)}
+                                    validateMessages={{
+                                        required: t('discuss.content-empty'),
+                                    }}
                                 >
-                                    <Input.TextArea
-                                        className='input-response'
-                                        rows={4}
-                                        placeholder={t('discuss.content-text-response')}
-                                    />
-                                </Form.Item>
-                            </Form>
-                            <div className='button-responsing'>
-                                <Button onClick={() => form.submit()}>{t('discuss.response')}</Button>
-                                <Button onClick={() => { setIsResponsing(false); }}>{t('discuss.cancel')}</Button>
-                            </div>
+                                    <Form.Item
+                                        name="content"
+                                        rules={[{ required: true, min: 1 }]}
+                                    >
+                                        <Input.TextArea
+                                            className='input-response'
+                                            rows={4}
+                                            placeholder={t('discuss.content-text-response')}
+                                        />
+                                    </Form.Item>
+                                </Form>
+                                <div className='button-responsing'>
+                                    <Button onClick={() => form.submit()}>{t('discuss.response')}</Button>
+                                    <Button onClick={() => { setIsResponsing(false); }}>{t('discuss.cancel')}</Button>
+                                </div>
+                            </Card>
                         </Card>
-                    </Card>
+                        {response !== null &&
+                            <ResponseList data={response} />
+                        }
+                    </div>
                 }
                 {discuss !== null && !isResponsing &&
-                    <Card title={discuss.title}>
-                        <p className="author">{t('discuss.author')}：{discuss.author}</p>
-                        <p className="date">{t('discuss.date')}：{discuss.date}</p>
-                        <p className="contnet">{t('discuss.content')}：{discuss.content}</p>
-                        <Button className='button-add-response' onClick={() => { setIsResponsing(true); }}>{t('discuss.add-response')}</Button>
-                    </Card>
+                    <div>
+                        <Card title={discuss.title}>
+                            <p className="author">{t('discuss.author')}：{discuss.author}</p>
+                            <p className="date">{t('discuss.date')}：{discuss.date}</p>
+                            <p className="content">{t('discuss.content')}：{discuss.content}</p>
+                            <Button className='button-add-response' onClick={() => { setIsResponsing(true); }}>{t('discuss.add-response')}</Button>
+                        </Card>
+                        {response !== null &&
+                            <ResponseList data={response} />
+                        }
+                    </div>
                 }
                 {discuss === null && <div><Spin tip="Loading..." /></div>}
             </div>

@@ -21,7 +21,10 @@
         "response-failed": "回覆失敗",
         "not-login": "尚未登入",
         "content-empty": "回覆內容不可為空",
-        "content-text-response": "我想要說....."
+        "content-text-response": "我想要說.....",
+        "response-total": "總共",
+        "comments": "則回覆",
+        "no-response-msg": "目前還沒有留言喔，幫這篇文章留第一個留言吧！"
     },
     "header": {
         "title": "遇見浪浪",

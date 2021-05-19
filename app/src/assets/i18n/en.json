@@ -21,7 +21,10 @@
         "response-failed": "Post failed!",
         "not-login": "Please login first",
         "content-empty": "Response content can not be empty",
-        "content-text-response": "I want to say....."
+        "content-text-response": "I want to say.....",
+        "response-total": "Total",
+        "comments": "comments",
+        "no-response-msg": "There are no comments yet, come and leave the first one!"
     },
     "header": {
         "title": "Meet Lang Lang",
