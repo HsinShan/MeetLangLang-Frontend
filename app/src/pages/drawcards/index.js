@@ -21,10 +21,8 @@ const DrawCards = ({ isLogin }) => {
             headers: { token },
         })
             .then((res) => {
-                console.log(res);
                 const { data } = res;
                 setHavePets(data.length);
-                console.log(data.length);
                 setIsLoading(false);
             });
     };
@@ -34,7 +32,6 @@ const DrawCards = ({ isLogin }) => {
         getPets(token);
     }, [isLoading]);
     const setDraw = (drawState) => {
-        console.log(drawState);
         setDrawCard(drawState);
         setIsLoading(false);
         return (

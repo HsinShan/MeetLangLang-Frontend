@@ -17,12 +17,10 @@ const Result = () => {
 
     const getData = async (token) => {
         const { hostname } = window.location;
-        const reqData = {};
         const { data } = await axios({
             method: 'post',
             url: `${apiProtocol}://${hostname}:${apiPort}/pet/draw`,
             headers: { token },
-            data: { reqData },
         });
         setPet(data);
         setIsLoading(false);
@@ -31,6 +29,15 @@ const Result = () => {
         const token = localStorage.getItem('token');
         getData(token);
     }, [history]);
+    useEffect(() => {
+        let timer1 = null;
+        if (pet) {
+            timer1 = setTimeout(() => setIsLoading(false), 500);
+        }
+        return () => {
+            clearTimeout(timer1);
+        };
+    }, [pet]);
     const PetData = () => (
         <>
             <img className="pet-photo" src={`https://images.weserv.nl/?url=${pet.petPhoto}`}></img>
