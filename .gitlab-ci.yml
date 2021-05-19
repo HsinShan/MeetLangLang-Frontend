@@ -70,7 +70,8 @@ dev-style-test:
 
 staging-deploy:
   variables:
-    COMPOSE_CMD: 'VERSION=${CI_COMMIT_SHORT_SHA} REACT_APP_API_PORT=28181 docker-compose -f docker-compose.staging.yml'
+    COMPOSE_CMD: 'VERSION=${CI_COMMIT_SHORT_SHA} docker-compose -f docker-compose.staging.yml'
+    API_PORT: 28181
   stage: deploy-staging
   tags:
     - sdm2021group3-stagingssh
@@ -85,6 +86,7 @@ staging-deploy:
     - docker images --filter=reference="mll-frontend/*" -q | xargs --no-run-if-empty docker rmi
   script:
     - pwd
+    - echo "REACT_APP_API_PORT=${API_PORT}" >> .env
     - 'eval ${COMPOSE_CMD} config'
     - 'eval ${COMPOSE_CMD} build --no-cache --force-rm'
     - 'eval ${COMPOSE_CMD} up -d'
@@ -93,7 +95,8 @@ staging-deploy:
 
 prod-deploy:
   variables:
-    COMPOSE_CMD: 'VERSION=${CI_COMMIT_SHORT_SHA} REACT_APP_API_PORT=38181 docker-compose -f docker-compose.prod.yml'
+    COMPOSE_CMD: 'VERSION=${CI_COMMIT_SHORT_SHA} docker-compose -f docker-compose.prod.yml'
+    API_PORT: 38181
   stage: deploy-prod
   tags:
     - sdm2021group3-prodssh
@@ -105,6 +108,7 @@ prod-deploy:
     - docker images --filter=reference="mll-frontend/*" -q | xargs --no-run-if-empty docker rmi
   script:
     - pwd
+    - echo "REACT_APP_API_PORT=${API_PORT}" >> .env
     - 'eval ${COMPOSE_CMD} config'
     - 'eval ${COMPOSE_CMD} build --no-cache --force-rm'
     - 'eval ${COMPOSE_CMD} up -d'
