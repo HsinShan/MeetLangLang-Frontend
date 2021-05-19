@@ -52,7 +52,6 @@ const DrawCardsPage = ({ setPet }) => {
         </>
     );
     const HavePet = () => (
-        // console.log(drawcards);
         <>
             <h4 className="have-pet">{t('drawcards.have-pet')}
                 <p>{t('drawcards.description')}</p>
