@@ -13,6 +13,8 @@ dev-standtest-preparation:
     - /^bugfix\/.*$/
     - /^test\/.*$/
     - merge_requests
+  except:
+    - web
   cache:
     key: "fe-$CI_COMMIT_REF_SLUG"
     paths:
@@ -33,6 +35,8 @@ dev-commit-test:
     - /^bugfix\/.*$/
     - /^test\/.*$/
     - merge_requests
+  except:
+    - web
   cache:
     key: "fe-$CI_COMMIT_REF_SLUG"
     paths:
@@ -52,6 +56,8 @@ dev-style-test:
     - /^bugfix\/.*$/
     - /^test\/.*$/
     - merge_requests
+  except:
+    - web
   cache:
     key: "fe-$CI_COMMIT_REF_SLUG"
     paths:
