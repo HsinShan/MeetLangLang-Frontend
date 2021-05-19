@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import HavePet from '../../components/drawcards/havePet';
-import NoPet from '../../components/drawcards/nonePet';
 import Result from '../../components/drawcards/result';
+import NonePet from '../../components/drawcards/nonePet.js';
 import '../../assets/style/drawcards/index.scss';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
@@ -44,7 +44,7 @@ const DrawCards = ({ isLogin }) => {
         <>
             { !isLogin && <div className="login">{t('drawcards.login')}</div> }
             { isLogin && havePets !== 0 && !isLoading && !drawCard && <div className="draw-card"><HavePet setDraw={setDraw} /></div> }
-            { isLogin && havePets === 0 && !isLoading && !drawCard && <div className="draw-card"><NoPet /></div> }
+            { isLogin && havePets === 0 && !isLoading && !drawCard && <div className="draw-card"><NonePet /></div> }
             { isLogin && havePets !== 0 && !isLoading && drawCard && <Result/>}
         </>
     );
