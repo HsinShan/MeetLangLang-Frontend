@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Spin } from 'antd';
 import { SyncOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
-import '../../assets/style/pet/result.scss';
+import '../../assets/style/drawcards/result.scss';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
