@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import HavePet from '../../components/drawcards/havePet';
 import Result from '../../components/drawcards/result';
-import NonePet from '../../components/drawcards/nonePet.js';
+import NonePet from '../../components/drawcards/nonePet';
 import '../../assets/style/drawcards/index.scss';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
