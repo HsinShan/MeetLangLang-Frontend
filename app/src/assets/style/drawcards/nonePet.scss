@@ -13,12 +13,13 @@
 }
 
 .dog, .cat {
-    width: 8%;
+    width: 5%;
 }
 
 .no-pet-message {
     display: inline-block;
     text-align: center;
+    font-size: initial;
 }
 
 .go-add-pet {

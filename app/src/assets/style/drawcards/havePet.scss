@@ -2,7 +2,7 @@
 
 .draw-card {
     justify-content: center;
-    display: inline-block;
+    display: block;
     text-align: center;
 }
 
@@ -13,12 +13,13 @@
 }
 
 .dog, .cat {
-    width: 8%;
+    width: 5%;
 }
 
 .have-pet-message {
     display: inline-block;
     text-align: center;
+    font-size: initial;
 }
 
 .start-draw-card {
