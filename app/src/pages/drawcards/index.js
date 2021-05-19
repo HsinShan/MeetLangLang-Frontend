@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import HavePet from '../../components/drawcards/havePet';
-import Result from '../../components/drawcards/result';
 import NonePet from '../../components/drawcards/nonePet';
+import Result from '../../components/drawcards/result';
 import '../../assets/style/drawcards/index.scss';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
