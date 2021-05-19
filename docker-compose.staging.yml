@@ -1,0 +1,23 @@
+version: "2.4"
+
+networks:
+   mll-frontend-net:
+        name: mll-frontend-net
+
+services:
+    mll-frontend:
+        extends:
+            file: docker-compose.base.yml
+            service: mll-frontend
+        image: mll-frontend/mll-frontend:${VERSION}
+        build:
+            context: ./
+            dockerfile: ./dockerfiles/mll-frontend.dockerfile
+        volumes:
+            - /etc/timezone:/etc/timezone:ro
+            - /etc/localtime:/etc/localtime:ro
+            - ./localhost.crt:/localhost.crt:ro
+            - ./localhost.key:/localhost.key:ro
+        ports:
+            - "${APP_PORT}:3000"
+        command: ["sh", "-c", "serve --ssl-cert /localhost.crt --ssl-key /localhost.key -p 3000 --single ./build/"]
