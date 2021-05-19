@@ -1,0 +1,33 @@
+@import '../_base.scss';
+
+.draw-card {
+    justify-content: center;
+    display: inline-block;
+    text-align: center;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dog, .cat {
+    width: 8%;
+}
+
+.no-pet-message {
+    display: inline-block;
+    text-align: center;
+}
+
+.go-add-pet {
+    height: 32px;
+    padding: 4px 16px;
+    font-size: 14px;
+    border-radius: 32px;
+    background-color: #a37e39;
+    color: white;
+    font-weight: 500;
+    border-color: #a37e39;
+}
