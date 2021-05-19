@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 
 const ResponseList = ({ data }) => {
     const { t } = useTranslation();
-    const sortedData = data.sort((a, b) => b.respId - a.respId);
+    const sortedData = data.sort((a, b) => a.respId - b.respId);
     return (
         <>
             {(data.length !== 0) &&
