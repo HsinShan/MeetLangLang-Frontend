@@ -1,0 +1,34 @@
+@import '../_base.scss';
+
+.draw-card {
+    justify-content: center;
+    display: block;
+    text-align: center;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dog, .cat {
+    width: 5%;
+}
+
+.have-pet-message {
+    display: inline-block;
+    text-align: center;
+    font-size: initial;
+}
+
+.start-draw-card {
+    background: #131834;
+    color: white;
+}
+
+.start-draw-card.ant-btn:hover,.ant-btn:focus {
+    background-color: #fff;
+    border-color:#131834;
+    color:#131834;
+}
