@@ -1,10 +1,23 @@
-version: "3.5"
+version: "2.4"
+
+networks:
+   mll-frontend-net:
+        name: mll-frontend-net
 
 services:
     mll-frontend:
+        extends:
+            file: docker-compose.base.yml
+            service: mll-frontend
+        image: mll-frontend/mll-frontend:${VERSION}
+        build:
+            context: ./
+            dockerfile: ./dockerfiles/mll-frontend.dockerfile
         volumes:
-            - ./app/build:/app/build:delegated
-            - /home/runner/mll-cert/ssl.crt:/localhost.crt
-            - /home/runner/mll-cert/ssl.key:/localhost.key
-        command: ["sh", "-c", "npm install -g serve && \
-            serve --ssl-cert /localhost.crt --ssl-key /localhost.key -p 3000 --single ./build/"]
+            - /etc/timezone:/etc/timezone:ro
+            - /etc/localtime:/etc/localtime:ro
+            - /home/runner/mll-cert/ssl.crt:/localhost.crt:ro
+            - /home/runner/mll-cert/ssl.key:/localhost.key:ro
+        ports:
+            - "${APP_PORT}:3000"
+        command: ["sh", "-c", "serve --ssl-cert /localhost.crt --ssl-key /localhost.key -p 3000 --single ./build/"]

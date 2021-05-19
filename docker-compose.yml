@@ -1,4 +1,4 @@
-version: "3.5"
+version: "2.4"
 
 networks:
    mll-frontend-net:
@@ -6,26 +6,12 @@ networks:
 
 services:
     mll-frontend:
-        image: node:10.17.0
-        container_name: mll-frontend
-        restart: always
+        extends:
+            file: docker-compose.base.yml
+            service: mll-frontend
         volumes:
-            - /etc/timezone:/etc/timezone:ro
-            - /etc/localtime:/etc/localtime:ro
             - ./app:/app:delegated
-            - ./localhost.crt:/localhost.crt
-            - ./localhost.key:/localhost.key
-        environment:
-            - CHOKIDAR_USEPOLLING=true
-            - REACT_APP_API_PROTOCOL=${REACT_APP_API_PROTOCOL}
-            - REACT_APP_API_PORT=${REACT_APP_API_PORT}
+            - ./localhost.crt:/localhost.crt:ro
+            - ./localhost.key:/localhost.key:ro
         ports:
             - "${APP_PORT}:3000"
-        networks:
-            - mll-frontend-net
-        working_dir: /app
-        command: ["sh", "-c", "npm install && \
-            HTTPS=true \
-            SSL_CRT_FILE=/localhost.crt \
-            SSL_KEY_FILE=/localhost.key \
-            npm run start"]
