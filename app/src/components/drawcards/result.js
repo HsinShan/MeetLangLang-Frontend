@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, Spin } from 'antd';
 import { SyncOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
+import defaultImg from '../../assets/images/defaultImage.svg';
 import '../../assets/style/drawcards/result.scss';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
@@ -13,7 +14,7 @@ const Result = () => {
     const { t } = useTranslation();
     const history = useHistory();
     const [pet, setPet] = useState({});
-    const [havePet, setHavePet] = useState(false);
+    const [havePet, setHavePet] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
 
     const getData = async (token) => {
@@ -24,8 +25,11 @@ const Result = () => {
             headers: { token },
         });
         setPet(data);
-        if (data.length !== undefined) {
-            setHavePet(true);
+        console.log(data);
+        console.log(data.length);
+        console.log(data.key);
+        if (data.key === undefined) {
+            setHavePet(false);
         }
         setIsLoading(false);
     };
@@ -44,7 +48,8 @@ const Result = () => {
     }, [pet]);
     const PetData = () => (
         <>
-            <img className="pet-photo" src={`https://images.weserv.nl/?url=${pet.petPhoto}`}></img>
+            { pet.petPhoto === null && <img className="pet-photo" src={defaultImg}></img>}
+            { pet.petPhoto !== null && <img className="pet-photo" src={`https://images.weserv.nl/?url=${pet.petPhoto}`}></img>}
             <div className="pet-data">
                 <div className="row"><div className="result-title">{t('drawcards.pet-name')}</div><div className="result-content">{pet.petName}</div></div>
                 <div className="row"><div className="result-title">{t('drawcards.pet-kind')}</div><div className="result-content">{pet.petKind}</div></div>
