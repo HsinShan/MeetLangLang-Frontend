@@ -25,13 +25,14 @@ function Search() {
 
     const getAnimals = async () => {
         const { hostname } = window.location;
-        await axios.get(`${apiProtocol}://${hostname}:${apiPort}/animal/get`)
-            .then((res) => {
-                const { data } = res;
-                sessionStorage.setItem('animalData', JSON.stringify(data));
-                setAnimals(data);
-                setOriginAnimals(data);
-            });
+        const { data } = await axios.get(`${apiProtocol}://${hostname}:${apiPort}/animal/get`);
+        data.forEach((e) => {
+            const d = e;
+            d.album_file = d.album_file.replace('._org', '_org.');
+        });
+        sessionStorage.setItem('animalData', JSON.stringify(data));
+        setAnimals(data);
+        setOriginAnimals(data);
     };
 
     const changePage = (page) => {
