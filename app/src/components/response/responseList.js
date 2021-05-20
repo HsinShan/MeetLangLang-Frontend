@@ -8,7 +8,6 @@ import {
 import { EditOutlined, MessageOutlined } from '@ant-design/icons';
 import React from 'react';
 import moment from 'moment';
-import 'moment/locale/zh-tw';
 import { useTranslation } from 'react-i18next';
 
 const ResponseList = ({ data }) => {

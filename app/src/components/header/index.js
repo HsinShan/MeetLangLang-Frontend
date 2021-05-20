@@ -1,8 +1,10 @@
 import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 import Navbar from './navbar';
 import UserHeader from './userHeader';
+import 'moment/locale/zh-tw';
 import Logo from '../../assets/images/logo.svg';
 
 const Header = ({ isLogin, logout }) => {
@@ -17,9 +19,9 @@ const Header = ({ isLogin, logout }) => {
                 </div>
                 <div className='right-section'>
                     <div className='language'>
-                        <label className='language-label' onClick={() => { i18n.changeLanguage('zh-TW'); }}> 繁體中文 </label>
+                        <label className='language-label' onClick={() => { i18n.changeLanguage('zh-TW'); moment.locale('zh-tw'); }}> 繁體中文 </label>
                         <label> | </label>
-                        <label className='language-label' onClick={() => { i18n.changeLanguage('en'); }}> English </label>
+                        <label className='language-label' onClick={() => { i18n.changeLanguage('en'); moment.locale('en'); }}> English </label>
                     </div>
                     <UserHeader
                         isLogin={isLogin}
