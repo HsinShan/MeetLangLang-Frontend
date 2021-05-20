@@ -1,4 +1,4 @@
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {
     Row,
@@ -39,6 +39,7 @@ const token = localStorage.getItem('token');
 
 const AnimalProfile = ({ isLogin }) => {
     const { t } = useTranslation();
+    const history = useHistory();
     const location = useLocation();
     const noData = t('animalprofile.none');
     const [isSaved, setIsSaved] = useState(false);
@@ -127,13 +128,17 @@ const AnimalProfile = ({ isLogin }) => {
         }
     };
 
+    const goBackPage = () => {
+        history.goBack();
+    };
+
     return (
         <div className="animalprofile">
             <Row className="header" justify="space-between">
                 <Col flex="none">
-                    <Link to="/">
+                    <Button className="last-page" type="link" onClick={() => goBackPage()}>
                         <LeftOutlined /> {t('animalprofile.info.prev')}
-                    </Link>
+                    </Button>
                 </Col>
                 <Col className="main-title" flex="none">{t('animalprofile.info.data')}</Col>
                 <Col flex="none">
