@@ -144,7 +144,8 @@
         "dog":"dog",
         "cat":"cat",
         "other":"other",
-        "again":"again"
+        "again":"again",
+        "donot-have-pet":"there is no other pet information in database"
     },
     "area": {
         "2": "Taipei City",

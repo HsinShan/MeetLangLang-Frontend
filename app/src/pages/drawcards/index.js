@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import HavePet from '../../components/drawcards/havePet';
-import NonePet from '../../components/drawcards/NonePet';
+import NonePet from '../../components/drawcards/haveNoPet';
 import Result from '../../components/drawcards/result';
 import '../../assets/style/drawcards/index.scss';
 

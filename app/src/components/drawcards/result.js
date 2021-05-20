@@ -13,6 +13,7 @@ const Result = () => {
     const { t } = useTranslation();
     const history = useHistory();
     const [pet, setPet] = useState({});
+    const [havePet, setHavePet] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     const getData = async (token) => {
@@ -23,6 +24,9 @@ const Result = () => {
             headers: { token },
         });
         setPet(data);
+        if (data.length !== undefined) {
+            setHavePet(true);
+        }
         setIsLoading(false);
     };
     useEffect(() => {
@@ -60,8 +64,9 @@ const Result = () => {
     return (
         <div className="result">
             { isLoading && <div><Spin tip="Loading..." /></div> }
-            { !isLoading && <div className="all">{ <PetData/> }</div> }
-            { !isLoading && <div className="again-button">{ <Again/> }</div>}
+            { !isLoading && !havePet && <div className="no-pet-data">{t('drawcards.donot-have-pet')}</div>}
+            { !isLoading && havePet && <div className="all">{ <PetData/> }</div> }
+            { !isLoading && havePet && <div className="again-button">{ <Again/> }</div>}
         </div>
     );
 };
