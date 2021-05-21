@@ -9,6 +9,7 @@ import {
     Input,
 } from 'antd';
 import { useTranslation } from 'react-i18next';
+import moment from 'moment';
 import '../../assets/style/discuss/detail.scss';
 import ResponseList from '../../components/response/responseList';
 
@@ -81,7 +82,7 @@ function DiscussDetail({ isLogin }) {
                     <div>
                         <Card title={discuss.title}>
                             <p className="author">{t('discuss.author')}：{discuss.author}</p>
-                            <p className="date">{t('discuss.date')}：{discuss.date}</p>
+                            <p className="date">{t('discuss.date')}：{moment(discuss.date).format('YYYY-MM-DD')}</p>
                             <p className="content">{t('discuss.content')}：{discuss.content}</p>
                             <Card title={t('discuss.add-response')}>
                                 <Form
@@ -120,7 +121,7 @@ function DiscussDetail({ isLogin }) {
                     <div>
                         <Card title={discuss.title}>
                             <p className="author">{t('discuss.author')}：{discuss.author}</p>
-                            <p className="date">{t('discuss.date')}：{discuss.date}</p>
+                            <p className="date">{t('discuss.date')}：{moment(discuss.date).format('YYYY-MM-DD')}</p>
                             <p className="content">{t('discuss.content')}：{discuss.content}</p>
                             <Button className='button-add-response' onClick={() => { setIsResponsing(true); }}>{t('discuss.add-response')}</Button>
                         </Card>

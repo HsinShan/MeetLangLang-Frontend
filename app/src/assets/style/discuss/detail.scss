@@ -1,10 +1,15 @@
 @import "../base";
 
 .discuss {
+
     .ant-card {
         width: 80%;
         margin: auto;
         border-radius: 15px 15px 0px 0px;
+
+        @include mobile {
+            width: 100%;
+        }
     }
 
     .ant-card-head{
@@ -26,14 +31,25 @@
         display: flex;
         justify-content: center;
 
+        @include mobile {
+            width: 100%;
+        }
+
         p {
             padding: 20px;
             font-size: 15px;
             font-weight: 500;
             display: inline-block;
             vertical-align: middle;
-            margin: 0px
+            margin: 0px;
 
+            @include mobile {
+                padding: 5px 5px 20px 5px;
+                text-align: center;
+                font-size: 14px;
+                display: flex;
+                justify-content: center;
+            }
         }
 
         .anticon {
@@ -42,6 +58,13 @@
             vertical-align: middle;
             padding-bottom: 4px;
             padding-right: 0px;
+
+            @include mobile {
+                padding-top: 15px;
+                font-size: 1.8em;
+                display: flex;
+                justify-content: center;
+            }
         }
     }
 
@@ -115,4 +138,9 @@
     .ant-divider-horizontal {
         width: 80%;
     }
+
+    @include mobile {
+        width: 100%;
+    }
 }
+
