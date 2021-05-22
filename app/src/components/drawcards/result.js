@@ -25,10 +25,7 @@ const Result = () => {
             headers: { token },
         });
         setPet(data);
-        console.log(data);
-        console.log(data.length);
-        console.log(data.key);
-        if (data.key === undefined) {
+        if (Object.keys(data).length === 0) {
             setHavePet(false);
         }
         setIsLoading(false);
