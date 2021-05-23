@@ -35,8 +35,6 @@ const formatSterilization = (sterilization) => {
     return result;
 };
 
-const token = localStorage.getItem('token');
-
 const AnimalProfile = ({ isLogin }) => {
     const { t } = useTranslation();
     const history = useHistory();
@@ -50,6 +48,7 @@ const AnimalProfile = ({ isLogin }) => {
 
     const checkAnimalSavedLogic = async () => {
         try {
+            const token = localStorage.getItem('token');
             const { data } = await axios({
                 url: `${apiProtocol}://${hostname}:${apiPort}/animal/favorites`,
                 headers: { token },
@@ -71,10 +70,11 @@ const AnimalProfile = ({ isLogin }) => {
         if (isLogin) {
             checkAnimalSavedLogic();
         }
-    });
+    }, [isLogin]);
 
     const saveAnimalLogic = async () => {
         if (isLogin) {
+            const token = localStorage.getItem('token');
             try {
                 const { data } = await axios({
                     url: `${apiProtocol}://${hostname}:${apiPort}/animal/favorites`,
@@ -108,6 +108,7 @@ const AnimalProfile = ({ isLogin }) => {
 
     const unsaveAnimalLogic = async () => {
         if (isLogin) {
+            const token = localStorage.getItem('token');
             try {
                 const { data } = await axios({
                     url: `${apiProtocol}://${hostname}:${apiPort}/animal/favorites`,
