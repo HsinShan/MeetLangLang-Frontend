@@ -52,40 +52,44 @@ class LoginForm extends Component {
     }
 
     render() {
-        const { type } = this.props;
+        const { type, ssoOnly } = this.props;
         const { t } = this.props;
         return (
             <div className="login-form">
                 <header className="login-form-title">{t('login.member')}{this.props.type}</header>
-                <div className="account">
-                    <p>
-                        <label className="label">{t('login.username')}</label>
-                        <Input
-                            type="text"
-                            className="accout-text"
-                            placeholder="Username"
-                            value={this.state.account}
-                            onChange={(e) => this.GetAccountValue(e)} />
-                    </p>
-                </div>
-                <div className="password">
-                    <p>
-                        <label className="label">{t('login.password')}</label>
-                        <Input
-                            type="password"
-                            className="password-text"
-                            placeholder="Password"
-                            onChange={(e) => this.GetPasswordValue(e)} />
-                    </p>
-                </div>
-                <div>
-                    <Button
-                        className="loginform-button"
-                        onClick={() => this.props.loginLogic(this.state.account)}>
-                        {type === 'login' && '登入'}
-                        {type === 'register' && '註冊'}
-                    </Button>
-                </div>
+                {ssoOnly !== true && (
+                    <>
+                        <div className="account">
+                            <p>
+                                <label className="label">{t('login.username')}</label>
+                                <Input
+                                    type="text"
+                                    className="accout-text"
+                                    placeholder="Username"
+                                    value={this.state.account}
+                                    onChange={(e) => this.GetAccountValue(e)} />
+                            </p>
+                        </div>
+                        <div className="password">
+                            <p>
+                                <label className="label">{t('login.password')}</label>
+                                <Input
+                                    type="password"
+                                    className="password-text"
+                                    placeholder="Password"
+                                    onChange={(e) => this.GetPasswordValue(e)} />
+                            </p>
+                        </div>
+                        <div>
+                            <Button
+                                className="loginform-button"
+                                onClick={() => this.props.loginLogic(this.state.account)}>
+                                {type === 'login' && '登入'}
+                                {type === 'register' && '註冊'}
+                            </Button>
+                        </div>
+                    </>
+                )}
                 {type === 'login' &&
                     <Row align="center">
                         <Col>

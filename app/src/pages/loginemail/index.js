@@ -11,7 +11,24 @@ const apiPort = process.env.REACT_APP_API_PORT;
 const Login = ({ loggedin }) => {
     const { t } = useTranslation();
     const history = useHistory();
-    const loginLogic = async () => {};
+    const loginLogic = async (account) => {
+        try {
+            const { hostname } = window.location;
+            const { data } = await axios({
+                url: `${apiProtocol}://${hostname}:${apiPort}/user/login`,
+                method: 'post',
+                data: {
+                    email: account,
+                },
+            });
+            const { token } = data;
+            message.success(t('login.success'));
+            loggedin(token);
+            history.push('/');
+        } catch (err) {
+            message.error(t('login.error'));
+        }
+    };
     const fbLoginLogic = async (type, fbtoken = '') => {
         if (type === 'success') {
             const { hostname } = window.location;
@@ -36,11 +53,13 @@ const Login = ({ loggedin }) => {
             <div className="login-page">
                 <div className="left-container">
                     <LoginForm
-                        ssoOnly={true}
                         type='login'
                         loginLogic={(account) => loginLogic(account)}
                         fbLoginLogic={fbLoginLogic}
                     />
+                </div>
+                <div className="right-container">
+                    <LoginForm type='register' loginLogic={(account) => loginLogic(account)} />
                 </div>
             </div>
         </>
