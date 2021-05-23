@@ -1,4 +1,5 @@
 import Login from '../pages/login';
+import LoginEmail from '../pages/loginemail';
 import Member from '../pages/member';
 import Search from '../pages/search';
 import Map from '../pages/map';
@@ -18,6 +19,11 @@ const routes = [
     {
         path: '/login',
         component: Login,
+        exact: true,
+    },
+    {
+        path: '/login-email',
+        component: LoginEmail,
         exact: true,
     },
     {

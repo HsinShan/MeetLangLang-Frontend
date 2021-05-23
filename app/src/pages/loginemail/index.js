@@ -53,11 +53,13 @@ const Login = ({ loggedin }) => {
             <div className="login-page">
                 <div className="left-container">
                     <LoginForm
-                        ssoOnly={true}
                         type='login'
                         loginLogic={(account) => loginLogic(account)}
                         fbLoginLogic={fbLoginLogic}
                     />
+                </div>
+                <div className="right-container">
+                    <LoginForm type='register' loginLogic={(account) => loginLogic(account)} />
                 </div>
             </div>
         </>
