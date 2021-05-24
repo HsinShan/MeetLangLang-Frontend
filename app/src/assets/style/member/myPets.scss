@@ -17,6 +17,10 @@
         width: 96%;
         margin: 20px auto;
 
+        &-items {
+            background-color: $light-brown;
+        }
+
         &-item {
             align-items: center;
             border: 1px solid #f0f0f0;

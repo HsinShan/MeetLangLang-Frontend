@@ -1,6 +1,63 @@
+@import '../_base.scss';
 .login {
     display: flex;
     font-weight: 500;
     font-size: large;
     justify-content: space-around;
+    margin: 100px auto;
+}
+
+.draw-cards {
+    background-color: $light-brown;
+    padding: 30px;
+    border: 1px solid $light-gray;
+    border-radius: 10px;
+
+    @include mobile {
+        padding: 10px;
+    }
+
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-bottom: 1px dashed $light-gray;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+
+        .description {
+            text-align: center;
+            width: calc(50% - 120px);
+
+            .title {
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+
+        .cat, .dog {
+            width: 60px;
+        }
+
+        @include mobile {
+            .description {
+                width: calc(100% - 120px);
+    
+                .title {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+            }
+    
+            .cat, .dog {
+                width: 40px;
+            }
+        }
+        
+    }
+
+    .draw-card {
+        display: block;
+        text-align: center;
+    }
 }

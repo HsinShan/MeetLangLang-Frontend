@@ -39,7 +39,8 @@
         "username": "帳號",
         "password": "密碼",
         "welcome": "歡迎",
-        "already-login": "您已經登入"
+        "already-login": "您已經登入",
+        "description": "我們提供完整的浪浪資訊及交友功能 \n 請以 Facebook 進行註冊及登入來解鎖更多功能唷!"
     },
     "map": {
         "default": "我要找縣市收容所"
@@ -121,6 +122,7 @@
     },
     "drawcards": {
         "building": "頁面建置中...",
+        "page-title": "寵物約會趣",
         "login":"趕快去登入吧...",
         "title": "使用抽卡功能認識更多興趣相同的寵物們~",
         "start": "抽卡去",
@@ -139,7 +141,8 @@
         "cat": "貓",
         "other":"其他",
         "again":"再抽一次",
-        "donot-have-pet":"目前還沒有其他寵物資料"
+        "donot-have-pet":"目前還沒有其他寵物資料",
+        "loading": "抽卡中"
     },
     "area": {
         "2": "臺北市",
@@ -179,6 +182,7 @@
         "其他": "其他"
     },
     "petadd":{
+        "title": "新增你的寵物資訊",
         "pet-name":"寵物姓名",
         "pet-sex":"寵物性別",
         "pet-age":"寵物年紀",

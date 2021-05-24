@@ -86,34 +86,36 @@ const PetForm = () => {
     return (
         <Form className="petform" form={form} autoComplete="off" onFinish={(values) => submit(values)}>
             <div className="pet-form">
-                <Form.Item className="pet-input" label={t('petadd.pet-name')} name="name" rules={[{ required: true, message: `${t('petadd.alert')}` }]}>
-                    <Input onChange={onChange}/>
-                </Form.Item>
-                <Form.Item className="pet-input" label={t('petadd.pet-sex')} name="sex">
-                    <div className="dropdown">
-                        <Radio.Group>
-                            <Radio value="F">{t('petadd.male')}</Radio>
-                            <Radio value="M">{t('petadd.female')}</Radio>
-                        </Radio.Group>
-                    </div>
-                </Form.Item>
-                <Form.Item className="pet-input" label={t('petadd.pet-age')} name="age">
-                    <Input type="number"/>
-                </Form.Item>
-                <Form.Item className="pet-input" label={t('petadd.pet-kind')} name="kind">
-                    <Select>
-                        <Select.Option value="dog">{t('petadd.dog')}</Select.Option>
-                        <Select.Option value="cat">{t('petadd.cat')}</Select.Option>
-                        <Select.Option value="other">{t('petadd.other')}</Select.Option>
-                    </Select>
-                </Form.Item>
-                <Form.Item className="pet-input" label={t('petadd.pet-introduction')} name="introduction">
-                    <TextArea autoSize={{ minRows: 3, maxRows: 5 }} />
-                </Form.Item>
+                <div className="text-block">
+                    <Form.Item className="pet-input" label={t('petadd.pet-name')} name="name" rules={[{ required: true, message: `${t('petadd.alert')}` }]}>
+                        <Input onChange={onChange}/>
+                    </Form.Item>
+                    <Form.Item className="pet-input" label={t('petadd.pet-sex')} name="sex">
+                        <div className="dropdown">
+                            <Radio.Group>
+                                <Radio value="F">{t('petadd.male')}</Radio>
+                                <Radio value="M">{t('petadd.female')}</Radio>
+                            </Radio.Group>
+                        </div>
+                    </Form.Item>
+                    <Form.Item className="pet-input" label={t('petadd.pet-age')} name="age">
+                        <Input type="number"/>
+                    </Form.Item>
+                    <Form.Item className="pet-input" label={t('petadd.pet-kind')} name="kind">
+                        <Select>
+                            <Select.Option value="狗">{t('petadd.dog')}</Select.Option>
+                            <Select.Option value="貓">{t('petadd.cat')}</Select.Option>
+                            <Select.Option value="其他">{t('petadd.other')}</Select.Option>
+                        </Select>
+                    </Form.Item>
+                    <Form.Item className="pet-input" label={t('petadd.pet-introduction')} name="introduction">
+                        <TextArea autoSize={{ minRows: 3, maxRows: 5 }} />
+                    </Form.Item>
+                </div>
+                <Upload className="avatar-uploader pet-image" listType="picture-card" action="https://api.imgur.com/3/image" showUploadList={false} customRequest={customRequest}>
+                    {imageUrl ? <img src={`https://images.weserv.nl/?url=${imageUrl}`} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
+                </Upload>
             </div>
-            <Upload className="avatar-uploader pet-image" listType="picture-card" action="https://api.imgur.com/3/image" showUploadList={false} customRequest={customRequest}>
-                {imageUrl ? <img src={`https://images.weserv.nl/?url=${imageUrl}`} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
-            </Upload>
             <div className="button">
                 <Form.Item>
                     { information ? <Button className="click-button" type="Default" htmlType="submit">{t('petadd.add')}</Button> : <Button className="no-click-button" type="Default" disabled>{t('petadd.add')}</Button>}

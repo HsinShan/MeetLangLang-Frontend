@@ -1,7 +1,7 @@
 @import '../base.scss';
 
-$normal-font-size: 16px;
-$mobile-font-size: 12px;
+$normal-font-size: 18px;
+$mobile-font-size: 14px;
 @mixin main-title($fontsize) {
     font-size: calc(#{$fontsize} + 2px);
     color: #000000;
@@ -63,6 +63,8 @@ $mobile-font-size: 12px;
     @mixin extendmobile($fontsize) {
         .header {
             @include main-title($fontsize);
+            padding: 0 0 15px;
+            align-items: center;
         }
         .info {
             font-size: $fontsize;
@@ -70,6 +72,21 @@ $mobile-font-size: 12px;
         }
         .main-title {
             @include main-title($fontsize);
+        }
+
+        .ant-col {
+            padding-left: 0;
+        }
+
+        .ant-btn {
+            &.saveanimal-button, &.deleteanimal-button {
+                font-size: 12px;
+            }
+
+            &.last-page {
+                font-size: 12px;
+                padding: 0;
+            }
         }
     }
 

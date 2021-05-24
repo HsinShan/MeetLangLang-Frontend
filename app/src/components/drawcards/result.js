@@ -17,6 +17,13 @@ const Result = () => {
     const [havePet, setHavePet] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
 
+    const delayLoading = () => {
+        let timer1 = null;
+        timer1 = setTimeout(() => setIsLoading(false), 1000);
+
+        clearTimeout(timer1);
+    };
+
     const getData = async (token) => {
         const { hostname } = window.location;
         const { data } = await axios({
@@ -28,11 +35,12 @@ const Result = () => {
         if (Object.keys(data).length === 0) {
             setHavePet(false);
         }
-        setIsLoading(false);
+        delayLoading();
     };
     useEffect(() => {
         const token = localStorage.getItem('token');
         getData(token);
+    // eslint-disable-next-line
     }, [history]);
     useEffect(() => {
         let timer1 = null;
@@ -56,16 +64,24 @@ const Result = () => {
             </div>
         </>
     );
+
     const drawAgain = () => {
+        setIsLoading(true);
         const token = localStorage.getItem('token');
         getData(token);
     };
     const Again = () => (
-        <Button className="result-button" shape="round" icon={<SyncOutlined />} onClick={() => drawAgain()}>{t('drawcards.again')}</Button>
+        <Button
+            className="result-button"
+            shape="round" icon={<SyncOutlined />}
+            onClick={drawAgain}
+        >
+            {t('drawcards.again')}
+        </Button>
     );
     return (
         <div className="result">
-            { isLoading && <div><Spin tip="Loading..." /></div> }
+            { isLoading && <div><Spin tip={t('drawcards.loading')} /></div> }
             { !isLoading && !havePet && <div className="no-pet-data">{t('drawcards.donot-have-pet')}</div>}
             { !isLoading && havePet && <div className="all">{ <PetData/> }</div> }
             { !isLoading && havePet && <div className="again-button">{ <Again/> }</div>}

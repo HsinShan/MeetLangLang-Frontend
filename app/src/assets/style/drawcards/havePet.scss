@@ -1,25 +1,14 @@
 @import '../_base.scss';
 
-.draw-card {
-    justify-content: center;
-    display: block;
-    text-align: center;
-}
-
-.img {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.dog, .cat {
-    width: 5%;
-}
-
 .have-pet-message {
     display: inline-block;
     text-align: center;
     font-size: initial;
+    margin-top: 100px;
+}
+
+.draw-card-button {
+    margin-bottom: 100px;
 }
 
 .start-draw-card {

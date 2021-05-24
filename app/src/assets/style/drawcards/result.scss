@@ -1,100 +1,76 @@
 @import '../base.scss';
 
 .result {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    word-wrap:break-word;
+    width: 100%;  
 }
 .all {
-    display: flex;
-    flex-direction: column;
     background: white;
     border-radius: 15px;
-    width: 50%;
-    align-items: center;
+    width: 500px;
+    padding: 30px;
+    margin: 30px auto;
 
     @include mobile {
-        display:flex;
-        width: 50%;
+        padding: 10px;
+        width: 100%;
     }
 }
 .pet-photo {
-    vertical-align: middle;
-    border-style: none;
-    width: 25%;
+    width: 100%;
 }
 
 .pet-data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 80%;
-
-    @include mobile {
-        width: 80%;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        justify-content: center;
-    }
+    margin: 10px;
 }
 
 .row {
     display: inline-flex;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
-    padding: 5px;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    margin: 10px 0;
     width: 80%;
-    justify-content: center;
-    
-    @include mobile {
-        width: 80%;
-        display: inline-flex;
-    }
 }
 
 .result-title {
     display: flex;
-    width: 30%;
+    padding: 2px 20px;
     background-color: #c7a974;
     border-radius: 10px;
     color:azure;
-    margin-left: 5px;
+    margin-right: 8px;
     justify-content: space-around;
     align-items: center;
-
-    @include mobile {
-        width: 50%;
-    }
+    font-size: 12px;
 }
 
 .result-content {
     padding-left: 5px;
     word-break: break-all;
-    width: 50%;
-
-    @include mobile {
-        width: 40%;
-    }
 }
 
 .again-button {
-    padding: 10px;
+    margin: 10px;
+    text-align: center;
 }
 
 .result-button {
+    padding: 5px 20px;
     background-color: #A37E39;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 600;
+    line-height: 18px;
     color:white;
+
+    &:hover, &:focus {
+        background-color: #FFFFFF;
+        color:#A37E39;
+        border-color: #A37E39;
+    }
 
 }
 
 .no-pet-data {
     font-weight: 500;
     font-size: 18px;
+    margin: 100px auto;
 }

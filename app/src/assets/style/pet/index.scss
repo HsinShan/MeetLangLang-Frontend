@@ -1,0 +1,20 @@
+@import '../_base.scss';
+
+.pet-add {
+    background-color: $light-brown;
+    padding: 30px 50px;
+    border: 1px solid $light-gray;
+    border-radius: 10px;
+
+    .title {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid $light-gray;
+    }
+
+    @include pad {
+        padding: 30px 20px;
+    }
+}

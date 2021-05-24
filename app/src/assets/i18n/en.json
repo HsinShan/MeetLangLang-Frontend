@@ -45,7 +45,8 @@
         "username": "Username",
         "password": "Password",
         "welcome": "Welcome",
-        "already-login": "You already logged in."
+        "already-login": "You already logged in.",
+        "description": "We provide complete Lang Lang information and dating functions. \n Please register and log in with Facebook to unlock more features!"
     },
     "map": {
         "default": "Find shelters"
@@ -127,6 +128,7 @@
     },
     "drawcards": {
         "building": "building...",
+        "page-title": "Pet Dating",
         "login":"hurry up to login...",
         "title": "Use the draw card function to meet more pets with the same interests~",
         "start": "Start",
@@ -145,7 +147,8 @@
         "cat":"cat",
         "other":"other",
         "again":"again",
-        "donot-have-pet":"there is no other pet information in database"
+        "donot-have-pet":"there is no other pet information in database",
+        "loading": "Drawing..."
     },
     "area": {
         "2": "Taipei City",
@@ -185,6 +188,7 @@
         "其他": "Others"
     },
     "petadd":{
+        "title": "Add Your Pet's Information",
         "pet-name":"Pet Name",
         "pet-sex":"Pet Sex",
         "pet-age":"Pet Age",
