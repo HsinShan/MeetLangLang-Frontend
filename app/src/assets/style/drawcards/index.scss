@@ -13,6 +13,10 @@
     border: 1px solid $light-gray;
     border-radius: 10px;
 
+    @include mobile {
+        padding: 10px;
+    }
+
     &-header {
         display: flex;
         align-items: center;
