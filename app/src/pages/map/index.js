@@ -10,10 +10,10 @@ function Map() {
     };
 
     return (
-        <>
+        <div className='map'>
             <SelectForm getSelectArea={getSelectArea}/>
             <GoogleMap area={area}/>
-        </>
+        </div>
     );
 }
 
