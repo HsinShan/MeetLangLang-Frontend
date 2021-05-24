@@ -1,6 +1,27 @@
+@import '../_base.scss';
 .login {
     display: flex;
     font-weight: 500;
     font-size: large;
     justify-content: space-around;
+}
+
+.draw-cards {
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-bottom: 1px dashed $light-gray;
+        margin-bottom: 20px;
+
+        .description {
+            text-align: center;
+
+            .title {
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
+        
+    }
 }

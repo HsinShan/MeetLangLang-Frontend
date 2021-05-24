@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import Header from '../../components/drawcards/header';
 import HavePet from '../../components/drawcards/havePet';
 import NonePet from '../../components/drawcards/haveNoPet';
 import Result from '../../components/drawcards/result';
@@ -41,12 +42,13 @@ const DrawCards = ({ isLogin }) => {
     };
 
     return (
-        <>
+        <div className="draw-cards">
+            <Header />
             { !isLogin && <div className="login">{t('drawcards.login')}</div> }
             { isLogin && havePets !== 0 && !isLoading && !drawCard && <div className="draw-card"><HavePet setDraw={setDraw} /></div> }
             { isLogin && havePets === 0 && !isLoading && !drawCard && <div className="draw-card"><NonePet /></div> }
             { isLogin && havePets !== 0 && !isLoading && drawCard && <Result/>}
-        </>
+        </div>
     );
 };
 

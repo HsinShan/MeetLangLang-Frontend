@@ -128,6 +128,7 @@
     },
     "drawcards": {
         "building": "building...",
+        "page-title": "Pet Dating",
         "login":"hurry up to login...",
         "title": "Use the draw card function to meet more pets with the same interests~",
         "start": "Start",
