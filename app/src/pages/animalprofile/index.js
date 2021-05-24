@@ -46,31 +46,31 @@ const AnimalProfile = ({ isLogin }) => {
     const { animal } = location.state;
     const currentAnimal = animal.animal_id;
 
-    const checkAnimalSavedLogic = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            const { data } = await axios({
-                url: `${apiProtocol}://${hostname}:${apiPort}/animal/favorites`,
-                headers: { token },
-                method: 'get',
-            });
-            // Check if animalId is already saved by user
-            const searchResult = _.filter(data.animalInfo, ['animal_id', currentAnimal]);
-            if (searchResult.length !== 0) {
-                setIsSaved(true);
-            } else {
-                setIsSaved(false);
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
     useEffect(() => {
+        const checkAnimalSavedLogic = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const { data } = await axios({
+                    url: `${apiProtocol}://${hostname}:${apiPort}/animal/favorites`,
+                    headers: { token },
+                    method: 'get',
+                });
+                // Check if animalId is already saved by user
+                const searchResult = _.filter(data.animalInfo, ['animal_id', currentAnimal]);
+                if (searchResult.length !== 0) {
+                    setIsSaved(true);
+                } else {
+                    setIsSaved(false);
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
         if (isLogin) {
             checkAnimalSavedLogic();
         }
-    }, [isLogin]);
+    }, [currentAnimal, isLogin]);
 
     const saveAnimalLogic = async () => {
         if (isLogin) {
