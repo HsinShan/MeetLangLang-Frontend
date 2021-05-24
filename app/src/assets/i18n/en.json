@@ -147,7 +147,8 @@
         "cat":"cat",
         "other":"other",
         "again":"again",
-        "donot-have-pet":"there is no other pet information in database"
+        "donot-have-pet":"there is no other pet information in database",
+        "loading": "Drawing..."
     },
     "area": {
         "2": "Taipei City",
