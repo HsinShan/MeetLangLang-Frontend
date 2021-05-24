@@ -42,6 +42,28 @@
     .text-block {
         padding: 0 20px;
     }
+
+    @include pad {
+        .text-block, .ant-upload-picture-card-wrapper {
+            width: 50%;
+        }
+    
+        .text-block {
+            padding: 0;
+        }
+    }
+
+    @include mobile {
+        display: block;
+
+        .text-block, .ant-upload-picture-card-wrapper {
+            width: 100%;
+        }
+    
+        .text-block {
+            padding: 0;
+        }
+    }
 }
 
 .ant-upload-picture-card-wrapper {

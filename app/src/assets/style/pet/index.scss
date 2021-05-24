@@ -13,4 +13,8 @@
         padding-bottom: 10px;
         border-bottom: 1px solid $light-gray;
     }
+
+    @include pad {
+        padding: 30px 20px;
+    }
 }
