@@ -39,7 +39,8 @@
         "username": "帳號",
         "password": "密碼",
         "welcome": "歡迎",
-        "already-login": "您已經登入"
+        "already-login": "您已經登入",
+        "description": "我們提供完整的浪浪資訊及交友功能 \n 請以 Facebook 進行註冊及登入來解鎖更多功能唷!"
     },
     "map": {
         "default": "我要找縣市收容所"

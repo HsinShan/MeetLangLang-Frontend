@@ -34,14 +34,13 @@ const Login = ({ loggedin }) => {
     return (
         <>
             <div className="login-page">
-                <div className="left-container">
-                    <LoginForm
-                        ssoOnly={true}
-                        type='login'
-                        loginLogic={(account) => loginLogic(account)}
-                        fbLoginLogic={fbLoginLogic}
-                    />
-                </div>
+                <LoginForm
+                    ssoOnly={true}
+                    type='login'
+                    description={t('login.description')}
+                    loginLogic={(account) => loginLogic(account)}
+                    fbLoginLogic={fbLoginLogic}
+                />
             </div>
         </>
     );

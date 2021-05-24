@@ -53,10 +53,11 @@ class LoginForm extends Component {
 
     render() {
         const { type, ssoOnly } = this.props;
-        const { t } = this.props;
+        const { t, description } = this.props;
         return (
             <div className="login-form">
-                <header className="login-form-title">{t('login.member')}{this.props.type}</header>
+                <header className="login-form-title">{t('login.member')} {this.props.type}</header>
+                { description && <p className="login-form-desc">{description}</p>}
                 {ssoOnly !== true && (
                     <>
                         <div className="account">

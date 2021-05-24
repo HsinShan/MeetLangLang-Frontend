@@ -1,14 +1,29 @@
+@import '../_base.scss';
 .login-form{
     margin:30px auto;
-    width: 400px;
-	padding: 20px;
+    width: 80%;
+	padding: 20px 20px 40px;
     background: white;
-    border-radius: 20%;
+    border-radius: 10px;
+
+    @include mobile {
+        margin: 15px auto;
+        width: 100%;
+    }
 }
 
 .login-form-title{
+    padding-bottom: 10px;
     font-size: 30px;
     text-align: center;
+    border-bottom: 1px solid $light-gray;
+}
+
+.login-form-desc {
+    font-size: 20px;
+    text-align: center;
+    margin: 16px;
+    white-space: pre-line;
 }
 
 .account{
@@ -60,6 +75,11 @@
     line-height: 1em;
     padding: 10px 15px;
     height: 3.5em;
+
+    @include mobile {
+        padding: 4px;
+        font-size: 16px;
+    }
 }
 
 .ant-btn.loginform-fblogin-button .anticon {
