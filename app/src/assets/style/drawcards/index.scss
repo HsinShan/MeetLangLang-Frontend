@@ -7,6 +7,11 @@
 }
 
 .draw-cards {
+    background-color: $light-brown;
+    padding: 30px;
+    border: 1px solid $light-gray;
+    border-radius: 10px;
+
     &-header {
         display: flex;
         align-items: center;

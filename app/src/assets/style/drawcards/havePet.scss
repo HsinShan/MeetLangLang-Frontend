@@ -1,21 +1,5 @@
 @import '../_base.scss';
 
-.draw-card {
-    justify-content: center;
-    display: block;
-    text-align: center;
-}
-
-.img {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.dog, .cat {
-    width: 5%;
-}
-
 .have-pet-message {
     display: inline-block;
     text-align: center;
