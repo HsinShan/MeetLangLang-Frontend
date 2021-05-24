@@ -1,38 +1,47 @@
 @import '../_base.scss';
 
-.petform{
-    width:900px;
-    display: flex;
-    margin:auto;
-    background-color: $light-gray;
-    border-radius: 15px;
-    justify-content: space-around;
-
-    @include pad{
-        display: block;
-        width: auto;
-        text-align:center;
-        justify-content: center;
+.petform {
+    .button {
+        width: 100%;
+        margin: 30px auto;
+        text-align: center;
     }
 
+    .ant-btn {
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 20px;
+        line-height: 20px;
+        padding: 8px 30px;
+        height: auto;
+    }
+    
+    .click-button {
+        border-color: #A37E39;
+        color: white;
+        background-color: #A37E39;
+    }
+    
+    .ant-btn:hover, .ant-btn:focus{
+        background-color: #FFFFFF;
+        color:#A37E39;
+        border-color: #A37E39;
+    }
+      
 }
 
 .pet-form{
-    display: block;
+    display: flex;
     justify-content: space-around;
-    border-radius: 15px;
-    font-weight: 500;
-    padding-top: 10px;
-    width: 35%;
+    padding-top: 20px;
 
-    .ant-form{
-        width:50%;
+    .text-block, .ant-upload-picture-card-wrapper {
+        width: 40%;
     }
 
-    @include pad{
-        display: inline-block;
+    .text-block {
+        padding: 0 20px;
     }
-      
 }
 
 .ant-upload-picture-card-wrapper {
@@ -90,36 +99,3 @@
       margin-right: 20px;
   }
 
-.button {
-    width:20%;
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 10px;
-
-    @include pad{
-        display: inline-block;
-    }
-}
-
-.click-button {
-    border-radius: 20px;
-    border-color: #A37E39;
-    color: white;
-    background-color: #A37E39;
-    font-size: 15px;
-    font-weight: 600;
-    display:flex;
-    justify-content: flex-end;
-}
-
-.ant-btn:hover, .ant-btn:focus{
-    background-color: #FFFFFF;
-    color:#A37E39;
-    border-color: #A37E39;
-}
-
-.no-click-button{
-    border-radius: 20px;
-    font-size: 15px;
-    font-weight: 600;
-}

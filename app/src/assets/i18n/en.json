@@ -187,6 +187,7 @@
         "其他": "Others"
     },
     "petadd":{
+        "title": "Add Your Pet's Information",
         "pet-name":"Pet Name",
         "pet-sex":"Pet Sex",
         "pet-age":"Pet Age",
