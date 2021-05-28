@@ -21,6 +21,7 @@ const AddDiscuss = ({ isLogin }) => {
     const { t } = useTranslation();
     const [redirect, setRedirect] = useState('');
     const [form] = Form.useForm();
+    const fullName = localStorage.getItem('fullName');
     const submit = async (title, content) => {
         const token = localStorage.getItem('token');
         try {
@@ -69,8 +70,7 @@ const AddDiscuss = ({ isLogin }) => {
             >
                 <Form.Item
                     label={t('discuss.author')}
-                >
-                    {t('discuss.building')}
+                >{fullName}
                 </Form.Item>
                 <Form.Item
                     label={t('discuss.title')}
