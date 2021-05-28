@@ -22,9 +22,9 @@ const Login = ({ loggedin }) => {
                     accessToken: fbtoken,
                 },
             });
-            const { token, firstName } = data;
+            const { token, firstName, fullName } = data;
             message.success(t('login.success'));
-            loggedin(token, firstName);
+            loggedin(token, firstName, fullName);
             history.push('/');
         } else {
             message.error(t('login.error'));

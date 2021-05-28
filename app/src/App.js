@@ -8,11 +8,13 @@ function App() {
     const logout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('firstName');
+        localStorage.removeItem('fullName');
         setIsLogin(false);
     };
-    const loggedin = (token, firstName) => {
+    const loggedin = (token, firstName, fullName) => {
         localStorage.setItem('token', token);
         localStorage.setItem('firstName', firstName);
+        localStorage.setItem('fullName', fullName);
         setIsLogin(true);
     };
     return (
