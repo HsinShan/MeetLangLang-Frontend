@@ -5,7 +5,6 @@ import {
     Col,
     Button,
     Input,
-    Select,
     message,
     Form,
 } from 'antd';
@@ -78,15 +77,6 @@ const AddDiscuss = ({ isLogin }) => {
                     rules={[{ required: true, min: 1 }]}
                 >
                     <Input placeholder={t('discuss.title-text')} />
-                </Form.Item>
-                <Form.Item
-                    label={t('discuss.category')}
-                    name="category"
-                    wrapperCol={{ span: 5 }}
-                >
-                    <Select defaultValue="default" disabled>
-                        <Select.Option value="default">{t('discuss.building')}</Select.Option>
-                    </Select>
                 </Form.Item>
                 <Form.Item
                     label={t('discuss.content')}

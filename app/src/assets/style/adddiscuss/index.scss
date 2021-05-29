@@ -20,4 +20,11 @@
         }
     }
 
+    @include mobile{
+        .ant-col.ant-col-3.ant-col-offset-3.ant-form-item-label {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    }
+
 }
