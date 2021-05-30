@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { Button, Spin } from 'antd';
-import { SyncOutlined } from '@ant-design/icons';
+import { SyncOutlined, UserAddOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 import defaultImg from '../../assets/images/defaultImage.svg';
 import '../../assets/style/drawcards/result.scss';
@@ -10,8 +10,9 @@ import '../../assets/style/drawcards/result.scss';
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
 
-const Result = () => {
+const Result = ({ addMatch }) => {
     const { t } = useTranslation();
+    const { hostname } = window.location;
     const history = useHistory();
     const [pet, setPet] = useState({});
     const [havePet, setHavePet] = useState(true);
@@ -25,7 +26,6 @@ const Result = () => {
     };
 
     const getData = async (token) => {
-        const { hostname } = window.location;
         const { data } = await axios({
             method: 'post',
             url: `${apiProtocol}://${hostname}:${apiPort}/pet/draw`,
@@ -73,10 +73,23 @@ const Result = () => {
     const Again = () => (
         <Button
             className="result-button"
-            shape="round" icon={<SyncOutlined />}
+            shape="round"
+            size="large"
+            icon={<SyncOutlined />}
             onClick={drawAgain}
         >
             {t('drawcards.again')}
+        </Button>
+    );
+    const SendMatch = () => (
+        <Button
+            className="result-button"
+            shape="round"
+            size="large"
+            icon={<UserAddOutlined />}
+            onClick={() => addMatch(pet.userId.toString())}
+        >
+            {t('drawcards.send-match')}
         </Button>
     );
     return (
@@ -84,7 +97,12 @@ const Result = () => {
             { isLoading && <div><Spin tip={t('drawcards.loading')} /></div> }
             { !isLoading && !havePet && <div className="no-pet-data">{t('drawcards.donot-have-pet')}</div>}
             { !isLoading && havePet && <div className="all">{ <PetData/> }</div> }
-            { !isLoading && havePet && <div className="again-button">{ <Again/> }</div>}
+            { !isLoading && havePet &&
+                <>
+                    <div className="again-button">{ <Again/> }</div>
+                    <div className="match-button">{ <SendMatch /> }</div>
+                </>
+            }
         </div>
     );
 };

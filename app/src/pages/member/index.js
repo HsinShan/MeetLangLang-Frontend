@@ -4,6 +4,7 @@ import { Tabs, message } from 'antd';
 import { useTranslation } from 'react-i18next';
 import MyFavorites from '../../components/member/myFavorites';
 import MyPets from '../../components/member/myPets';
+import MatchReceived from '../../components/member/matchReceived';
 import '../../assets/style/member/index.scss';
 
 const { TabPane } = Tabs;
@@ -32,6 +33,9 @@ function Member() {
                 </TabPane>
                 <TabPane tab={t('member.favorites')} key="2">
                     <MyFavorites />
+                </TabPane>
+                <TabPane tab={t('member.match')} key="3">
+                    <MatchReceived />
                 </TabPane>
             </Tabs>
         </div>

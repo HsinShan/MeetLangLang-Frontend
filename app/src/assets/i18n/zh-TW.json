@@ -117,8 +117,12 @@
         },
         "favorites": "我的收藏",
         "pets": "我的寵物",
+        "match":"配對邀請",
         "no-pets": "尚未新增你的寵物資訊!",
-        "add-pets": "新增寵物"
+        "add-pets": "新增寵物",
+        "sender-name": "配對人姓名 : ",
+        "sender-email": "配對人信箱 : ",
+        "no-match": "尚未有人發送配對邀請給你，耐心等候吧！ \n 或是去抽卡頁面發送配對邀請給別人吧~"
     },
     "drawcards": {
         "building": "頁面建置中...",
@@ -130,6 +134,7 @@
         "add-pet": "新增寵物去",
         "have-pet": "趕快按下抽卡認識更多新朋友吧～",
         "description": "目前一天沒有次數限制，所以抽越多認識越多新朋友唷！",
+        "can-not-match": "今天已傳送過配對邀請，請明天再回來抽卡~",
         "pet-name":"寵物姓名",
         "pet-sex":"寵物性別",
         "pet-age":"寵物年紀",
@@ -142,7 +147,10 @@
         "other":"其他",
         "again":"再抽一次",
         "donot-have-pet":"目前還沒有其他寵物資料",
-        "loading": "抽卡中"
+        "loading": "抽卡中",
+        "match-success": "發送邀請成功",
+        "match-failed": "發送邀請失敗",
+        "send-match":"發送邀請"
     },
     "area": {
         "2": "臺北市",

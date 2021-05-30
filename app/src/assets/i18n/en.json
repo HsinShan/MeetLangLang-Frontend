@@ -123,8 +123,12 @@
         },
         "favorites": "My favorites",
         "pets": "My pets",
+        "match":"Match Request",
         "no-pets": "You have not add your pet yet.",
-        "add-pets": "Add Pet"
+        "add-pets": "Add Pet",
+        "sender-name": "Sender Name : ",
+        "sender-email": "Sender Email : ",
+        "no-match": "You have not received any match request yet！ \n Go to the \"Draw Card\" Page to send match request to someone~"
     },
     "drawcards": {
         "building": "building...",
@@ -136,6 +140,7 @@
         "add-pet": "Add Pet!",
         "have-pet": "Hurry up and press the button to meet more new friends~",
         "description": "There is no limit on the number of times a day, so the more you draw, the more new pet you will meet!",
+        "can-not-match": "You have sent a match request today, please come back tomorrow.",
         "pet-name":"Pet Name",
         "pet-sex":"Pet Sex",
         "pet-age":"Pet Age",
@@ -148,7 +153,10 @@
         "other":"other",
         "again":"again",
         "donot-have-pet":"there is no other pet information in database",
-        "loading": "Drawing..."
+        "loading": "Drawing...",
+        "match-success": "Send match request success",
+        "match-failed": "Send match request failed",
+        "send-match":"Send match request"
     },
     "area": {
         "2": "Taipei City",
