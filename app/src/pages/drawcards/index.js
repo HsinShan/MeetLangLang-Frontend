@@ -69,14 +69,9 @@ const DrawCards = ({ isLogin }) => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         getMatchTime(token);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [canMatch]);
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
         getPets(token);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isLoading]);
+    }, []);
 
     const setDraw = (drawState) => {
         setDrawCard(drawState);

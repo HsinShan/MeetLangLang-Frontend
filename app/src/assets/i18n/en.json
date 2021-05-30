@@ -128,7 +128,7 @@
         "add-pets": "Add Pet",
         "sender-name": "Sender Name : ",
         "sender-email": "Sender Email : ",
-        "no-match": "You have not received any match request yet！ \n Go to the \"Draw Card\" Page to send match requerst to someone~"
+        "no-match": "You have not received any match request yet！ \n Go to the \"Draw Card\" Page to send match request to someone~"
     },
     "drawcards": {
         "building": "building...",

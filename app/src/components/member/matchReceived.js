@@ -30,7 +30,7 @@ function MatchReceived() {
         const token = localStorage.getItem('token');
         getMatch(token);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isLoading]);
+    }, []);
 
     return (
         <>

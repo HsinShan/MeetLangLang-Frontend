@@ -149,7 +149,7 @@
         "donot-have-pet":"目前還沒有其他寵物資料",
         "loading": "抽卡中",
         "match-success": "發送邀請成功",
-        "match-failed": "發送邀請成功",
+        "match-failed": "發送邀請失敗",
         "send-match":"發送邀請"
     },
     "area": {
