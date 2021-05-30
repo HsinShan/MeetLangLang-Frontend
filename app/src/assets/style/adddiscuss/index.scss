@@ -1,7 +1,11 @@
 @import '../base.scss';
 
 .adddiscuss {
-
+    img {
+        max-width:100%;
+        max-height:100%;
+        height: auto;
+    }
 
     input, textarea {
         border-radius: 15px;
