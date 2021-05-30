@@ -9,6 +9,7 @@ import DiscussDetail from '../pages/discuss/detail';
 import AnimalProfile from '../pages/animalprofile';
 import AddDiscuss from '../pages/adddiscuss';
 import AddPet from '../pages/pet/add';
+import Privacy from '../pages/privacy';
 
 const routes = [
     {
@@ -71,7 +72,11 @@ const routes = [
         component: AddPet,
         exact: true,
     },
-
+    {
+        path: '/privacy',
+        component: Privacy,
+        exact: true,
+    },
 ];
 
 export default routes;
