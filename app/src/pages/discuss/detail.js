@@ -83,7 +83,7 @@ function DiscussDetail({ isLogin }) {
                         <Card title={discuss.title}>
                             <p className="author">{t('discuss.author')}：{discuss.author}</p>
                             <p className="date">{t('discuss.date')}：{moment(discuss.date).format('YYYY-MM-DD')}</p>
-                            <p className="content">{t('discuss.content')}：{discuss.content}</p>
+                            <div className="content" dangerouslySetInnerHTML={{ __html: discuss.content }}></div>
                             <Card title={t('discuss.add-response')}>
                                 <Form
                                     form={form}
@@ -122,7 +122,7 @@ function DiscussDetail({ isLogin }) {
                         <Card title={discuss.title}>
                             <p className="author">{t('discuss.author')}：{discuss.author}</p>
                             <p className="date">{t('discuss.date')}：{moment(discuss.date).format('YYYY-MM-DD')}</p>
-                            <p className="content">{t('discuss.content')}：{discuss.content}</p>
+                            <div className="content" dangerouslySetInnerHTML={{ __html: discuss.content }}></div>
                             <Button className='button-add-response' onClick={() => { setIsResponsing(true); }}>{t('discuss.add-response')}</Button>
                         </Card>
                         {response !== null &&

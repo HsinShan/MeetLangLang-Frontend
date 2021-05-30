@@ -1,5 +1,6 @@
+import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
 import { Redirect } from 'react-router-dom';
-import { useState } from 'react';
 import {
     Row,
     Col,
@@ -11,6 +12,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import '../../assets/style/adddiscuss/index.scss';
+import '../../assets/style/adddiscuss/quill.snow.scss';
 
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
@@ -19,6 +21,7 @@ const { hostname } = window.location;
 const AddDiscuss = ({ isLogin }) => {
     const { t } = useTranslation();
     const [redirect, setRedirect] = useState('');
+    const [value, setValue] = useState('');
     const [form] = Form.useForm();
     const fullName = localStorage.getItem('fullName');
     const submit = async (title, content) => {
@@ -83,7 +86,7 @@ const AddDiscuss = ({ isLogin }) => {
                     name="content"
                     rules={[{ required: true, min: 1 }]}
                 >
-                    <Input.TextArea rows={4} placeholder={t('discuss.content-text')} />
+                    <ReactQuill theme="snow" value={value} onChange={setValue}/>
                 </Form.Item>
             </Form>
             <Row className="row-input bottom" justify="end">
