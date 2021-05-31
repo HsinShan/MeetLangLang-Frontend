@@ -10,6 +10,7 @@ import {
 } from 'antd';
 import { useTranslation } from 'react-i18next';
 import moment from 'moment';
+import xss from 'xss';
 import '../../assets/style/discuss/detail.scss';
 import ResponseList from '../../components/response/responseList';
 
@@ -17,7 +18,40 @@ import ResponseList from '../../components/response/responseList';
 const apiProtocol = process.env.REACT_APP_API_PROTOCOL;
 const apiPort = process.env.REACT_APP_API_PORT;
 
-function DiscussDetail({ isLogin }) {
+const xssProtect = (html) => {
+    const newhtml = new xss.FilterXSS({
+        whiteList: {
+            // Link
+            a: ['href'],
+            // Title
+            h1: [],
+            h2: [],
+            h3: [],
+            h4: [],
+            // List
+            ul: [],
+            ol: [],
+            li: [],
+            // Table
+            table: [],
+            tr: [],
+            td: [],
+            th: [],
+            // Text
+            b: [],
+            em: [],
+            u: [],
+            p: [],
+            // Image
+            img: ['src', 'height', 'width'],
+            // New line
+            br: [],
+        },
+    });
+    return newhtml.process(html);
+};
+
+const DiscussDetail = ({ isLogin }) => {
     const { t } = useTranslation();
     const { search } = window.location;
     const params = new URLSearchParams(search);
@@ -83,7 +117,7 @@ function DiscussDetail({ isLogin }) {
                         <Card title={discuss.title}>
                             <p className="author">{t('discuss.author')}：{discuss.author}</p>
                             <p className="date">{t('discuss.date')}：{moment(discuss.date).format('YYYY-MM-DD')}</p>
-                            <div className="content" dangerouslySetInnerHTML={{ __html: discuss.content }}></div>
+                            <div className="content" dangerouslySetInnerHTML={{ __html: xssProtect(discuss.content) }}></div>
                             <Card title={t('discuss.add-response')}>
                                 <Form
                                     form={form}
@@ -122,7 +156,7 @@ function DiscussDetail({ isLogin }) {
                         <Card title={discuss.title}>
                             <p className="author">{t('discuss.author')}：{discuss.author}</p>
                             <p className="date">{t('discuss.date')}：{moment(discuss.date).format('YYYY-MM-DD')}</p>
-                            <div className="content" dangerouslySetInnerHTML={{ __html: discuss.content }}></div>
+                            <div className="content" dangerouslySetInnerHTML={{ __html: xssProtect(discuss.content) }}></div>
                             <Button className='button-add-response' onClick={() => { setIsResponsing(true); }}>{t('discuss.add-response')}</Button>
                         </Card>
                         {response !== null &&
@@ -134,5 +168,6 @@ function DiscussDetail({ isLogin }) {
             </div>
         </>
     );
-}
+};
+
 export default DiscussDetail;
