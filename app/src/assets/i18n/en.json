@@ -160,7 +160,8 @@
         "loading": "Drawing...",
         "match-success": "Send match request success",
         "match-failed": "Send match request failed",
-        "send-match":"Send match request"
+        "send-match":"Send match request",
+        "reminder":"Reminder: Sending a match request will also send your name and email to the receiver."
     },
     "area": {
         "2": "Taipei City",

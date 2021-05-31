@@ -82,25 +82,28 @@ const Result = ({ addMatch }) => {
         </Button>
     );
     const SendMatch = () => (
-        <Button
-            className="result-button"
-            shape="round"
-            size="large"
-            icon={<UserAddOutlined />}
-            onClick={() => addMatch(pet.userId.toString())}
-        >
-            {t('drawcards.send-match')}
-        </Button>
+        <div>
+            <Button
+                className="result-button"
+                shape="round"
+                size="large"
+                icon={<UserAddOutlined />}
+                onClick={() => addMatch(pet.userId.toString())}
+            >
+                {t('drawcards.send-match')}
+            </Button>
+            <h4>{t('drawcards.reminder')}</h4>
+        </div>
     );
     return (
         <div className="result">
-            { isLoading && <div><Spin tip={t('drawcards.loading')} /></div> }
+            { isLoading && <div><Spin tip={t('drawcards.loading')} /></div>}
             { !isLoading && !havePet && <div className="no-pet-data">{t('drawcards.donot-have-pet')}</div>}
-            { !isLoading && havePet && <div className="all">{ <PetData/> }</div> }
+            { !isLoading && havePet && <div className="all">{<PetData />}</div>}
             { !isLoading && havePet &&
                 <>
-                    <div className="again-button">{ <Again/> }</div>
-                    <div className="match-button">{ <SendMatch /> }</div>
+                    <div className="again-button">{<Again />}</div>
+                    <div className="match-button">{<SendMatch />}</div>
                 </>
             }
         </div>
