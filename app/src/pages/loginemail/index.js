@@ -21,32 +21,15 @@ const Login = ({ loggedin }) => {
                     email: account,
                 },
             });
-            const { token } = data;
+            const { token, firstName, fullName } = data;
             message.success(t('login.success'));
-            loggedin(token);
+            loggedin(token, firstName, fullName);
             history.push('/');
         } catch (err) {
             message.error(t('login.error'));
         }
     };
-    const fbLoginLogic = async (type, fbtoken = '') => {
-        if (type === 'success') {
-            const { hostname } = window.location;
-            const { data } = await axios({
-                url: `${apiProtocol}://${hostname}:${apiPort}/user/fb-login`,
-                method: 'post',
-                data: {
-                    accessToken: fbtoken,
-                },
-            });
-            const { token, firstName } = data;
-            message.success(t('login.success'));
-            loggedin(token, firstName);
-            history.push('/');
-        } else {
-            message.error(t('login.error'));
-        }
-    };
+    const fbLoginLogic = async () => {};
 
     return (
         <>
