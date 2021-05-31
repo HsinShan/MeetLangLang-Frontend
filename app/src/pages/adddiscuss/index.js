@@ -36,7 +36,7 @@ const AddDiscuss = ({ isLogin }) => {
                 },
                 method: 'post',
             });
-            if (data.success) message.success(t('post-success'));
+            if (data.success) message.success(t('discuss.post-success'));
             setRedirect('/discuss');
         } catch (err) {
             if ('response' in err) {
