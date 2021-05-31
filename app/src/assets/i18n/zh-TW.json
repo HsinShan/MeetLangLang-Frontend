@@ -154,7 +154,8 @@
         "loading": "抽卡中",
         "match-success": "發送邀請成功",
         "match-failed": "發送邀請失敗",
-        "send-match":"發送邀請"
+        "send-match":"發送邀請",
+        "reminder":"小提醒：發送邀請將會發送您的姓名以及email信箱給對方喔！"
     },
     "area": {
         "2": "臺北市",
