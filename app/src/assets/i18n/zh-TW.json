@@ -30,6 +30,9 @@
         "title": "遇見浪浪",
         "navbar": ["領養浪浪", "找收容所", "抽卡", "討論區", "會員管理"]
     },
+    "footer": {
+        "privacypolicy": "隱私權政策"
+    },
     "login": {
         "login": "登入",
         "logout": "登出",
