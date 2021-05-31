@@ -42,6 +42,7 @@ const xssProtect = (html) => {
             em: [],
             u: [],
             p: [],
+            strong: [],
             // Image
             img: ['src', 'height', 'width'],
             // New line
