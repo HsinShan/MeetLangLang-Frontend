@@ -36,6 +36,9 @@
             "Member"
         ]
     },
+    "footer": {
+        "privacypolicy": "Privacy Policy"
+    },
     "login": {
         "login": "login",
         "logout": "logout",
