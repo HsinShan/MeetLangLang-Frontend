@@ -76,6 +76,7 @@
         "none": "none",
         "sex": "sex",
         "age": "age",
+        "age-unit": "years old",
         "kind": "kind",
         "area": "area",
         "more": "more",
@@ -203,6 +204,7 @@
         "pet-name":"Pet Name",
         "pet-sex":"Pet Sex",
         "pet-age":"Pet Age",
+        "pet-age-unit":"yrs",
         "pet-kind":"Pet Kind",
         "pet-photo":"Pet Photo",
         "pet-introduction":"Pet Intorduction",
@@ -213,7 +215,8 @@
         "dog":"dog",
         "cat":"cat",
         "other":"other",
-        "alert":"Please input pet name!"
+        "alert":"Please input pet name!",
+        "add-success":"Successfully added new pet!"
     },
     "err":{
         "default": "server error",

@@ -72,7 +72,7 @@ const PetForm = () => {
                 },
                 method: 'post',
             });
-            if (data.success) message.success('add success');
+            if (data.success) message.success(t('petadd.add-success'));
             history.push('/member');
         } catch (err) {
             if ('response' in err) {
@@ -99,7 +99,10 @@ const PetForm = () => {
                         </div>
                     </Form.Item>
                     <Form.Item className="pet-input" label={t('petadd.pet-age')} name="age">
-                        <Input type="number"/>
+                        <div className="pet-input-age">
+                            <Input type="number" min="0"></Input>
+                            <label className="pet-input-age-unit">{t('petadd.pet-age-unit')}</label>
+                        </div>
                     </Form.Item>
                     <Form.Item className="pet-input" label={t('petadd.pet-kind')} name="kind">
                         <Select>
@@ -118,7 +121,7 @@ const PetForm = () => {
             </div>
             <div className="button">
                 <Form.Item>
-                    { information ? <Button className="click-button" type="Default" htmlType="submit">{t('petadd.add')}</Button> : <Button className="no-click-button" type="Default" disabled>{t('petadd.add')}</Button>}
+                    {information ? <Button className="click-button" type="Default" htmlType="submit">{t('petadd.add')}</Button> : <Button className="no-click-button" type="Default" disabled>{t('petadd.add')}</Button>}
                 </Form.Item>
             </div>
         </Form>
