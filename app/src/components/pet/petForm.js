@@ -93,8 +93,8 @@ const PetForm = () => {
                     <Form.Item className="pet-input" label={t('petadd.pet-sex')} name="sex">
                         <div className="dropdown">
                             <Radio.Group>
-                                <Radio value="F">{t('petadd.male')}</Radio>
-                                <Radio value="M">{t('petadd.female')}</Radio>
+                                <Radio value="F">{t('petadd.female')}</Radio>
+                                <Radio value="M">{t('petadd.male')}</Radio>
                             </Radio.Group>
                         </div>
                     </Form.Item>
