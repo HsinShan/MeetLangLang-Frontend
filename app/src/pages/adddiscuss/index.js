@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
-import { Redirect } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import {
     Row,
     Col,
@@ -20,6 +20,7 @@ const { hostname } = window.location;
 
 const AddDiscuss = ({ isLogin }) => {
     const { t } = useTranslation();
+    const history = useHistory();
     const [redirect, setRedirect] = useState('');
     const [value, setValue] = useState('');
     const [form] = Form.useForm();
@@ -48,11 +49,15 @@ const AddDiscuss = ({ isLogin }) => {
         }
     };
     const goback = () => setRedirect('/discuss');
+
+    useEffect(() => {
+        if (!isLogin) {
+            message.warning(t('discuss.not-login'));
+            history.push('/login');
+        }
+    });
     return (
         <div className="adddiscuss">
-            {!isLogin &&
-                <Redirect to="/" />
-            }
             {redirect !== '' &&
                 <Redirect to={redirect} />
             }
