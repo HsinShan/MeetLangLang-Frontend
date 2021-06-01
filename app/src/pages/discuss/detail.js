@@ -152,7 +152,8 @@ const DiscussDetail = ({ isLogin }) => {
                         }
                     </div>
                 }
-                {discuss !== null && !isResponsing &&
+                {!isLogin && discuss !== null && <div>趕快去登入看更多大家討論的話題吧～</div>}
+                {isLogin && discuss !== null && !isResponsing &&
                     <div>
                         <Card title={discuss.title}>
                             <p className="author">{t('discuss.author')}：{discuss.author}</p>
