@@ -33,6 +33,10 @@
         background-color: $background-gray;
         font-weight: bold;
         margin-left: 6px;
+
+        &:focus {
+            color: white;
+        }
     }
 
     @include mobile {
