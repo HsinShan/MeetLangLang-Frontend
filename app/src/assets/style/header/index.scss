@@ -115,3 +115,8 @@
     }
   }
 }
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-active:after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected:after {
+   border-bottom: none !important;
+}
