@@ -110,6 +110,11 @@ const DiscussDetail = ({ isLogin }) => {
         }
     };
 
+    const onClickAddDiscuss = () => {
+        if (!isLogin) return message.warning(t('discuss.not-login'));
+        return setIsResponsing(true);
+    };
+
     return (
         <>
             <div className="discuss">
@@ -152,20 +157,19 @@ const DiscussDetail = ({ isLogin }) => {
                         }
                     </div>
                 }
-                {!isLogin && discuss !== null && <div>趕快去登入看更多大家討論的話題吧～</div>}
-                {isLogin && discuss !== null && !isResponsing &&
+                {discuss !== null && !isResponsing && (
                     <div>
                         <Card title={discuss.title}>
                             <p className="author">{t('discuss.author')}：{discuss.author}</p>
                             <p className="date">{t('discuss.date')}：{moment(discuss.date).format('YYYY-MM-DD')}</p>
                             <div className="content" dangerouslySetInnerHTML={{ __html: xssProtect(discuss.content) }}></div>
-                            <Button className='button-add-response' onClick={() => { setIsResponsing(true); }}>{t('discuss.add-response')}</Button>
+                            <Button className='button-add-response' onClick={onClickAddDiscuss}>{t('discuss.add-response')}</Button>
                         </Card>
                         {response !== null &&
                             <ResponseList data={response} />
                         }
                     </div>
-                }
+                )}
                 {discuss === null && <div><Spin tip="Loading..." /></div>}
             </div>
         </>
