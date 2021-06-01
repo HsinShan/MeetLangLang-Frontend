@@ -15,12 +15,15 @@ h4 {
     margin: 30px auto;
 
     @include mobile {
-        padding: 10px;
+        padding: 14px;
         width: 100%;
     }
 }
 .pet-photo {
-    width: 100%;
+    max-width: 100%;
+    max-height: 250px;
+    margin: auto;
+    display: block;
 }
 
 .pet-data {
@@ -32,7 +35,8 @@ h4 {
     font-size: 16px;
     font-weight: 600;
     margin: 10px 0;
-    width: 80%;
+    width: 100%;
+    align-items: flex-start;
 }
 
 .result-title {
@@ -45,11 +49,13 @@ h4 {
     justify-content: space-around;
     align-items: center;
     font-size: 12px;
+    width: 90px;
 }
 
 .result-content {
     padding-left: 5px;
     word-break: break-all;
+    width: calc(98% - 90px);
 }
 
 .again-button {
