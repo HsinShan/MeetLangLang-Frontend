@@ -1,10 +1,12 @@
 import { Table, Input } from 'antd';
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../../assets/style/discuss/discussTable.scss';
 
 const DiscussTable = ({ data }) => {
     const { t } = useTranslation();
+    const history = useHistory();
     const [dataSource, setDataSource] = useState(data);
     const [titleValue, setTitleValue] = useState('');
     const [authorValue, setAuthorValue] = useState('');
@@ -87,7 +89,7 @@ const DiscussTable = ({ data }) => {
     };
 
     function click(index) {
-        window.location.href = `/discuss/detail?uuid=${index}`;
+        history.push(`/discuss/detail?uuid=${index}`);
     }
 
     return (
